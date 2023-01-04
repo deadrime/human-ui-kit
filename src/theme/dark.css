@@ -1,0 +1,35 @@
+:root {
+  --globalHorizontalPadding: 18px;
+  --leftSiderPaddingLeft: 32px;
+  --color-primary: #00F3FF;
+  --color-primary-hover: #40f6ff;
+  --color-primary-disabled:#0a3436;
+  --color-green: #9eecd9;
+  --color-blue: #0e435c;
+  --color-blue-500: #00889A;
+  --color-blue-900: #0E435C;
+  --bg-color: #212326;
+  --color-white: #fff;
+  --color-gray-900: #212326;
+  --color-gray-800: #2d3035;
+  --color-gray-700: #3a3c40;
+  --color-gray-600: #43464a;
+  --color-gray-500: #53565e;
+  --color-gray-400: #71747C;
+  --color-gray-300: #959393;
+  --color-gray-200: #c4c4c4;
+  --color-gray-100: #DBDBDB;
+  --color-red: #BB6666;
+  --color-dark-red: #A14B4B;
+  --text-color: var(--color-white);
+
+  --cardSpacingDesktop: var(--cardSpacingDesktopVertical) var(--cardSpacingDesktopHorizontal);
+  --cardSpacingDesktopHorizontal: 16px;
+  --cardSpacingDesktopVertical: 12px;
+  --cardSpacingMobile: 12px;
+  --cardBorderRadius: 16px;
+  --cardBorderColor: var(--color-gray-800);
+  --cardBorderWidth: 2px;
+
+  --layoutHorizonalPadding: 14px;
+}

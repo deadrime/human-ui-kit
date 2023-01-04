@@ -1,0 +1,35 @@
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.spinner {
+  width: var(--size);
+  height: var(--size);
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  animation: rotation 1s infinite linear;
+  
+  &.xSmall {
+    --size: 12px;
+  }
+
+  &.small {
+    --size: 14px;
+  }
+
+  &.medium {
+    --size: 20px;
+  }
+
+  &.large {
+    --size: 24px;
+  }
+}

@@ -1,0 +1,207 @@
+@import './text-mixins.less';
+
+:root {
+  --base-font-size: 16px;
+
+  /* body-2 */
+  --font-size-body2: 0.8rem;
+  --line-height-body2: 0.9375rem;
+  /* body-1 */
+  --font-size-body1: 1rem;
+  --line-height-body1: 1.25rem;
+  /* title-5 */
+  --font-size-title5: 18px;
+  --line-height-title5: 22px;
+  /* title-4 */
+  --font-size-title4: 1.25rem;
+  --line-height-title4: 1.5063rem;
+  /* title-3 */
+  --font-size-title3: 1.5625rem;
+  --line-height-title3: 1.8875rem;
+  /* title-2 */
+  --font-size-title2: 1.9531rem;
+  --line-height-title2: 2.3563rem;
+  /* title-1 */
+  --font-size-title1: 2.4413rem;
+  --line-height-title1: 2.9438rem;
+}
+
+.text-inherit {
+  font-size: inherit;
+}
+
+.text-body1 {
+  .text-body1-mixin();
+}
+
+.text-body2 {
+  .text-body2-mixin();
+}
+
+.text-title1 {
+  .text-title1-mixin();
+}
+
+.text-title2 {
+  .text-title2-mixin();
+}
+
+.text-title3 {
+  .text-title3-mixin();
+}
+
+.text-title4 {
+  .text-title4-mixin();
+}
+
+.text-title5 {
+  .text-title5-mixin();
+}
+
+.text-uppercase {
+  .text-uppercase-mixin();
+}
+
+.font-syne {
+  .text-syne-mixin();
+}
+
+.font-cerebri {
+  .text-cerebri-mixin();
+}
+
+.font-normal {
+  .text-normal-mixin();
+}
+
+.font-semibold {
+  .text-semibold-mixin();
+}
+
+.font-bold {
+  .text-bold-mixin();
+}
+
+.font-extrabold {
+  .text-extrabold-mixin();
+}
+
+.link {
+  transition: all 0.3s;
+  color: var(--linkTextColor);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  outline: 0;
+  border: none;
+  cursor: pointer;
+  gap: 2px;
+
+  svg {
+    display: inline-block;
+    height: 1.25em;
+    width: 1.25em;
+  }
+
+  &:hover:not([disabled]),
+  &:focus:not([disabled]) {
+    color: var(--linkTextHoverColor);
+  }
+
+  &:active:not([disabled]) {
+    color: var(--linkTextActiveColor);
+  }
+
+  &[disabled] {
+    color: var(--linkTextDisabledColor);
+    cursor: not-allowed;
+  }
+
+  &.link-primary {
+    --linkTextColor: var(--color-primary);
+    --linkTextHoverColor: var(--color-blue-500);
+    --linkTextActiveColor: var(--color-blue-900);
+    --linkTextDisabledColor: var(--color-blue-500);
+  }
+
+  &.link-secondary {
+    --linkTextColor: var(--color-gray-200);
+    --linkTextHoverColor: var(--color-gray-300);
+    --linkTextActiveColor: var(--color-gray-400);
+    --linkTextDisabledColor: var(--color-gray-300);
+  }
+}
+
+@media (min-width: @screen-sm) {
+  .sm\:text-body1 {
+    .text-body1-mixin();
+  }
+  .sm\:text-body2 {
+    .text-body2-mixin();
+  }
+  .sm\:text-title1 {
+    .text-title1-mixin();
+  }
+  .sm\:text-title2 {
+    .text-title2-mixin();
+  }
+  .sm\:text-title3 {
+    .text-title3-mixin();
+  }
+  .sm\:text-title4 {
+    .text-title4-mixin();
+  }
+  .sm\:text-title5 {
+    .text-title5-mixin();
+  }
+}
+
+@media (min-width: @screen-sm) {
+  .md\:text-body1 {
+    .text-body1-mixin();
+  }
+  .md\:text-body2 {
+    .text-body2-mixin();
+  }
+  .md\:text-title1 {
+    .text-title1-mixin();
+  }
+  .md\:text-title2 {
+    .text-title2-mixin();
+  }
+  .md\:text-title3 {
+    .text-title3-mixin();
+  }
+  .md\:text-title4 {
+    .text-title4-mixin();
+  }
+  .md\:text-title5 {
+    .text-title5-mixin();
+  }
+}
+
+// TODO: Why do we use @screen-md for .lg? Probably we need to change breakpoints
+@media (min-width: @screen-md) {
+  .lg\:text-body1 {
+    .text-body1-mixin();
+  }
+  .lg\:text-body2 {
+    .text-body2-mixin();
+  }
+  .lg\:text-title1 {
+    .text-title1-mixin();
+  }
+  .lg\:text-title2 {
+    .text-title2-mixin();
+  }
+  .lg\:text-title3 {
+    .text-title3-mixin();
+  }
+  .lg\:text-title4 {
+    .text-title4-mixin();
+  }
+  .lg\:text-title5 {
+    .text-title5-mixin();
+  }
+}

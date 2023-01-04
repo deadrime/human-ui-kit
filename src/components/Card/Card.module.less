@@ -1,0 +1,10 @@
+.card {
+  padding: var(--cardSpacingMobile);
+  border: var(--cardBorderWidth) solid var(--cardBorderColor);
+  border-radius: var(--cardBorderRadius);
+  word-break: break-word;
+
+  @media (min-width: @screen-md) {
+    padding: var(--cardSpacingDesktop);
+  }
+}

@@ -1,0 +1,43 @@
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+.badgeWrapper {
+  display: inherit;
+  position: relative;
+}
+
+.badgeAbsolute {
+  position: absolute;
+  top: -2px;
+  left: calc(100% - 1px);
+}
+
+.badge {
+  border-radius: 30px;
+  background: var(--color-primary);
+  color: var(--color-blue-900);
+  padding: 0 4px;
+  min-width: var(--counterSize);
+  height: var(--counterSize);
+
+  font-size: var(--font-size-body2);
+  line-height: var(--line-height-body2);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:global(.enter-active), &:global(.exit-active) {
+    animation-name: pulse;
+    animation-duration: .3s;
+    animation-iteration-count: 2;
+    animation-direction: alternate;
+    transition-timing-function: ease-in-out;
+  }
+}

@@ -1,0 +1,350 @@
+button {
+  padding: 0;
+}
+
+.counter {
+  border-radius: 30px;
+  background: var(--color-primary);
+  color: var(--color-blue-900);
+  padding: 0 4px;
+  min-width: var(--counterSize);
+  height: var(--counterSize);
+
+  font-size: var(--font-size-body2);
+  line-height: var(--line-height-body2);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  --borderRadius: 30px;
+  --borderWidth: 2px;
+  --pulseSize: 8px;
+  --pulseColor: var(--textHoverColor);
+  --buttonTransition: 0.26s cubic-bezier(0.645, 0.045, 0.355, 1);
+  --defaultIconSize: 20px;
+  --counterSize: 22px;
+  --horizontalPadding: 8px;
+
+  position: relative;
+  border-radius: var(--borderRadius);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--textColor);
+  background: var(--bgColor);
+  min-height: var(--buttonHeight);
+  max-height: var(--buttonMaxHeight);
+  min-width: var(--buttonMinWidth);
+  transition: all var(--buttonTransition);
+  gap: 8px;
+  border: none;
+  box-shadow: inset 0px 0px 0px var(--borderWidth) var(--borderColor, transparent);
+  padding: 0 var(--horizontalPadding);
+
+  & .counter {
+    position: absolute;
+    bottom: -2px;
+    left: 16px;
+    z-index: 1;
+
+    @media (min-width: @screen-md) {
+      padding: 0 7px;
+      bottom: -4px;
+      left: 26px;
+    }
+  }
+
+  &:hover:not(.btn--disabled),
+  &:focus:not(.btn--disabled) {
+    color: var(--textHoverColor);
+    background: var(--bgHoverColor);
+    box-shadow: inset 0px 0px 0px var(--borderWidth) var(--onHoverBorderColor);
+    outline: none;
+  }
+
+  &:active:not(.btn--disabled, .btn--loading) {
+    color: var(--textActiveColor);
+    background: var(--bgActiveColor, transparent);
+    box-shadow: inset 0px 0px 0px var(--borderWidth) var(--onActiveBorderColor, --bgActiveColor);
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: var(--borderRadius);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.5s;
+    box-shadow: 0 0 0px var(--pulseSize) var(--pulseColor);
+  }
+
+  &:active:not(.btn--disabled, .btn--loading):before {
+    box-shadow: 0 0 0 0 var(--pulseColor);
+    position: absolute;
+    border-radius: var(--borderRadius);
+    left: 0;
+    top: 0;
+    opacity: 0.4;
+    transition: 0s;
+  }
+
+  &.btn--icon-only {
+    --horizontalPadding: 0;
+  }
+
+  &.btn--icon {
+    font-size: 14px;
+    justify-content: center;
+
+    &:not(.btn--icon-only) {
+      --horizontalPadding: 8px;
+    }
+
+    svg:not([height]),
+    svg:not([width]) {
+      width: var(--defaultIconSize);
+      height: var(--defaultIconSize);
+    }
+
+    &.btn--icon--round {
+      --borderRadius: 100%;
+    }
+
+    &.btn--icon--square {
+      --borderRadius: 10px;
+    }
+  }
+
+  &--fullWidth {
+    width: 100%;
+  }
+
+  &.btn--disabled {
+    color: var(--textDisabledColor);
+    background: var(--bgDisabledColor);
+    box-shadow: inset 0 0 0 var(--borderWidth) var(--disabledBorderColor);
+    cursor: not-allowed;
+
+    &.btn--icon {
+      --textDisabledColor: var(--color-gray-300);
+    }
+  }
+
+  &--loading {
+    --textLoadingColor: var(--textHoverColor);
+    --bgLoadingColor: var(--bgHoverColor);
+    --loadingBorderColor: var(--onHoverBorderColor);
+
+    color: var(--textLoadingColor);
+    background: var(--bgLoadingColor);
+    box-shadow: inset 0px 0px 0px var(--borderWidth) var(--loadingBorderColor);
+    cursor: default;
+  }
+
+  &--xSmall {
+    --buttonHeight: 20px;
+
+    &.btn--icon-only {
+      --buttonMinWidth: 20px;
+      --defaultIconSize: 18px;
+    }
+  }
+
+  &--small {
+    --buttonHeight: 32px;
+    --horizontalPadding: 28px;
+
+    &.btn--icon-only {
+      --buttonMaxHeight: 32px;
+      --buttonMinWidth: 32px;
+
+      .counter {
+        --counterSize: 16px;
+
+        span {
+          font-size: 10px;
+        }
+      }
+    }
+  }
+
+  &--medium {
+    --buttonHeight: 44px;
+    --horizontalPadding: 40px;
+
+    &.btn--icon-only {
+      --buttonMaxHeight: 44px;
+      --buttonHeight: 44px;
+      --buttonMinWidth: 44px;
+    }
+  }
+
+  &--large {
+    --buttonHeight: 44px;
+    --buttonMinWidth: 254px;
+
+    &.btn--icon {
+      --buttonHeight: 48px;
+      --buttonMinWidth: 48px;
+      --buttonMaxHeight: 48px;
+
+      .counter {
+        --counterSize: 22px;
+      }
+    }
+  }
+
+  &.btn--transparent {
+    --bgColor: transparent;
+    --borderColor: transparent;
+  }
+}
+
+.btn.btn--primary {
+  &.btn--filled {
+    --textColor: var(--color-blue-900);
+    --bgColor: var(--color-primary);
+    --borderColor: var(--bgColor);
+
+    --textActiveColor: var(--color-blue-900);
+    --bgActiveColor: var(--color-blue-500);
+
+    --textDisabledColor: var(--textActiveColor);
+    --bgDisabledColor: var(--bgActiveColor);
+    --disabledBorderColor: var(--bgActiveColor);
+
+    --textHoverColor: var(--color-primary);
+    --bgHoverColor: var(--color-blue-500);
+    --onHoverBorderColor: var(--color-blue-500);
+  }
+
+  &.btn--outlined {
+    --textColor: var(--color-primary);
+    --bgColor: transparent;
+    --borderColor: var(--color-primary);
+    --pulseColor: var(--color-primary);
+
+    --textActiveColor: var(--color-blue-900);
+    --bgActiveColor: var(--color-blue-500);
+
+    --textDisabledColor: var(--color-blue-500);
+    --bgDisabledColor: transparent;
+    --disabledBorderColor: var(--bgActiveColor);
+
+    --textHoverColor: var(--color-blue-900);
+    --bgHoverColor: var(--color-primary);
+    --onHoverBorderColor: var(--color-primary);
+  }
+
+  &.btn--transparent {
+    --textColor: var(--color-primary);
+    --textActiveColor: var(--color-blue-500);
+    --borderColor: transparent;
+
+    --textDisabledColor: var(--color-blue-500);
+    --bgDisabledColor: transparent;
+    --disabledBorderColor: transparent;
+
+    --textHoverColor: var(--color-primary);
+    --onHoverBorderColor: var(--color-primary);
+  }
+}
+
+.btn.btn--secondary {
+  &.btn--filled {
+    --bgColor: var(--color-gray-700);
+    --borderColor: --bgColor;
+    --textColor: var(--color-white);
+    --pulseColor: white;
+
+    --textActiveColor: var(--color-gray-200);
+    --bgActiveColor: var(--color-gray-700);
+
+    --textDisabledColor: var(--color-gray-300);
+    --bgDisabledColor: var(--bgActiveColor);
+    --disabledBorderColor: var(--bgActiveColor);
+
+    --bgHoverColor: var(--color-gray-500);
+    --onHoverBorderColor: var(--color-gray-500);
+
+    &.btn--icon {
+      --bgDisabledColor: var(--color-gray-800);
+      --disabledBorderColor: var(--bgDisabledColor);
+    }
+  }
+
+  &.btn--outlined {
+    --bgColor: transparent;
+    --textColor: var(--color-gray-200);
+    --borderColor: var(--color-gray-200);
+    --pulseColor: white;
+
+    --textActiveColor: var(--color-gray-900);
+    --bgActiveColor: var(--color-gray-300);
+
+    --textDisabledColor: var(--color-gray-300);
+    --bgDisabledColor: transparent;
+    --disabledBorderColor: var(--bgActiveColor);
+
+    --textHoverColor: var(--color-gray-900);
+    --bgHoverColor: var(--color-gray-200);
+
+    &.btn--icon {
+      --borderColor: var(--color-gray-800);
+
+      --textHoverColor: var(--color-white);
+      --bgHoverColor: var(--color-gray-700);
+
+      --textActiveColor: var(--color-gray-200);
+      --bgActiveColor: var(--color-gray-800);
+
+      --textDisabledColor: var(--color-gray-300);
+    }
+  }
+
+  &.btn--transparent {
+    --textColor: var(--color-gray-200);
+    --textActiveColor: var(--color-gray-300);
+
+    --textHoverColor: var(--textColor);
+
+    --textDisabledColor: var(--color-gray-300);
+    --bgDisabledColor: transparent;
+    --disabledBorderColor: transparent;
+
+    --onHoverBorderColor: var(--color-gray-200);
+
+    &.btn--icon {
+      --textColor: var(--color-gray-200);
+      --textHoverColor: var(--color-white);
+      --bgHoverColor: var(--color-gray-700);
+      --onHoverBorderColor: var(--bgHoverColor);
+
+      --textActiveColor: var(--color-gray-200);
+      --bgActiveColor: var(--color-gray-800);
+    }
+  }
+
+  &.btn--icon {
+    --textColor: var(--color-gray-100);
+    &.btn--filled-outline {
+      --bgColor: var(--color-gray-700);
+      --borderColor: var(--bgColor);
+      --borderWidth: 1px;
+
+      --onHoverBorderColor: var(--color-white);
+      --bgHoverColor: var(--color-gray-700);
+
+      --onActiveBorderColor: var(--textActiveColor);
+      --bgActiveColor: var(--color-gray-800);
+    }
+  }
+}
