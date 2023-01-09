@@ -7,7 +7,9 @@ import lessVariables from './public/config/variables';
 
 const config = defineConfig({
   plugins: [
-    react(),
+    react({
+      jsxRuntime: 'classic',
+    }),
     svgr({
       exportAsDefault: true,
       svgrOptions: {
