@@ -24,15 +24,14 @@ const config = defineConfig({
       '@icons': path.resolve(__dirname, './src/icons'),
     },
   },
+  optimizeDeps: {
+    include: ['react/jsx-runtime'],
+  },
   build: {
     sourcemap: true,
     minify: true,
     lib: {
       entry: path.resolve(__dirname, 'src/components/index.ts'),
-      // entry: {
-      //   'components': ,
-      //   'icons': path.resolve(__dirname, 'src/icons/index.ts'),
-      // },
       name: 'HumanUI',
       formats: ['es'],
       fileName: (format) => `human-ui.${format}.js`,
