@@ -1,0 +1,107 @@
+.carousel {
+  position: relative;
+
+  --carousel-bullet-size: 6px;
+  --carousel-active-bullet-width: 18px;
+  --carousel-bullets-gap: 6px;
+  --carousel-footer-spacing: 4px;
+  --carousel-footer-gap: 16px;
+  --carousel-fade-out-width: 90px;
+  --carousel-footer-margin-top: 12px;
+  --showRightFadeOut: black;
+  --showLeftFadeOut: black;
+
+  margin: 0 calc(var(--globalHorizontalPadding) * -1);
+
+  @media (min-width: @screen-md) {
+    margin: 0;
+    mask-image: linear-gradient(to right, var(--showLeftFadeOut) 0%, black 80px, black calc(100% - 80px), var(--showRightFadeOut) 100%);
+  }
+
+  .slide {
+    width: auto;
+
+    &:first-child {
+      padding-left: var(--globalHorizontalPadding);
+    }
+
+    &:last-child {
+      padding-right: var(--globalHorizontalPadding);
+    }
+
+    @media (min-width: @screen-md) {
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+
+  transition: all 0.2s;
+
+  &.showRightFadeOut {
+    --showRightFadeOut: transparent;
+  }
+  
+  &.showLeftFadeOut {
+    --showLeftFadeOut: transparent;
+  }
+
+  .carouselFooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--carousel-footer-gap);
+    margin-top: calc(var(--carousel-footer-margin-top) - var(--carousel-footer-spacing));
+    padding: var(--carousel-footer-spacing) 0;
+
+    .carouselPrevious,
+    .carouselNext {
+      display: inline-flex;
+
+      &:global(.swiper-button-lock) {
+        visibility: hidden;
+      }
+    }
+
+    .carouselPagination {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--carousel-bullets-gap);
+
+      .paginationBullet {
+        border: solid 2px transparent;
+        cursor: pointer;
+        width: var(--carousel-bullet-size);
+        height: var(--carousel-bullet-size);
+        border-radius: 50%;
+        display: flex;
+        background-color: var(--color-gray-300);
+        position: relative;
+
+        &:only-child {
+          display: none;
+        }
+
+        &::before {
+          position: absolute;
+          content: '';
+          top: calc(var(--carousel-bullets-gap) * -1);
+          bottom: calc(var(--carousel-bullets-gap) * -1);
+          right: calc(var(--carousel-bullets-gap) * -1);
+          left: calc(var(--carousel-bullets-gap) * -1);
+        }
+      }
+
+      .activePaginationBullet {
+        width: var(--carousel-active-bullet-width);
+        border-radius: 20px;
+        background-color: var(--color-primary);
+      }
+    }
+  }
+}

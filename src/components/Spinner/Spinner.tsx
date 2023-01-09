@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './Spinner.module.less';
-import SpinnerIcon from 'components/icons/spinner.svg';
+import SpinnerIcon from '@icons/spinner.svg';
 import classNames from 'classnames';
 
-interface SpinnerProps {
+export interface SpinnerProps {
   size: 'xSmall' | 'small' | 'medium' | 'large';
   style?: React.CSSProperties;
   className?: string;

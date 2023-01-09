@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 import dts from 'vite-plugin-dts';
 import svgr from 'vite-plugin-svgr';
-import lessVariables from './src/config/variables';
+import lessVariables from './public/config/variables';
 
 const config = defineConfig({
   plugins: [
@@ -20,23 +20,29 @@ const config = defineConfig({
   ],
   resolve: {
     alias: {
-      'components': path.resolve(__dirname, './src/components')
+      '@components': path.resolve(__dirname, './src/components'),
+      '@icons': path.resolve(__dirname, './src/icons'),
     },
   },
   build: {
+    sourcemap: true,
+    minify: true,
     lib: {
       entry: path.resolve(__dirname, 'src/components/index.ts'),
+      // entry: {
+      //   'components': ,
+      //   'icons': path.resolve(__dirname, 'src/icons/index.ts'),
+      // },
       name: 'HumanUI',
-      formats: ['es', 'umd'],
+      formats: ['es'],
       fileName: (format) => `human-ui.${format}.js`,
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'styled-components'],
+      external: ['react', 'react-dom'],
       output: {
         globals: {
           react: 'React',
-          'react-dom': 'ReactDOM',
-          'styled-components': 'styled',
+          'react-dom': 'ReactDOM'
         },
       },
     },
@@ -50,7 +56,6 @@ const config = defineConfig({
     }
   }
 })
-
 
 // https://vitejs.dev/config/
 export default config

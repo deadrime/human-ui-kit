@@ -1,31 +1,5 @@
 @import './text-mixins.less';
 
-:root {
-  --base-font-size: 16px;
-
-  /* body-2 */
-  --font-size-body2: 0.8rem;
-  --line-height-body2: 0.9375rem;
-  /* body-1 */
-  --font-size-body1: 1rem;
-  --line-height-body1: 1.25rem;
-  /* title-5 */
-  --font-size-title5: 18px;
-  --line-height-title5: 22px;
-  /* title-4 */
-  --font-size-title4: 1.25rem;
-  --line-height-title4: 1.5063rem;
-  /* title-3 */
-  --font-size-title3: 1.5625rem;
-  --line-height-title3: 1.8875rem;
-  /* title-2 */
-  --font-size-title2: 1.9531rem;
-  --line-height-title2: 2.3563rem;
-  /* title-1 */
-  --font-size-title1: 2.4413rem;
-  --line-height-title1: 2.9438rem;
-}
-
 .text-inherit {
   font-size: inherit;
 }
@@ -84,53 +58,6 @@
 
 .font-extrabold {
   .text-extrabold-mixin();
-}
-
-.link {
-  transition: all 0.3s;
-  color: var(--linkTextColor);
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  background: transparent;
-  outline: 0;
-  border: none;
-  cursor: pointer;
-  gap: 2px;
-
-  svg {
-    display: inline-block;
-    height: 1.25em;
-    width: 1.25em;
-  }
-
-  &:hover:not([disabled]),
-  &:focus:not([disabled]) {
-    color: var(--linkTextHoverColor);
-  }
-
-  &:active:not([disabled]) {
-    color: var(--linkTextActiveColor);
-  }
-
-  &[disabled] {
-    color: var(--linkTextDisabledColor);
-    cursor: not-allowed;
-  }
-
-  &.link-primary {
-    --linkTextColor: var(--color-primary);
-    --linkTextHoverColor: var(--color-blue-500);
-    --linkTextActiveColor: var(--color-blue-900);
-    --linkTextDisabledColor: var(--color-blue-500);
-  }
-
-  &.link-secondary {
-    --linkTextColor: var(--color-gray-200);
-    --linkTextHoverColor: var(--color-gray-300);
-    --linkTextActiveColor: var(--color-gray-400);
-    --linkTextDisabledColor: var(--color-gray-300);
-  }
 }
 
 @media (min-width: @screen-sm) {
@@ -203,5 +130,52 @@
   }
   .lg\:text-title5 {
     .text-title5-mixin();
+  }
+}
+
+.link {
+  transition: all 0.3s;
+  color: var(--linkTextColor);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  outline: 0;
+  border: none;
+  cursor: pointer;
+  gap: 2px;
+
+  svg {
+    display: inline-block;
+    height: 1.25em;
+    width: 1.25em;
+  }
+
+  &:hover:not([disabled]),
+  &:focus:not([disabled]) {
+    color: var(--linkTextHoverColor);
+  }
+
+  &:active:not([disabled]) {
+    color: var(--linkTextActiveColor);
+  }
+
+  &[disabled] {
+    color: var(--linkTextDisabledColor);
+    cursor: not-allowed;
+  }
+
+  &.link-primary {
+    --linkTextColor: var(--color-primary);
+    --linkTextHoverColor: var(--color-blue-500);
+    --linkTextActiveColor: var(--color-blue-900);
+    --linkTextDisabledColor: var(--color-blue-500);
+  }
+
+  &.link-secondary {
+    --linkTextColor: var(--color-gray-200);
+    --linkTextHoverColor: var(--color-gray-300);
+    --linkTextActiveColor: var(--color-gray-400);
+    --linkTextDisabledColor: var(--color-gray-300);
   }
 }

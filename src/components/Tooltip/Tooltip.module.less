@@ -1,0 +1,18 @@
+.overlay {
+  --overlayMaxWidth: 300px;
+
+  &:global(.rc-tooltip) {
+    opacity: 1;
+  }
+
+  & :global(.rc-tooltip-inner) {
+    background: #141617;
+    font-size: var(--font-size-body1);
+    line-height: var(--line-height-body1);
+    max-width: var(--overlayMaxWidth);
+  }
+
+  & :global(.rc-tooltip-content > .rc-tooltip-arrow) {
+    border-top-color: #141617;
+  }
+}

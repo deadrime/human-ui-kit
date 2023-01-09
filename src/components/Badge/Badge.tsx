@@ -1,12 +1,12 @@
 import classNames from 'classnames';
 import React, { CSSProperties, useEffect, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import Text from 'components/Typography'
+import Text from '@components/Typography'
 import styles from './Badge.module.less';
 
 const MAX_COUNT = 99;
 
-type BadgeProps = {
+export type BadgeProps = {
   count: number;
   size?: number;
   className?: string;
@@ -44,7 +44,7 @@ const Badge: React.FC<BadgeProps> = ({ count, size, className }) => {
 
 export default Badge;
 
-type BadgeWrapperProps = BadgeProps & { children: React.ReactNode }
+export type BadgeWrapperProps = BadgeProps & { children: React.ReactNode }
 
 export const BadgeWrapper: React.FC<BadgeWrapperProps> = ({ children, ...props }) => {
   return <span className={styles.badgeWrapper}>{children} <Badge {...props} className={styles.badgeAbsolute} /></span>;

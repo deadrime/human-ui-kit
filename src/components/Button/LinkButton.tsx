@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React, { FC, ReactNode, useMemo } from 'react';
-import Spinner from 'components/Spinner';
-import Text, { TextProps } from 'components/Typography';
+import Spinner from '@components/Spinner';
+import Text, { TextProps } from '@components/Typography';
 import { ButtonVariant } from './Button';
 import styles from './LinkButton.module.less';
 

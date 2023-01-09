@@ -1,0 +1,19 @@
+.skeleton {  
+  display: block;
+  align-items: center;
+  opacity: 0.2;
+  --skeletonColor: var(--color-gray-200);
+  --highlightColor: var(--color-white);
+
+  &.block {
+    width: 100%;
+  }
+
+  &.circle {
+    opacity: 1;
+    line-height: 1;
+    
+    --skeletonColor: var(--color-gray-800);
+    --highlightColor: var(--color-gray-500);
+  }
+}

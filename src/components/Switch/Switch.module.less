@@ -1,0 +1,61 @@
+@duration: .3s;
+
+.switch {
+  --switchHeight: 26px;
+  --circlePadding: 3px;
+  --circleSize: calc(var(--switchHeight) - var(--circlePadding)  * 2);
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 48px;
+  height: var(--switchHeight);
+  padding: 0;
+  vertical-align: middle;
+  border-radius: 40px;
+  border: none;
+  background-color: var(--color-gray-500);
+  cursor: pointer;
+  transition: all @duration cubic-bezier(0.35, 0, 0.25, 1);
+
+  &:after {
+    position: absolute;
+    width: var(--circleSize);
+    height: var(--circleSize);
+    left: var(--circlePadding);
+    top: 50%;
+    border-radius: 50% 50%;
+    background-color: var(--color-gray-200);
+    content: "";
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: left @duration cubic-bezier(0.35, 0, 0.25, 1);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px var(--color-blue-500);
+    outline: none;
+  }
+
+  &:global(-checked) {
+    background-color: var(--color-primary);
+
+    &:after{
+      background-color: var(--color-white);
+      left: calc(100% - var(--circleSize) - var(--circlePadding));
+    }
+  }
+
+  &:global(-disabled) {
+    cursor: no-drop;
+
+    &:after{
+      background: var(--color-gray-400);
+      animation-name: none;
+      cursor: no-drop;
+    }
+
+    &:hover:after{
+      animation-name: none;
+    }
+  }
+}

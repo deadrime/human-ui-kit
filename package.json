@@ -4,13 +4,14 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/deadrime"
   },
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Human UI kit",
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "dev": "vite",
     "build": "vite build",
+    "prepare": "npm run build",
     "preview": "vite preview"
   },
   "author": "Eugene",
@@ -30,22 +31,35 @@
     "postcss": "^8.4.20",
     "postcss-nested": "^6.0.0",
     "postcss-preset-env": "^7.8.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "storybook": "^7.0.0-beta.19",
     "typescript": "^4.7.4",
     "vite": "^4.0.4",
     "vite-plugin-dts": "^1.7.1",
     "vite-plugin-svgr": "^2.4.0"
   },
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "main": "dist/human-ui.umd.js",
+  "module": "dist/human-ui.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/human-ui.es.js"
+    }
+  },
   "files": [
     "dist"
   ],
   "types": "dist/src/components/index.d.ts",
   "dependencies": {
+    "@deadrime/human-ui-kit": "^0.0.1",
     "classnames": "^2.3.2",
-    "react-transition-group": "^4.4.5"
+    "lodash": "^4.17.21",
+    "rc-switch": "^4.0.0",
+    "rc-tooltip": "^5.2.2",
+    "react-loading-skeleton": "^3.1.0",
+    "react-transition-group": "^4.4.5",
+    "swiper": "^8.4.5"
   }
 }

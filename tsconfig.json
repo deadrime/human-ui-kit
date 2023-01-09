@@ -11,9 +11,9 @@
     // paths
     "baseUrl": "src",
     "paths": {
-      "components/*": ["./components/*"]
+      "@components/*": ["./components/*"],
+      "@icons/*": ["./icons/*"]
     },
-
     // Added
     "jsx": "react",
     "module": "ESNext",

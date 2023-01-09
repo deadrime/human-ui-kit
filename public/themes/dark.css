@@ -32,4 +32,27 @@
   --cardBorderWidth: 2px;
 
   --layoutHorizonalPadding: 14px;
+
+  --base-font-size: 16px;
+  /* body-2 */
+  --font-size-body2: 0.8rem;
+  --line-height-body2: 0.9375rem;
+  /* body-1 */
+  --font-size-body1: 1rem;
+  --line-height-body1: 1.25rem;
+  /* title-5 */
+  --font-size-title5: 18px;
+  --line-height-title5: 22px;
+  /* title-4 */
+  --font-size-title4: 1.25rem;
+  --line-height-title4: 1.5063rem;
+  /* title-3 */
+  --font-size-title3: 1.5625rem;
+  --line-height-title3: 1.8875rem;
+  /* title-2 */
+  --font-size-title2: 1.9531rem;
+  --line-height-title2: 2.3563rem;
+  /* title-1 */
+  --font-size-title1: 2.4413rem;
+  --line-height-title1: 2.9438rem;
 }

@@ -1,4 +1,4 @@
-import '../src/theme/dark.css';
+import '../public/themes/dark.css';
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

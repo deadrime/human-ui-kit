@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 import Button, { ButtonProps } from './Button';
-import Badge from 'components/Badge/Badge';
+import Badge from '@components/Badge';
 
 export type IconButtonSize = 'xSmall' | 'small' | 'medium' | 'large';
 
