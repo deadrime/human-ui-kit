@@ -1,5 +1,5 @@
 {
-  "name": "@deadrime/human-ui-kit",
+  "name": "@human/components",
   "repository": "https://github.com/deadrime/human-ui-kit.git",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/deadrime"
@@ -46,6 +46,10 @@
   "exports": {
     ".": {
       "import": "./dist/human-ui.es.js"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
     }
   },
   "files": [
