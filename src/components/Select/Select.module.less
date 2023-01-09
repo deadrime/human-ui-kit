@@ -1,0 +1,66 @@
+.overlay {
+  width: 100%;
+}
+
+.input {
+  flex: 1;
+}
+
+.dropdown {
+  flex: 1;
+}
+
+.tagsWrapper {
+  z-index: 1;
+  max-width: calc(100% - 20px);
+}
+
+.menu {
+  max-height: 480px;
+  overflow-y: auto;
+}
+
+.menuItem {
+  --menuItemActiveBg: var(--color-gray-700);
+}
+
+.menuItemContent {
+  display: flex;
+  justify-content: space-between;
+
+  & .menuItemIcon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+}
+
+.placeholder {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 8px 0;
+}
+
+.tagLabel {
+  max-width: 100%;
+}
+
+.optionLabel {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.summary:focus {
+  & .input {
+    border-color: var(--color-blue-500);
+  }
+}
+
+.searchModeTag {
+  width: 100%;
+  justify-content: space-between;
+  padding: 0;
+  --tagBackground: none;
+}

@@ -1,0 +1,169 @@
+@import '/ui/shared/mixins/text-mixins.less';
+
+.inputWrapperContainer {
+  min-width: 0;
+  position: relative;
+
+  .inputHint {
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+  }
+
+  --borderWidth: 2px;
+  --inputWrapperTopPadding: 8px;
+  --inputWrapperBottomPadding: 8px;
+  --inputWrapperHorizontalPadding: var(--globalHorizontalPadding);
+  --inputWrapperMinHeight: 48px;
+
+  .inputWrapper {
+    padding: calc(var(--inputWrapperTopPadding) - var(--borderWidth)) 0
+      calc(var(--inputWrapperBottomPadding) - var(--borderWidth));
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-white);
+    border-bottom: var(--borderWidth) solid transparent;
+    min-height: var(--inputWrapperMinHeight);
+
+    &:global(.input--empty) {
+      .inputPrefix {
+        color: var(--color-gray-200);
+      }
+    }
+
+    &:global(.input--padded) {
+      padding: calc(var(--inputWrapperTopPadding) - var(--borderWidth))
+        calc(var(--inputWrapperHorizontalPadding) - var(--borderWidth))
+        calc(var(--inputWrapperBottomPadding) - var(--borderWidth));
+    }
+
+    &:global(.input--align-left) {
+      :global(.input) {
+        text-align: left;
+      }
+    }
+
+    &:global(.input--align-right) {
+      :global(.input) {
+        text-align: right;
+      }
+    }
+
+    &:global(.input--text-body1) {
+      :global(.input) {
+        .text-body1-mixin();
+      }
+    }
+
+    &:global(.input--text-body2) {
+      :global(.input) {
+        .text-body2-mixin();
+      }
+    }
+
+    &:global(.input--text-title1) {
+      :global(.input) {
+        .text-title1-mixin();
+      }
+    }
+
+    &:global(.input--text-title2) {
+      :global(.input) {
+        .text-title2-mixin();
+      }
+    }
+
+    &:global(.input--text-title3) {
+      :global(.input) {
+        .text-title3-mixin();
+      }
+    }
+
+    &:global(.input--text-title4) {
+      :global(.input) {
+        .text-title4-mixin();
+      }
+    }
+
+    &:global(.input--text-title5) {
+      :global(.input) {
+        .text-title5-mixin();
+      }
+    }
+
+    &:global(.input--bold) {
+      :global(.input) {
+        .text-bold-mixin();
+      }
+    }
+
+    &:global(.input--outlined) {
+      border-radius: @border-radius-base;
+      border: var(--borderWidth) solid var(--color-gray-800);
+
+      &:global(.input--round) {
+        border-radius: 40px;
+      }
+    }
+
+    :global(.input) {
+      background: transparent !important;
+      flex: 1 1 auto;
+      border: none;
+      outline: none;
+      font-family: 'Cerebri Sans Pro';
+      color: var(--text-color);
+      min-width: 0;
+
+      &::placeholder {
+        color: var(--color-gray-200);
+      }
+
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        box-shadow: 0 0 0 30px var(--bg-color) inset !important;
+        -webkit-text-fill-color: var(--color-white) !important;
+        caret-color: var(--color-white);
+      }
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        appearance: none;
+        margin: 0;
+      }
+
+      &[type='number'] {
+        appearance: textfield;
+      }
+    }
+
+    &:global(.input--disabled) {
+      color: var(--color-gray-800);
+    }
+
+    &:global(.input--invalid) {
+      border-color: var(--color-red);
+    }
+
+    &:global(.input--focused) {
+      border-color: var(--color-blue-500);
+      border-bottom: var(--borderWidth) solid var(--color-blue-500);
+    }
+
+    .inputSuffix,
+    .inputPrefix {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .inputSuffix {
+      align-self: var(--inputAlign);
+    }
+  }
+}

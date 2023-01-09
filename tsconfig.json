@@ -12,7 +12,9 @@
     "baseUrl": "src",
     "paths": {
       "@components/*": ["./components/*"],
-      "@icons/*": ["./icons/*"]
+      "@icons/*": ["./icons/*"],
+      "@hooks/*": ["./hooks/*"],
+      "@utils/*": ["./utils/*"]
     },
     // Added
     "jsx": "react",

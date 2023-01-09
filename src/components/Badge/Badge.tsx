@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React, { CSSProperties, useEffect, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import Text from '@components/Typography'
+import Text from '@components/typography'
 import styles from './Badge.module.less';
 
 const MAX_COUNT = 99;

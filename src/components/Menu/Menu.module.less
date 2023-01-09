@@ -1,0 +1,72 @@
+.menu {
+  display: flex;
+  --activeBg: var(--color-gray-500);
+
+  &.vertical {
+    flex-direction: column;
+    --gap: var(--customGap, 12px);
+    padding: calc(var(--gap) / 2) 0;
+  }
+
+  &.horizontal {
+    --gap: var(--customGap, 32px);
+  }
+}
+
+.menuDivider {
+  display: inline-block;
+  height: 1px;
+  background: var(--color-gray-500);
+  margin: calc(var(--gap) / 2) var(--menuItemHorizontalPadding, 12px);
+}
+
+.horizontal {
+  & .menuDivider {
+    display: none;
+  }
+
+  &.menu {
+    gap: var(--gap);
+  }
+
+  & .menuItem {
+    padding: 0;
+  }
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: transparent;
+  color: var(--color-gray-200);
+  transition: all 0.1s ease;
+  cursor: pointer;
+  padding: calc(var(--gap) / 2) var(--menuItemHorizontalPadding, 12px);
+  outline: none;
+  max-width: 100%;
+
+  &:hover, &:focus-visible {
+    background: var(--menuItemActiveBg);
+    outline: none;
+    color: var(--color-white);
+  }
+
+  & a, svg {
+    color: inherit;
+    transition: all 0.1s ease;
+  }
+}
+
+.menuItemText {
+  flex: 1 0;
+  white-space: nowrap;
+  text-align: left;
+  transition: all 0.1s ease;
+  color: inherit;
+  max-width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  text-overflow: ellipsis;
+}

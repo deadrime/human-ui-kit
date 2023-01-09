@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta } from "@storybook/react";
-import Typography from "./Typography";
+import Typography from "./Text";
 
 export default {
   component: Typography,
