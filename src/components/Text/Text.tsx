@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import classnames from 'classnames';
 import classNames from 'classnames';
-import styles from './Typography.module.less';
+import styles from './Text.module.less';
 import './Typography.less'
 
 export type FontSize = 'title1' |

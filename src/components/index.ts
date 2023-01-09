@@ -16,5 +16,5 @@ export { default as Switch } from './Switch';
 export * from './Switch';
 export { default as Tooltip } from './Tooltip';
 export * from './Tooltip';
-export { default as Text } from './typography';
-export * from './typography';
+export { default as Text } from './Text';
+export * from './Text';
