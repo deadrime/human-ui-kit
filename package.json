@@ -1,9 +1,6 @@
 {
   "name": "@human/components",
   "repository": "https://github.com/deadrime/human-ui-kit.git",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/deadrime"
-  },
   "version": "0.0.3",
   "description": "Human UI kit",
   "scripts": {
