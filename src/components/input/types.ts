@@ -1,6 +1,6 @@
 import { ClipboardEventHandler, CSSProperties, FC, ForwardedRef, HTMLProps, KeyboardEventHandler, ReactElement, ReactNode } from 'react';
-import { ValidationStatus } from 'ui/components/Form/types';
-import { FontSize } from 'ui/components/typography/Text';
+import { ValidationStatus } from '@components/Form/types';
+import { FontSize } from '@components/Text';
 
 interface CoreInputProps<T> {
   value?: T;

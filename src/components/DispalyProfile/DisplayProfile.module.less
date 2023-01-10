@@ -1,0 +1,56 @@
+.displayProfileWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  &.small {
+    gap: 8px
+  }
+}
+
+.avatarLink {
+  &:focus-visible .avatar {
+    box-shadow: 0 0 0 2px var(--color-gray-200);
+  }
+}
+
+.displayProfileContentWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
+  width: var(--displayProfileContentWidth);
+
+  // needed for Skeleton to render correctly.
+  min-width: 100px;
+}
+
+.title {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.title, .subtitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.extra {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+  align-self: flex-start;
+  padding-left: 8px;
+}
+
+.elipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: var(--textMaxWidth, 200px);
+}
+
+.disableLink {
+  pointer-events: none;
+}

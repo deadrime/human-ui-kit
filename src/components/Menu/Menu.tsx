@@ -1,9 +1,9 @@
 import React, { CSSProperties, HTMLProps } from 'react';
 import styles from './Menu.module.less';
-import Text, { TextProps } from '@components/typography';
+import Text, { TextProps } from '@components/Text';
 import classNames from 'classnames';
-// import Link from 'next/link';
 import Spinner from '../Spinner/Spinner';
+import InternalLink from '@components/InternalLink/InternalLink';
 
 export type MenuItemProps = {
   children: React.ReactElement | string
@@ -37,18 +37,16 @@ const MenuItemWrapper: React.FC<MenuItemWrapperProps> = ({
   onClick,
   ...props
 }) => href ? (
-  <Link href={href}>
-    <a
-      href={href}
-      target={target}
-      rel={rel}
-      onClick={onClick}
-      role="menuitem"
-      {...props}
-    >
-      {children}
-    </a>
-  </Link>
+  <InternalLink 
+    href={href}
+    target={target}
+    rel={rel}
+    onClick={onClick}
+    role="menuitem"
+    {...props}
+  >
+    {children}
+  </InternalLink>
 ) : (
   <button
     {...props}

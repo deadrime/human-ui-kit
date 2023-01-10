@@ -3,11 +3,10 @@ import isEmpty from 'lodash/isEmpty';
 import React, { ChangeEvent, forwardRef, useCallback, useEffect, useRef, useState } from 'react';
 import { flushSync } from 'react-dom';
 import { InputProps } from './types';
-import { globalObj } from 'ui/shared/utils/environment-manager';
 import { useIsomorphicLayoutEffect } from 'react-use';
-import { ownerWindow } from 'ui/shared/utils/owner-window';
-import { getStyleValue } from 'ui/shared/utils/get-style-value';
-import { useForwardRef } from 'ui/shared/hooks';
+import { ownerWindow } from '@utils/ownerWindow';
+import { getStyleValue } from '@utils/getStyleValue';
+import { useForwardRef } from '@hooks/useForwardRef';
 
 interface AutosizeStyles {
   outerHeightStyle?: number;
@@ -112,16 +111,6 @@ export const TextAreaInput = forwardRef<HTMLTextAreaElement, TextAreaInputProps>
         overflow,
         outerHeightStyle,
       };
-    }
-    if (globalObj.env.NODE_ENV !== 'production') {
-      if (renders.current === 20) {
-        console.error(
-          [
-            'Autosize: Too many re-renders. The layout is unstable.',
-            'TextAreaInput limits the number of renders to prevent an infinite loop.',
-          ].join('\n')
-        );
-      }
     }
     return prevStyles;
   }, [renders]);

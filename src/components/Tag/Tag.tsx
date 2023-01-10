@@ -1,6 +1,6 @@
 import React, { HTMLProps } from 'react';
 import { IconButton } from '@components/Button';
-import Text from '@components/typography';
+import Text from '@components/Text';
 import styles from './Tag.module.less';
 import CloseIcon from '@icons/close.svg';
 import classNames from 'classnames';

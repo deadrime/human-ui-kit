@@ -6,13 +6,13 @@ import Tags from '@components/Tag/Tags';
 import { Dropdown } from '@components/Dropdown/Dropdown';
 import styles from './Select.module.less';
 import { Menu } from '@components/Menu/Menu';
-import Text from '@components/typography';
+import Text from '@components/Text';
 import IconApprove from '@icons/approve.svg';
 import IconArrowUp from '@icons/arrow-up.svg';
 import IconLoading from '@icons/loading.svg';
 import { useDeepCompareMemo } from '@hooks/useDeepCompareMemo';
 import classNames from 'classnames';
-import { InputWrapperProps } from '../input/types';
+import { InputWrapperProps } from '@components/input/types';
 
 export type SelectOption<T> = {
   value: T,

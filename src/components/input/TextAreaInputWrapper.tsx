@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { forwardRef } from 'react';
-import Text from '../typography/Text';
+import Text from '@components/Text';
 import { InputWrapper } from './InputWrapper';
 import { TextAreaInput, TextAreaInputProps } from './TextAreaInput';
 import { CoreInputWrapperProps } from './types';

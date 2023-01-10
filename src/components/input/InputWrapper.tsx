@@ -2,10 +2,9 @@ import classNames from 'classnames';
 import React, { FC, forwardRef, useState } from 'react';
 import styles from './InputWrapper.module.less';
 import { InputWrapperProps } from './types';
-import { ClientOnly } from 'ui/shared/ClientOnly';
-import SuccessIcon from 'ui/components/icons/approve.svg';
-import LoadingIcon from 'ui/components/icons/loading.svg';
-import { ValidationStatus } from 'ui/components/Form/types';
+import SuccessIcon from '@icons/approve.svg';
+import LoadingIcon from '@icons/loading.svg';
+import { ValidationStatus } from '@components/Form/types';
 
 interface FeedbackIconProps {
   validationStatus: ValidationStatus;
@@ -27,7 +26,7 @@ const FeedbackIcon: FC<FeedbackIconProps> = ({ validationStatus }) => {
   }
 };
 
-const CoreInputWrapper = forwardRef<HTMLInputElement, InputWrapperProps>(({
+export const InputWrapper = forwardRef<HTMLInputElement, InputWrapperProps>(({
   component,
   suffix,
   prefix,
@@ -120,10 +119,3 @@ const CoreInputWrapper = forwardRef<HTMLInputElement, InputWrapperProps>(({
     </div>
   );
 });
-
-export const InputWrapper =
-  forwardRef<HTMLInputElement, InputWrapperProps>((props, ref) => (
-    <ClientOnly>
-      <CoreInputWrapper {...props} ref={ref} />
-    </ClientOnly>
-  ));

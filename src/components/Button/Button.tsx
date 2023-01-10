@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import classNames from 'classnames';
-import Text, { TextProps } from '../Typography/Text';
+import Text, { TextProps } from '@components/Text';
 import Spinner from '../Spinner/Spinner';
 import './Button.less';
 

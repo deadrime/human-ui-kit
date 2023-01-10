@@ -1,4 +1,4 @@
-@import '/ui/shared/mixins/text-mixins.less';
+@import '@components/Text/text-mixins.less';
 
 .inputWrapperContainer {
   min-width: 0;
@@ -101,7 +101,7 @@
     }
 
     &:global(.input--outlined) {
-      border-radius: @border-radius-base;
+      border-radius: var(--border-radius-base);
       border: var(--borderWidth) solid var(--color-gray-800);
 
       &:global(.input--round) {
