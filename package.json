@@ -1,6 +1,9 @@
 {
   "name": "@human/components",
-  "repository": "https://github.com/deadrime/human-ui-kit.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deadrime/human-ui-kit.git"
+  },
   "version": "0.0.3",
   "description": "Human UI kit",
   "scripts": {
