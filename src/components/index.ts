@@ -15,3 +15,4 @@ export * from './Switch';
 export * from './Tooltip';
 export * from './Tag';
 export * from './Text';
+export * from './theme';
