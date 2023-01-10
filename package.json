@@ -1,8 +1,7 @@
 {
   "name": "@human/components",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/deadrime/human-ui-kit.git"
+  "publishConfig": {
+    "registry": "https://gitlab.com/api/v4/projects/30243033/packages/npm/"
   },
   "version": "0.0.3",
   "description": "Human UI kit",
@@ -11,7 +10,6 @@
     "build-storybook": "storybook build",
     "dev": "vite",
     "build": "vite build",
-    "prepare": "npm run build",
     "preview": "vite preview"
   },
   "author": "Eugene",
