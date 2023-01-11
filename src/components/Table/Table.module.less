@@ -1,0 +1,119 @@
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 var(--tableBorderSpacing, 8px);
+
+  & tbody {
+    display: table-row-group;
+  }
+
+  & tbody > tr {
+    box-shadow: inset 0 0 0 2px var(--color-gray-800);
+    border-radius: 12px;
+    width: 100%;
+  }
+
+  & thead th {
+    font-weight: normal;
+    padding-bottom: 0;
+  }
+
+  & td, & th {
+    // overflow-wrap: anywhere;
+    padding: var(--tableRowVerticalPadding, 12px) 0;
+    text-align: right;
+
+    &:first-child {
+      text-align: left;
+      padding-left: var(--tableRowHorizontalPadding, 18px);
+    }
+    &:last-child {
+      padding-right: var(--tableRowHorizontalPadding, 18px);
+    }
+  }
+
+  &.tableMobile {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    & tbody {
+      display: flex;
+      flex-direction: column;
+    }
+
+    & thead tr {
+      display: flex;
+      justify-content: space-between;  
+    }
+
+    & td, & th {
+      text-align: left;
+      padding: 0 var(--globalHorizontalPadding);
+    }
+  }
+}
+
+.mobileRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px var(--globalHorizontalPadding);
+  border-top: 2px solid var(--color-gray-800);
+}
+
+.cellToDisplay {
+  margin-left: auto;
+}
+
+.expandCells {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 var(--globalHorizontalPadding) 8px;
+}
+
+.expanded {
+  & .expandIcon {
+    transform: rotate(180deg);
+  }
+}
+
+.collapsed {
+  & .expandCells {
+    display: none;
+  }
+
+  &:last-child {
+    border-bottom: 2px solid var(--color-gray-800);
+  }
+}
+
+.expandIcon {
+  transition: all .2s;
+}
+
+.mobileCell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rank {
+  padding-right: 4px;
+  min-width: 20px;
+  white-space: nowrap;
+}
+
+.cellWithRank {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.observed {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
