@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React, { CSSProperties, FC, ReactElement, ReactNode, useCallback, useRef, useState } from 'react';
 // TODO: Do we really need this?
 import AnimateHeight from 'react-animate-height';
-import ArrowUpIcon from 'ui/components/icons/arrow-up.svg';
+import ArrowUpIcon from '@icons/arrow-up.svg';
 import styles from './Expander.module.less';
 
 interface ExpanderProps {

@@ -4,7 +4,7 @@ import debounce from 'lodash/debounce';
 import React, { createRef, CSSProperties, FC, RefObject, useEffect, useMemo, useRef, useState } from 'react';
 import Text, { TextProps } from '@components/Text';
 import styles from './Tabs.module.less';
-import MoreIcon from 'ui/components/icons/more.svg';
+import MoreIcon from '@icons/more.svg';
 import IconButton from '@components/buttons/IconButton';
 import Dropdown from '@components/Dropdown/Dropdown';
 import Menu from '@components/Menu/Menu';

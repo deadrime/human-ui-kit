@@ -1,12 +1,12 @@
 import { OpenConfig } from 'rc-notification/lib/Notifications';
 import { NotificationAPI, useNotification } from 'rc-notification';
-import InfoIcon from 'ui/components/icons/warning-circle.svg';
-import IconApprove from 'ui/components/icons/approve.svg';
-import IconReject from 'ui/components/icons/reject.svg';
+import InfoIcon from '@icons/warning-circle.svg';
+import IconApprove from '@icons/approve.svg';
+import IconReject from '@icons/reject.svg';
 import classNames from 'classnames';
 import messageStyles from './Message.module.less';
 import { CSSMotionProps } from 'rc-motion';
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 
 const messageIconByType = {
   warning: <InfoIcon color="var(--color-red)" width={20} height={20} />,
