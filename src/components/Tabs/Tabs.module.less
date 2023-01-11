@@ -1,0 +1,67 @@
+.tabHeadersContainer {
+  display: flex;
+  justify-content: var(--tabsJustify, space-between);
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+
+  &.shadowTabHeadersContainerCopy {
+    visibility: hidden;
+    position: absolute;
+    top: -9999px;
+    left: 0;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    word-break: keep-all;
+    width: 1px;
+    overflow: hidden;
+  }
+
+  &.paddedTabHeadersContainer {
+    padding: 0;
+
+    @media (min-width: @screen-xl) {
+      padding: 0 var(--globalHorizontalPadding);
+    }
+  }
+
+  .tabHeader {
+    cursor: pointer;
+    transition: color 0.5s;
+    outline: none;
+    border: 1px solid transparent;
+    color: var(--color-gray-200);
+
+    &:focus-visible {
+      border: 1px solid var(--color-white);
+    }
+
+    &.active {
+      color: var(--color-white);
+    }
+
+    &.disabled {
+      color: var(--color-gray-300);
+      cursor: not-allowed;
+    }
+  }
+}
+
+.tabBody {
+  margin-top: var(--tabBodyMarginBottom, 16px);
+
+  &.hiddenTabBody {
+    display: none;
+  }
+}
+
+.activeTabIndicatorContainer {
+  position: relative;
+  padding-top: 8px;
+
+  .activeTabIndicator {
+    transition: width 0.5s, transform 0.5s;
+    border-bottom: 2px solid var(--color-primary);
+  }
+}

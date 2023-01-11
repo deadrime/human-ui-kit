@@ -1,0 +1,102 @@
+.modalWrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  --modal-padding-mobile: 12px;
+  --modal-padding-desktop: 24px;
+
+  --modal-gap: 12px;
+  --modal-header-gap: 4px;
+  --modal-border-radius: 16px;
+  --modal-padding: var(--modal-padding-mobile);
+  --modal-position-y: 100px;
+
+  @media (max-height: 760px) {
+    --modal-position-y: 40px;
+  }
+
+  @media (max-height: 600px) {
+    --modal-position-y: 24px;
+  }
+
+  .modal {
+    position: relative;
+    margin: var(--modal-position-y) 0;
+    display: flex;
+    flex-direction: column;
+    padding: var(--modal-padding);
+    background-color: var(--color-gray-900);
+    border-radius: var(--modal-border-radius);
+    gap: var(--modal-gap);
+    height: auto;
+    outline: none;
+
+    @media (max-width: @screen-md-max) {
+      min-width: calc(100vw - var(--globalHorizontalPadding) * 2) !important;
+      max-width: calc(100vw - var(--globalHorizontalPadding) * 2) !important;
+    }
+
+    @media (min-width: @screen-md) {
+      --modal-padding: var(--modal-padding-desktop);
+    }
+
+    &.withShadow {
+      box-shadow: 0px 4px 100px rgba(0, 243, 255, 0.2);
+    }
+
+    &.centered {
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .modalHeader {
+      padding-top: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--modal-header-gap);
+
+      .modalTitle {
+        text-transform: uppercase;
+      }
+    }
+
+    .modalBody {
+      display: block;
+      // overflow-x: auto;
+      overflow-x: visible;
+    }
+
+    .confirmationModalBodyWrapper {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+.closeArea {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.absoluteCloseButton {
+  position: absolute !important;
+  right: 28px;
+  top: 28px;
+}

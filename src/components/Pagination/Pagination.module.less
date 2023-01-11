@@ -1,0 +1,306 @@
+@pagination-font-family: Arial;
+@pagination-font-weight-active: 500;
+@pagination-item-disabled-color-active: #fff;
+@pagination-item-disabled-bg-active: darken(hsv(0, 0, 96%), 10%);
+
+.pagination {
+  --paginationItemSize: 24px;
+
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+
+  ul,
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &::after {
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    content: ' ';
+  }
+
+  &:global(-total-text) {
+    display: inline-block;
+    height: var(--paginationItemSize);
+    margin-right: 8px;
+    line-height: calc(var(--paginationItemSize) - 2px);
+    vertical-align: middle;
+  }
+
+  &:global(-item) {
+    display: inline-block;
+    min-width: var(--paginationItemSize);
+    height: var(--paginationItemSize);
+    margin-right: 8px;
+    font-family: @pagination-font-family;
+    line-height: calc(var(--paginationItemSize) - 2px);
+    text-align: center;
+    vertical-align: middle;
+    list-style: none;
+    border-radius: 2px;
+    outline: 0;
+    cursor: pointer;
+    user-select: none;
+
+    a {
+      display: block;
+      padding: 0 6px;
+      color: var(--color-white);
+      transition: none;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    &:focus,
+    &:hover {
+      transition: all 0.3s;
+      a {
+        color: var(--color-primary);
+      }
+    }
+
+    &:global(-active) {
+      font-weight: @pagination-font-weight-active;
+
+      a {
+        color: var(--color-primary);
+      }
+
+      &:focus a,
+      &:hover a {
+        color: var(--color-primary-hover);
+      }
+    }
+  }
+
+  &:global(-jump-prev),
+  &:global(-jump-next) {
+    outline: 0;
+
+    button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: #666;
+    }
+
+    button:after {
+      display: block;
+      content: '•••';
+    }
+  }
+
+  &:global(-prev),
+  &:global(-jump-prev),
+  &:global(-jump-next) {
+    margin-right: 8px;
+  }
+  &:global(-prev),
+  &:global(-next),
+  &:global(-jump-prev),
+  &:global(-jump-next) {
+    display: inline-block;
+    min-width: var(--paginationItemSize);
+    height: var(--paginationItemSize);
+    color: var(--color-white);
+    font-family: @pagination-font-family;
+    line-height: var(--paginationItemSize);
+    text-align: center;
+    vertical-align: middle;
+    list-style: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  &:global(-prev),
+  &:global(-next) {
+    outline: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+
+    button {
+      color: var(--color-white);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    &:hover {
+      color: var(--color-primary);
+    }
+
+    & :global(-disabled) {
+      color: var(--color-gray-500);
+    }
+
+    .pagination&:global(-item-link) {
+      display: block;
+      width: 100%;
+      height: 100%;
+      font-size: 12px;
+      text-align: center;
+      outline: none;
+      transition: all 0.3s;
+    }
+
+    &:focus .pagination:global(-item-link),
+    &:hover .pagination:global(-item-link) {
+      color: var(--color-primary);
+    }
+  }
+
+  &:global(-prev) button:after {
+    content: '‹';
+    display: block;
+  }
+
+  &:global(-next) button:after {
+    content: '›';
+    display: block;
+  }
+
+  &:global(-disabled) {
+    &,
+    &:hover,
+    &:focus {
+      cursor: not-allowed;
+      color: var(--color-gray-500);
+      .pagination:global(-item-link) {
+        color: fade(#000, 25%);
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &:global(-slash) {
+    margin: 0 10px 0 5px;
+  }
+
+  &:global(-options) {
+    display: inline-block;
+    margin-left: 16px;
+    vertical-align: middle;
+
+    // IE11 css hack. `*::-ms-backdrop,` is a must have
+    @media all and (-ms-high-contrast: none) {
+      *::-ms-backdrop,
+      & {
+        vertical-align: top;
+      }
+    }
+
+    &:global(-size-changer.rc-select) {
+      display: inline-block;
+      width: auto;
+      margin-right: 8px;
+    }
+
+    &:global(-quick-jumper) {
+      display: inline-block;
+      height: 28px;
+      line-height: 28px;
+      vertical-align: top;
+
+      input {
+        width: 50px;
+        margin: 0 8px;
+      }
+    }
+  }
+
+  &:global(-simple) &:global(-prev),
+  &:global(-simple) &:global(-next) {
+    height: var(--paginationItemSize);
+    line-height: var(--paginationItemSize);
+    vertical-align: top;
+    .pagination:global(-item-link) {
+      height: var(--paginationItemSize);
+      background-color: transparent;
+      &::after {
+        height: var(--paginationItemSize);
+        line-height: var(--paginationItemSize);
+      }
+    }
+  }
+
+  &:global(-simple) &:global(-simple-pager) {
+    display: inline-block;
+    height: var(--paginationItemSize);
+    margin-right: 8px;
+
+    input {
+      box-sizing: border-box;
+      height: 100%;
+      margin-right: 8px;
+      padding: 0 6px;
+      text-align: center;
+      border-radius: 2px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+  }
+
+  // ============================ Disabled ============================
+  &:global(-disabled) {
+    cursor: not-allowed;
+
+    .pagination:global(-item) {
+      background: hsv(0, 0, 96%);
+      cursor: not-allowed;
+
+      a {
+        color: fade(#000, 25%);
+        background: transparent;
+        cursor: not-allowed;
+      }
+
+      &:global(-active) {
+        border-color: transparent;
+        a {
+          color: @pagination-item-disabled-color-active;
+        }
+      }
+    }
+
+    .pagination:global(-item-link) {
+      color: fade(#000, 25%);
+      background: hsv(0, 0, 96%);
+      border-color: #d9d9d9;
+      cursor: not-allowed;
+    }
+
+    .pagination:global(-item-link-icon) {
+      opacity: 0;
+    }
+
+    .pagination:global(-item-ellipsis) {
+      opacity: 1;
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .pagination:global(-item) {
+    &:global(-after-jump-prev),
+    &:global(-before-jump-next) {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .pagination:global(-options) {
+    display: none;
+  }
+}

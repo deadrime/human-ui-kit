@@ -62,7 +62,7 @@ export const titleFontSize: Record<DisplayProfileSize, FontSize> = {
   large: 'body1',
 };
 
-type DisplayProfileProps<P extends Record<string, unknown>, R extends Record<string, (profile: P) => React.ReactNode>> = Omit<HTMLProps<HTMLDivElement>, 'ref' | 'size'> & {
+export type DisplayProfileProps<P extends Record<string, unknown>, R extends Record<string, (profile: P) => React.ReactNode>> = Omit<HTMLProps<HTMLDivElement>, 'ref' | 'size'> & {
   profile: P,
   avatar?: React.ReactElement, // Custom avatar
   avatarAlign?: 'flex-start' | 'center',

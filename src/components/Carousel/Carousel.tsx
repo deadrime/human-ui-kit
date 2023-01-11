@@ -4,7 +4,7 @@ import { Navigation, Pagination, FreeMode, SwiperOptions, Keyboard, Mousewheel }
 import ArrowLeftIcon from '@icons/arrow-left.svg';
 import ArrowRightIcon from '@icons/arrow-right.svg';
 import classNames from 'classnames';
-import IconButton from '@components/Button/IconButton';
+import IconButton from '@components/buttons/IconButton';
 import styles from './Carousel.module.less';
 import 'swiper/css';
 

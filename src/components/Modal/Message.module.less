@@ -1,0 +1,80 @@
+@notificationPrefixCls: rc-notification;
+
+.fade-effect() {
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+  animation-fill-mode: both;
+}
+
+.message {
+  position: fixed;
+  z-index: 1000;
+  display: flex;
+  max-height: 100vh;
+  overflow-y: auto;
+  align-items: flex-end;
+
+  &:global(-top) {
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &:global(-bottomLeft) {
+    bottom: 20px;
+    left: 8px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &:global(-notice) {
+    background: var(--color-gray-800);
+    color: var(--color-white);
+    padding: 8px 12px;
+    border-radius: 8px;
+    position: relative;
+
+    &:global(-closable) {
+      padding-right: 26px;
+    }
+
+    &:global(-close) {
+      position: absolute;
+      right: 12px;
+      top: 4px;
+      cursor: pointer;
+    }
+
+    & + .message:global(-notice) {
+      margin-top: 4px;
+    }
+
+    &.success {
+      color: var(--color-white);
+    }
+
+    &.error {
+      color: var(--color-white);
+    }
+
+    &:global(.fade) {
+      overflow: hidden;
+      transition: all 0.3s;
+
+      &:global(-appear-start) {
+        opacity: 0;
+      }
+  
+      &:global(-appear-active) {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.messageContent {
+  display: flex;
+  gap: 6px;
+}

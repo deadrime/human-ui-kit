@@ -1,0 +1,39 @@
+.expander {
+  --expander-spacing: 12px;
+  --expander-border-radius: 12px;
+
+  padding: var(--expander-spacing);
+  border: 2px solid var(--color-gray-800);
+  border-radius: var(--expander-border-radius);  
+
+  .expanderInner {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .expanderHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    list-style: none;
+    outline: none;
+
+    &::marker {
+      content: none;
+    }
+
+    &::-webkit-details-marker {
+      display: none; // Remove arrow
+    }
+  }
+
+  &.expanderOpen {
+    .expanderBody {
+      margin-top: var(--expander-spacing);
+    }
+  }
+}
