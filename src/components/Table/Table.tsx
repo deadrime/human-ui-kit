@@ -8,12 +8,12 @@ import {
   ColumnDef,
   Row,
 } from '@tanstack/react-table';
-import Text from 'ui/components/typography/Text';
-import IconButton from 'ui/components/buttons/IconButton';
+import Text from '@components/Text';
+import IconButton from '@components/buttons/IconButton';
 import classNames from 'classnames';
 import ObservableLoadMore from '../ObservableLoadMore/ObservableLoadMore';
-import ArrowDownIcon from 'ui/components/icons/arrow-down.svg';
-import LoadingIcon from 'ui/components/icons/loading.svg';
+import ArrowDownIcon from '@icons/arrow-down.svg';
+import LoadingIcon from '@icons/loading.svg';
 
 export { createColumnHelper } from '@tanstack/react-table';
 
