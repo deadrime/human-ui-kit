@@ -6,6 +6,8 @@ export type CardProps = {
   children: string | React.ReactElement | React.ReactElement[]
   style?: CSSProperties;
   className?: string;
+  tabIndex?: number;
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void
 }
 
 const Card = forwardRef<HTMLDivElement, CardProps>(({ children, className, ...props }, ref) => {
