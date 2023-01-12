@@ -18,13 +18,16 @@ export interface FollowButtonProps extends ButtonProps {
 const FollowButton: React.FC<FollowButtonProps> = ({
   isFollowing,
   onToggle,
-  followMessage,
-  unfollowMessage,
-  followText,
-  unfollowText,
-  followingText,
+  followMessage = 'You\'re now following!',
+  unfollowMessage = 'You\'re no longer following!',
+  followText = 'Follow',
+  unfollowText = 'Unfollow',
+  followingText = 'Following',
   loading,
   className,
+  size = 'small',
+  variant = 'secondary',
+  outlined = true,
   ...props
 }) => {
   const { message } = useModal();
@@ -48,11 +51,11 @@ const FollowButton: React.FC<FollowButtonProps> = ({
   const followButton = (
     <Button
       {...props}
-      variant="secondary"
-      outlined
+      variant={variant}
+      outlined={outlined}
       loading={loading}
       onClick={handleClick}
-      size="small"
+      size={size}
       className={classNames(className, styles.followButton, {
         [styles.isFollowing]: isFollowing,
       })}

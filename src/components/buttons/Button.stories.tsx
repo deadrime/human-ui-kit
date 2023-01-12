@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meta } from "@storybook/react";
 import Button, { ButtonProps } from "./Button";
+import FollowButton, { FollowButtonProps } from './FollowButton';
 
 export default {
   component: Button,

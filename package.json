@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://gitlab.com/api/v4/projects/30243033/packages/npm/"
   },
-  "version": "0.0.21",
+  "version": "0.0.23",
   "description": "Human UI kit",
   "scripts": {
     "storybook": "storybook dev -p 6006",

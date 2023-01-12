@@ -26,7 +26,7 @@ export const parameters = {
 }
 
 const withThemeProvider = (Story, context) => {
-  const currentTheme = context.parameters.backgrounds.values.find(i => i.value === context.globals.backgrounds.value).name
+  const currentTheme = context.parameters?.backgrounds?.values?.find(i => i?.value === context.globals.backgrounds?.value)?.name || 'dark';
 
   return (
     <ThemeConfigProvider config={{ theme: currentTheme }}>
