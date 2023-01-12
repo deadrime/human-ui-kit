@@ -1,9 +1,10 @@
 import classNames from 'classnames';
-import React, { forwardRef, HTMLProps } from 'react';
+import React, { CSSProperties, forwardRef } from 'react';
 import styles from './Card.module.less';
 
-export interface CardProps extends HTMLProps<HTMLDivElement> {
+export type CardProps = {
   children: string | React.ReactElement | React.ReactElement[]
+  style?: CSSProperties;
   className?: string;
 }
 

@@ -4,6 +4,8 @@ import styles from './DisplayProfile.module.less';
 import { AVATAR_SIZES } from '../Avatar/constants';
 import classNames from 'classnames';
 import Skeleton from '../Skeleton/Skeleton';
+import InternalLink from '@components/InternalLink/InternalLink';
+import Avatar from '@components/Avatar';
 
 export type DisplayProfileTextProps<P extends Record<string, unknown>, R extends Record<string, (profile: P) => React.ReactNode>> = {
   profile: P,
@@ -80,6 +82,8 @@ export type DisplayProfileProps<P extends Record<string, unknown>, R extends Rec
   childrenSketon?: React.ReactElement,
   contentWrapperStyles?: React.CSSProperties,
   renderField: R,
+  getAvatarSrc?: (profile: P) => string
+  getAvatarUrl?: (profile: P) => string
 }
 
 export const DisplayProfile = <P extends Record<string, unknown>, R extends Record<string, (profile: P) => React.ReactNode>>({
@@ -100,10 +104,24 @@ export const DisplayProfile = <P extends Record<string, unknown>, R extends Reco
   allowFocus,
   contentWrapperStyles,
   renderField,
+  getAvatarSrc,
+  getAvatarUrl,
   ...props
 }: DisplayProfileProps<P, R>) => (
   <div className={classNames(styles.displayProfileWrapper, styles[size], className)} {...props}>
-    {avatar !== undefined && avatar}
+    {avatar !== undefined ? avatar : (
+      <InternalLink
+        href={getAvatarUrl?.(profile) || '/'}
+        tabIndex={allowFocus ? 0 : -1}
+        className={styles.avatarLink}
+        style={{
+          alignSelf: avatarAlign || (children ? 'flex-start' : undefined),
+          pointerEvents: profile ? 'auto' : 'none',
+        }}
+      >
+        <Avatar src={getAvatarSrc?.(profile) || '/'} size={size} className={styles.avatar} />
+      </InternalLink>
+    )}
     <div className={styles.displayProfileContentWrapper} style={contentWrapperStyles}>
       <DisplayProfileTitle
         key={`title-${profile?.userID}`}
