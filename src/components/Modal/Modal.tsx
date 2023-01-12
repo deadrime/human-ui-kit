@@ -8,6 +8,7 @@ import Text from '@components/Text';
 import styles from './Modal.module.less';
 import { useModalContext } from './ModalContextProvider';
 import { ClientOnly } from '@components/ClientOnly';
+import { generateRandomId } from '@utils/generateRandomId';
 
 const modalRoot = typeof document !== 'undefined' ? document.getElementById('modal-root') : null;
 
@@ -30,7 +31,7 @@ export type ModalProps = {
 } & Pick<CSSProperties, 'width' | 'minWidth' | 'maxWidth' | 'height' | 'minHeight' | 'maxHeight'>
 
 function useModalId() {
-  const modalIdRef = useRef<string>(String(Math.random()));
+  const modalIdRef = useRef<string>(generateRandomId());
   return modalIdRef.current;
 }
 

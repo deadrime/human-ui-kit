@@ -1,5 +1,5 @@
+import { generateRandomId } from '@utils/generateRandomId';
 import classNames from 'classnames';
-import { nanoid } from 'nanoid';
 import React, { useMemo, useRef } from 'react';
 import { useModal } from '../Modal/useModal';
 import styles from './FileUpload.module.less';
@@ -27,7 +27,7 @@ const FileUpload: React.FC<FileUploadProps> = ({
   accept,
   className,
 }) => {
-  const id = useMemo(() => nanoid(), []);
+  const id = useMemo(() => generateRandomId(), []);
   const inputRef = useRef<HTMLInputElement>(null);
   const { message } = useModal();
 

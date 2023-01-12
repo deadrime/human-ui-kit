@@ -1,5 +1,5 @@
 import React from 'react'
-import { nanoid } from 'nanoid';
+import { generateRandomId } from '@utils/generateRandomId';
 import { useCallback, useEffect } from 'react';
 import { useModalContext } from '@components/Modal/ModalContextProvider';
 import { ShowMessage } from '@components/Modal/useMessage';
@@ -11,7 +11,7 @@ export let message: ShowMessage = (() => {}) as unknown as ShowMessage;
 export const useSystemModals = () => {
   const modalContext = useModalContext();
   const confirmModal = useCallback((props: ConfirmationProps) => {
-    const confirmationModalId = nanoid();
+    const confirmationModalId = generateRandomId();
     const modal = <ConfirmModal id={confirmationModalId} {...props} />;
     modalContext.showConfirmationModal(confirmationModalId, modal);
   }, [modalContext]);

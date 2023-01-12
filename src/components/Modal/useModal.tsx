@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { nanoid } from 'nanoid';
+import { generateRandomId } from '@utils/generateRandomId';
 import { useModalContext } from './ModalContextProvider';
 import { Modal } from './Modal';
 import Button from '@components/buttons';
@@ -81,7 +81,7 @@ export const useModal = () => {
   const modalContext = useModalContext();
 
   const confirm = (props: ConfirmationProps) => {
-    const confirmationModalId = nanoid();
+    const confirmationModalId = generateRandomId();
     const modal = <ConfirmModal id={confirmationModalId} {...props} />;
     modalContext.showConfirmationModal(confirmationModalId, modal);
   };
