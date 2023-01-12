@@ -11,6 +11,7 @@ export * from './DispalyProfile';
 export * from './DisplayCurrency';
 export * from './Dropdown';
 export * from './Expander';
+export * from './Explanation';
 export * from './FileUpload';
 export * from './Form';
 export * from './input';

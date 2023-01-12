@@ -1,6 +1,10 @@
 :root {
   --globalHorizontalPadding: 18px;
+  --layoutHorizonalPadding: 14px;
   --leftSiderPaddingLeft: 32px;
+  --border-radius-base: 10px;
+
+  /* Colors */
   --color-primary: #00F3FF;
   --color-primary-hover: #40f6ff;
   --color-primary-disabled:#0a3436;
@@ -23,6 +27,7 @@
   --color-dark-red: #A14B4B;
   --text-color: var(--color-white);
 
+  /* Card settings  */
   --cardSpacingDesktop: var(--cardSpacingDesktopVertical) var(--cardSpacingDesktopHorizontal);
   --cardSpacingDesktopHorizontal: 16px;
   --cardSpacingDesktopVertical: 12px;
@@ -31,7 +36,7 @@
   --cardBorderColor: var(--color-gray-800);
   --cardBorderWidth: 2px;
 
-  --layoutHorizonalPadding: 14px;
+  /* Font settings  */
 
   --base-font-size: 16px;
   /* body-2 */
