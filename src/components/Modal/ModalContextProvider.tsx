@@ -1,4 +1,4 @@
-import React, { createContext, FC, ReactElement, useContext, useMemo, useState } from 'react';
+import React, { createContext, FC, ReactNode, useContext, useMemo, useState } from 'react';
 import { useIsomorphicLayoutEffect } from 'react-use';
 import styles from './ModalContextProvider.module.less';
 import { ShowMessage, useMessage } from './useMessage';
@@ -20,7 +20,7 @@ const ModalContext = createContext<ModalContextValue>({
 });
 
 interface ModalContextProviderProps {
-  children: ReactElement
+  children: ReactNode
 }
 
 export function useModalContext () {

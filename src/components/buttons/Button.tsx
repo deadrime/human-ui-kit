@@ -76,12 +76,12 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
     >
       {loading && <Spinner size={size} />}
       {!loading && icon}
-      {(typeof children === 'string') ? <Text
+      {children && <Text
         {...defaultTextProps}
         {...textProps}
       >
         {children}
-      </Text> : children}
+      </Text>}
     </button>
   );
 });

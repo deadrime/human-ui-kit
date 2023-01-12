@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://gitlab.com/api/v4/projects/30243033/packages/npm/"
   },
-  "version": "0.0.13",
+  "version": "0.0.19",
   "description": "Human UI kit",
   "scripts": {
     "storybook": "storybook dev -p 6006",
@@ -55,6 +55,7 @@
   "dependencies": {
     "@tanstack/react-table": "^8.7.6",
     "classnames": "^2.3.2",
+    "dayjs": "^1.11.7",
     "focus-trap-react": "^10.0.2",
     "lodash": "^4.17.21",
     "nanoid": "^4.0.0",

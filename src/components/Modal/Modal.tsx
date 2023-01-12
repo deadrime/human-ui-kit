@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import FocusTrap from 'focus-trap-react';
-import { nanoid } from 'nanoid';
 import React, { CSSProperties, FC, useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import IconClose from '@icons/close.svg';
@@ -31,7 +30,7 @@ export type ModalProps = {
 } & Pick<CSSProperties, 'width' | 'minWidth' | 'maxWidth' | 'height' | 'minHeight' | 'maxHeight'>
 
 function useModalId() {
-  const modalIdRef = useRef<string>(nanoid());
+  const modalIdRef = useRef<string>(String(Math.random()));
   return modalIdRef.current;
 }
 

@@ -1,4 +1,5 @@
 import React, { createContext } from "react";
+import { ModalContextProvider } from "../Modal";
 
 export type ThemeConfig = {
   theme?: 'dark' | 'white'
@@ -22,7 +23,9 @@ export const ThemeConfigProvider: React.FC<ThemeConfigProviderProps> = ({ childr
       ...defaultConfig,
       ...config,
     }}>
-      {children}
+      <ModalContextProvider>
+        {children}
+      </ModalContextProvider>
     </ThemeConfigContext.Provider>
   );
 };
