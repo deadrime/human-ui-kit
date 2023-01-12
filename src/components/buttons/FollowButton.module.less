@@ -1,0 +1,38 @@
+.followButton {
+  background: transparent !important;
+  min-width: 121px;
+
+  &:hover:not(.btn--disabled),
+  &:focus:not(.btn--disabled) {
+    --textHoverColor: var(--color-primary);
+    --onHoverBorderColor: var(--color-primary);
+
+    &.isFollowing {
+      --textHoverColor: var(--color-red);
+      --onHoverBorderColor: var(--textHoverColor);
+    }
+  }
+
+  &:active:not(.btn--disabled, .btn--loading) {
+    --textActiveColor: var(--color-blue-500);
+    --onActiveBorderColor: var(--color-blue-500);
+
+    &.isFollowing {
+      --textActiveColor: var(--color-dark-red);
+      --onActiveBorderColor: var(--textActiveColor);
+    }
+  }
+
+  &.btn--disabled {
+    --textDisabledColor: var(--color-gray-300);
+    --disabledBorderColor: var(--color-gray-300);
+  }
+
+  --textLoadingColor: var(--color-primary);
+  --loadingBorderColor: var(--color-primary);
+
+  &.isFollowing {
+    --textLoadingColor: var(--color-red);
+    --loadingBorderColor: var(--textLoadingColor);
+  }
+}
