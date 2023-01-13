@@ -21,6 +21,7 @@ export * from './Modal';
 export * from './ObservableLoadMore';
 export * from './Options';
 export * from './Pagination';
+export * from './ProfileList';
 export * from './Progress';
 export * from './Select';
 export * from './Skeleton';

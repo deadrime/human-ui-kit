@@ -7,16 +7,15 @@
     "strict": false,
     "allowJs": true,
     "skipLibCheck": true,
-
     // paths
     "baseUrl": "src",
     "paths": {
       "@components/*": ["./components/*"],
       "@icons/*": ["./icons/*"],
       "@hooks/*": ["./hooks/*"],
-      "@utils/*": ["./utils/*"]
+      "@utils/*": ["./utils/*"],
+      "@const/*": ["./constants/*"]
     },
-    // Added
     "jsx": "react",
     "module": "ESNext",
     "declaration": true,

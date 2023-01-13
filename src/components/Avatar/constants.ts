@@ -22,8 +22,8 @@ export enum AVATAR_QUALITY {
 }
 
 export type AvatarSize = {
-  mobile: number,
-  desktop: number
+  mobile: number | string,
+  desktop: number | string
 }
 
 export const avatarSizesMap: Record<AVATAR_SIZES, AvatarSize> = {

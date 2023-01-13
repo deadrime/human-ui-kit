@@ -1,0 +1,50 @@
+.profileList {
+  display: flex;
+  --size: 32px;
+  --borderSize: 3px;
+  --itemShift: 10px;
+  align-items: center;
+  padding-right: var(--itemShift);
+}
+
+.rightAligned {
+  justify-content: flex-end;
+}
+
+.profileListSmall {
+  --size: 26px;
+  --borderSize: 2px;
+  --itemShift: 8px;
+}
+
+.profileListItem {
+  width: var(--size);
+  height: var(--size);
+  border: var(--borderSize) solid var(--borderColor);
+  box-sizing: border-box;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: calc(var(--itemShift) * -1);
+  transform: translateX(var(--itemShift));
+  z-index: var(--index);
+}
+
+.otherItems {
+  background: var(--otherItemsBackground);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.zeroResults {
+  height: var(--size);
+  display: flex;
+  align-items: center;
+  line-height: 18px;
+}
+
+.profileListItemSkeleton {
+  width: 100%;
+  height: 100%;
+}

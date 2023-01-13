@@ -23,8 +23,8 @@ const Avatar: React.FC<AvatarProps> = ({
   const style = {
     ...userStyle,
     ...typeof size === 'object' && {
-      '--mobileSize': `${size.mobile}px`,
-      '--desktopSize': `${size.desktop}px`,
+      '--mobileSize': typeof size.mobile === 'number' ? `${size.mobile}px` : size.mobile,
+      '--desktopSize': typeof size.desktop === 'number' ? `${size.desktop}px` : size.desktop,
     } as React.CSSProperties,
   };
 
