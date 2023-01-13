@@ -6,3 +6,5 @@ export { TextInput } from './TextInput'
 export type { TextInputProps } from './TextInput'
 export { TextInputWrapper, PasswordInputWrapper } from './TextInputWrapper';
 export * from './types';
+export * from './CurrencyInput';
+export * from './CurrencyInputWrapper';
