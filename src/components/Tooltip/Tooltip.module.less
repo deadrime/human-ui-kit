@@ -1,18 +1,36 @@
 .overlay {
   --overlayMaxWidth: 300px;
+  --tooltipColor: #141617;
 
   &:global(.rc-tooltip) {
     opacity: 1;
   }
 
   & :global(.rc-tooltip-inner) {
-    background: #141617;
+    background: var(--tooltipColor);
     font-size: var(--font-size-body1);
     line-height: var(--line-height-body1);
     max-width: var(--overlayMaxWidth);
+    min-height: auto;
   }
 
-  & :global(.rc-tooltip-content > .rc-tooltip-arrow) {
-    border-top-color: #141617;
+  &:global(.rc-tooltip-placement-bottom .rc-tooltip-arrow) {
+    border-bottom-color: var(--tooltipColor);
+  }
+
+  &:global(.rc-tooltip-placement-top .rc-tooltip-arrow) {
+    border-top-color: var(--tooltipColor);
+  }
+
+  &:global(.rc-tooltip-placement-left .rc-tooltip-arrow) {
+    border-left-color: var(--tooltipColor);
+  }
+
+  &:global(.rc-tooltip-placement-right .rc-tooltip-arrow) {
+    border-right-color: var(--tooltipColor);
+  }
+  
+  & :global(.rc-tooltip-placement-bottomRight .rc-tooltip-arrow) {
+    border-bottom-color: var(--tooltipColor);
   }
 }

@@ -66,6 +66,7 @@
     "rc-switch": "^4.0.0",
     "rc-tooltip": "^5.2.2",
     "react-animate-height": "^3.1.0",
+    "react-countdown-circle-timer": "^3.1.0",
     "react-loading-skeleton": "^3.1.0",
     "react-responsive": "^9.0.2",
     "react-transition-group": "^4.4.5",
