@@ -28,10 +28,11 @@ const iconByType = {
 const Explanation: React.FC<ExplanationProps> = ({
   children,
   type = 'info',
+  className,
   ...props
 }) => {
   return (
-    <div className={classNames(styles.wrapper, styles[type])} {...props}>
+    <div className={classNames(styles.wrapper, styles[type], className)} {...props}>
       {iconByType[type]}
       <Text color={textColorByType[type]} size="body1">{children}</Text>
     </div>
