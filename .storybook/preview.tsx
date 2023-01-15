@@ -1,5 +1,6 @@
 import React from 'react';
-import '../public/themes/dark.css';
+import darkTheme from '../public/themes/dark.json';
+import whiteTheme from '../public/themes/white.json';
 import { ThemeConfigProvider } from '../src/components/theme/themeContext'
 
 export const parameters = {
@@ -28,8 +29,10 @@ export const parameters = {
 const withThemeProvider = (Story, context) => {
   const currentTheme = context.parameters?.backgrounds?.values?.find(i => i?.value === context.globals.backgrounds?.value)?.name || 'dark';
 
+  const variables = currentTheme === 'dark' ? darkTheme : whiteTheme;
+
   return (
-    <ThemeConfigProvider config={{ theme: currentTheme }}>
+    <ThemeConfigProvider config={{ theme: currentTheme, variables }}>
       <Story />
     </ThemeConfigProvider>
   )

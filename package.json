@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://gitlab.com/api/v4/projects/30243033/packages/npm/"
   },
-  "version": "0.0.30",
+  "version": "0.0.31",
   "description": "Human UI kit",
   "scripts": {
     "storybook": "storybook dev -p 6006",
@@ -41,12 +41,9 @@
   "main": "dist/human-ui.umd.js",
   "module": "dist/human-ui.es.js",
   "exports": {
-    ".": {
-      "import": "./dist/human-ui.es.js"
-    },
-    "./dist/style.css": {
-      "import": "./dist/style.css",
-      "require": "./dist/style.css"
+    "./dist/*": {
+      "import": "./dist/*",
+      "require": "./dist/*"
     }
   },
   "files": [
