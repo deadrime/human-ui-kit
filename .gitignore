@@ -2,3 +2,5 @@ dist
 node_modules
 .vscode
 .npmrc
+.bashrc
+.zshenv
