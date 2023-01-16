@@ -8,6 +8,7 @@ import lessVariables from './public/config/variables';
 const config = defineConfig({
   plugins: [
     react({
+      exclude: /\.stories\.(t|j)sx?$/,
       jsxRuntime: 'classic',
     }),
     svgr({

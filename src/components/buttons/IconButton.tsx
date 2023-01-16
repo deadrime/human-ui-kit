@@ -28,6 +28,7 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(({
       ref={ref}
       size={size}
       icon={icon}
+      pureChildren
       className={
         classNames('btn--icon-only', {
           [`btn--icon--${shape}`]: shape,

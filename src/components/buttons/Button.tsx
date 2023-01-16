@@ -25,6 +25,7 @@ export interface ButtonProps {
   loading?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   textProps?: Omit<TextProps, 'ref'>;
+  pureChildren?: boolean;
   tabIndex?: number;
 }
 
@@ -44,6 +45,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
   style,
   onClick,
   textProps = {},
+  pureChildren,
   ...props
 }, ref) => {
   const defaultTextProps: Pick<TextProps, 'size' | 'family' | 'bold'> = {
@@ -76,12 +78,12 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
     >
       {loading && <Spinner size={size} />}
       {!loading && icon}
-      {children && <Text
+      {children && !pureChildren ? <Text
         {...defaultTextProps}
         {...textProps}
       >
         {children}
-      </Text>}
+      </Text> : children}
     </button>
   );
 });

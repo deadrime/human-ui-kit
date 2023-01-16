@@ -1,7 +1,7 @@
 import React from 'react';
 import darkTheme from '../public/themes/dark.json';
 import whiteTheme from '../public/themes/white.json';
-import { ThemeConfigProvider } from '../src/components/theme/themeContext'
+import { ThemeConfigProvider, useThemeConfig } from '../src/components/theme/themeContext'
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -26,14 +26,24 @@ export const parameters = {
   },
 }
 
+const StyledWrapper = ({ children }) => {
+  const config = useThemeConfig();
+
+  return <div style={config.variables}>
+    {children}
+  </div>
+}
+
 const withThemeProvider = (Story, context) => {
   const currentTheme = context.parameters?.backgrounds?.values?.find(i => i?.value === context.globals.backgrounds?.value)?.name || 'dark';
 
-  const variables = currentTheme === 'dark' ? darkTheme : whiteTheme;
+  const tokens = currentTheme === 'dark' ? darkTheme : whiteTheme;
 
   return (
-    <ThemeConfigProvider config={{ theme: currentTheme, variables }}>
-      <Story />
+    <ThemeConfigProvider config={{ theme: currentTheme, tokens }}>
+      <StyledWrapper>
+        <Story />
+      </StyledWrapper>
     </ThemeConfigProvider>
   )
 }

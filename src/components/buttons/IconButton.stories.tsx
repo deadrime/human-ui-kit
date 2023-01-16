@@ -15,3 +15,18 @@ export const Default = {
     outlined: true
   } as IconButtonProps
 }
+
+export const WithCount = {
+  render: (args) => <div><IconButton {...args}/></div>,
+  args: {
+    icon: <IconEye />,
+    variant: 'secondary',
+    outlined: true,
+    count: 10
+  } as IconButtonProps,
+  argTypes: {
+    icon: {
+      disable: true
+    }
+  }
+}
