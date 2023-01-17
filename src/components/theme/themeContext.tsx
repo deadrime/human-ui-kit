@@ -18,7 +18,7 @@ export type ThemeConfigProviderProps = {
   config?: ThemeConfig,
 }
 
-const convertTokensToCssVariables = (tokens: any) => {
+export const convertTokensToCssVariables = (tokens: any) => {
   let result = {};
 
   const convert = (obj, keyPrefix = '-') => {

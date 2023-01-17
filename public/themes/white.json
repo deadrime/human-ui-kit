@@ -13,6 +13,92 @@
       "color-medium": "var(--color-gray-500)"
     }
   },
+  "iconButton": {
+    "primary": {
+      "filled": {
+        "textColor": "var(--color-white)",
+        "backgroundColor": "var(--color-gray-900)",
+        "borderColor": "var(--color-gray-900)",
+        "hovered": {
+          "textColor": "var(--color-white)",
+          "backgroundColor": "var(--color-gray-700)",
+          "borderColor": "var(--color-gray-700)"
+        },
+        "pressed": {
+          "textColor": "var(--color-gray-200)",
+          "backgroundColor": "var(--color-gray-700)",
+          "borderColor": "var(--color-gray-700)"
+        },
+        "disabled": {
+          "textColor": "var(--color-gray-300)",
+          "backgroundColor": "var(--color-gray-900)",
+          "borderColor": "var(--color-gray-900)"
+        }
+      },
+      "outlined": {
+        "textColor": "var(--color-gray-900)",
+        "backgroundColor": "transparent",
+        "borderColor": "var(--color-gray-900)",
+        "hovered": {
+          "textColor": "var(--color-white)",
+          "backgroundColor": "var(--color-gray-900)",
+          "borderColor": "var(--color-gray-900)"
+        },
+        "pressed": {
+          "textColor": "var(--color-gray-200)",
+          "backgroundColor": "var(--color-gray-900)",
+          "borderColor": "var(--color-gray-900)"
+        },
+        "disabled": {
+          "textColor": "var(--color-gray-400)",
+          "backgroundColor": "transparent",
+          "borderColor": "var(--color-gray-400)"
+        }
+      }
+    },
+    "secondary": {
+      "filled": {
+        "textColor": "var(--color-gray-300)",
+        "backgroundColor": "var(--color-gray-50)",
+        "borderColor": "var(--color-gray-50)",
+        "hovered": {
+          "textColor": "var(--color-gray-400)",
+          "backgroundColor": "var(--color-gray-200)",
+          "borderColor": "var(--color-gray-200)"
+        },
+        "pressed": {
+          "textColor": "var(--color-gray-500)",
+          "backgroundColor": "var(--color-gray-300)",
+          "borderColor": "var(--color-gray-300)"
+        },
+        "disabled": {
+          "textColor": "var(--color-gray-200)",
+          "backgroundColor": "var(--color-gray-50)",
+          "borderColor": "var(--color-gray-50)"
+        }
+      },
+      "outlined": {
+        "textColor": "var(--color-gray-300)",
+        "backgroundColor": "transparent",
+        "borderColor": "var(--color-gray-50)",
+        "hovered": {
+          "textColor": "var(--color-gray-400)",
+          "backgroundColor": "var(--color-gray-50)",
+          "borderColor": "var(--color-gray-50)"
+        },
+        "pressed": {
+          "textColor": "var(--color-gray-400)",
+          "backgroundColor": "var(--color-gray-200)",
+          "borderColor": "var(--color-gray-200)"
+        },
+        "disabled": {
+          "textColor": "var(--color-gray-200)",
+          "backgroundColor": "transparent",
+          "borderColor": "var(--color-gray-50)"
+        }
+      }
+    }
+  },
   "globalHorizontalPadding": "18px",
   "layoutHorizonalPadding": "14px",
   "leftSiderPaddingLeft": "32px",
@@ -35,6 +121,7 @@
   "color-gray-300": "#959393",
   "color-gray-200": "#c4c4c4",
   "color-gray-100": "#DBDBDB",
+  "color-gray-50": "#E9E9E9",
   "color-red": "#BB6666",
   "color-dark-red": "#A14B4B",
   "text-color": "var(--color-white)",

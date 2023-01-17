@@ -1,13 +1,55 @@
 :root {
+  --button-primary-color-main: var(--color-primary);
+  --button-primary-color-contrast: var(--color-blue-900);
+  --button-primary-color-neutral: var(--color-blue-500);
+  --button-primary-color-medium: var(--color-blue-500);
+  --button-secondary-color-main: var(--color-gray-200);
+  --button-secondary-color-contrast: var(--color-gray-900);
+  --button-secondary-color-neutral: var(--color-gray-300);
+  --button-secondary-color-medium: var(--color-gray-500);
+  --iconButton-primary-filled-textColor: var(--color-blue-900);
+  --iconButton-primary-filled-backgroundColor: var(--color-primary);
+  --iconButton-primary-filled-borderColor: var(--color-primary);
+  --iconButton-primary-filled-hovered-textColor: var(--color-blue-900);
+  --iconButton-primary-filled-hovered-backgroundColor: var(--color-blue-500);
+  --iconButton-primary-filled-hovered-borderColor: var(--color-blue-500);
+  --iconButton-primary-filled-pressed-textColor: var(--color-blue-900);
+  --iconButton-primary-filled-pressed-backgroundColor: var(--color-blue-500);
+  --iconButton-primary-filled-pressed-borderColor: var(--color-blue-500);
+  --iconButton-primary-filled-disabled-textColor: var(--color-blue-900);
+  --iconButton-primary-filled-disabled-backgroundColor: var(--color-blue-500);
+  --iconButton-primary-filled-disabled-borderColor: var(--color-blue-500);
+  --iconButton-secondary-filled-textColor: var(--color-white);
+  --iconButton-secondary-filled-backgroundColor: var(--color-gray-700);
+  --iconButton-secondary-filled-borderColor: var(--color-gray-700);
+  --iconButton-secondary-filled-hovered-textColor: var(--color-white);
+  --iconButton-secondary-filled-hovered-backgroundColor: var(--color-gray-500);
+  --iconButton-secondary-filled-hovered-borderColor: var(--color-gray-500);
+  --iconButton-secondary-filled-pressed-textColor: var(--color-gray-200);
+  --iconButton-secondary-filled-pressed-backgroundColor: var(--color-gray-700);
+  --iconButton-secondary-filled-pressed-borderColor: var(--color-gray-700);
+  --iconButton-secondary-filled-disabled-textColor: var(--color-gray-300);
+  --iconButton-secondary-filled-disabled-backgroundColor: var(--color-gray-800);
+  --iconButton-secondary-filled-disabled-borderColor: var(--color-gray-800);
+  --iconButton-secondary-outlined-textColor: var(--color-white);
+  --iconButton-secondary-outlined-backgroundColor: transparent;
+  --iconButton-secondary-outlined-borderColor: var(--color-gray-700);
+  --iconButton-secondary-outlined-hovered-textColor: var(--color-white);
+  --iconButton-secondary-outlined-hovered-backgroundColor: var(--color-gray-700);
+  --iconButton-secondary-outlined-hovered-borderColor: var(--color-gray-700);
+  --iconButton-secondary-outlined-pressed-textColor: var(--color-gray-200);
+  --iconButton-secondary-outlined-pressed-backgroundColor: var(--color-gray-800);
+  --iconButton-secondary-outlined-pressed-borderColor: var(--color-gray-800);
+  --iconButton-secondary-outlined-disabled-textColor: var(--color-gray-300);
+  --iconButton-secondary-outlined-disabled-backgroundColor: var(--color-gray-800);
+  --iconButton-secondary-outlined-disabled-borderColor: var(--color-gray-800);
   --globalHorizontalPadding: 18px;
   --layoutHorizonalPadding: 14px;
   --leftSiderPaddingLeft: 32px;
   --border-radius-base: 10px;
-
-  /* Colors */
   --color-primary: #00F3FF;
   --color-primary-hover: #40f6ff;
-  --color-primary-disabled:#0a3436;
+  --color-primary-disabled: #0a3436;
   --color-green: #9eecd9;
   --color-blue: #0e435c;
   --color-blue-500: #00889A;
@@ -26,8 +68,6 @@
   --color-red: #BB6666;
   --color-dark-red: #A14B4B;
   --text-color: var(--color-white);
-
-  /* Card settings  */
   --cardSpacingDesktop: var(--cardSpacingDesktopVertical) var(--cardSpacingDesktopHorizontal);
   --cardSpacingDesktopHorizontal: 16px;
   --cardSpacingDesktopVertical: 12px;
@@ -35,29 +75,19 @@
   --cardBorderRadius: 16px;
   --cardBorderColor: var(--color-gray-800);
   --cardBorderWidth: 2px;
-
-  /* Font settings  */
-
   --base-font-size: 16px;
-  /* body-2 */
   --font-size-body2: 0.8rem;
   --line-height-body2: 0.9375rem;
-  /* body-1 */
   --font-size-body1: 1rem;
   --line-height-body1: 1.25rem;
-  /* title-5 */
   --font-size-title5: 18px;
   --line-height-title5: 22px;
-  /* title-4 */
   --font-size-title4: 1.25rem;
   --line-height-title4: 1.5063rem;
-  /* title-3 */
   --font-size-title3: 1.5625rem;
   --line-height-title3: 1.8875rem;
-  /* title-2 */
   --font-size-title2: 1.9531rem;
   --line-height-title2: 2.3563rem;
-  /* title-1 */
   --font-size-title1: 2.4413rem;
   --line-height-title1: 2.9438rem;
 }

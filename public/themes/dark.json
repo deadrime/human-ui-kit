@@ -13,6 +13,72 @@
       "color-medium": "var(--color-gray-500)"
     }
   },
+  "iconButton": {
+    "primary": {
+      "filled": {
+        "textColor": "var(--color-blue-900)",
+        "backgroundColor": "var(--color-primary)",
+        "borderColor": "var(--color-primary)",
+        "hovered": {
+          "textColor": "var(--color-blue-900)",
+          "backgroundColor": "var(--color-blue-500)",
+          "borderColor": "var(--color-blue-500)"
+        },
+        "pressed": {
+          "textColor": "var(--color-blue-900)",
+          "backgroundColor": "var(--color-blue-500)",
+          "borderColor": "var(--color-blue-500)"
+        },
+        "disabled": {
+          "textColor": "var(--color-blue-900)",
+          "backgroundColor": "var(--color-blue-500)",
+          "borderColor": "var(--color-blue-500)"
+        }
+      }
+    },
+    "secondary": {
+      "filled": {
+        "textColor": "var(--color-white)",
+        "backgroundColor": "var(--color-gray-700)",
+        "borderColor": "var(--color-gray-700)",
+        "hovered": {
+          "textColor": "var(--color-white)",
+          "backgroundColor": "var(--color-gray-500)",
+          "borderColor": "var(--color-gray-500)"
+        },
+        "pressed": {
+          "textColor": "var(--color-gray-200)",
+          "backgroundColor": "var(--color-gray-700)",
+          "borderColor": "var(--color-gray-700)"
+        },
+        "disabled": {
+          "textColor": "var(--color-gray-300)",
+          "backgroundColor": "var(--color-gray-800)",
+          "borderColor": "var(--color-gray-800)"
+        }
+      },
+      "outlined": {
+        "textColor": "var(--color-white)",
+        "backgroundColor": "transparent",
+        "borderColor": "var(--color-gray-700)",
+        "hovered": {
+          "textColor": "var(--color-white)",
+          "backgroundColor": "var(--color-gray-700)",
+          "borderColor": "var(--color-gray-700)"
+        },
+        "pressed": {
+          "textColor": "var(--color-gray-200)",
+          "backgroundColor": "var(--color-gray-800)",
+          "borderColor": "var(--color-gray-800)"
+        },
+        "disabled": {
+          "textColor": "var(--color-gray-300)",
+          "backgroundColor": "var(--color-gray-800)",
+          "borderColor": "var(--color-gray-800)"
+        }
+      }
+    }
+  },
   "globalHorizontalPadding": "18px",
   "layoutHorizonalPadding": "14px",
   "leftSiderPaddingLeft": "32px",
