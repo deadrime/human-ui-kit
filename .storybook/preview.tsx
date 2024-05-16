@@ -5,7 +5,6 @@ import { ThemeConfigProvider, useThemeConfig } from '../src/components/theme/the
 import '../src/global.less';
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -50,3 +49,4 @@ const withThemeProvider = (Story, context) => {
 }
 
 export const decorators = [withThemeProvider];
+export const tags = ['autodocs'];

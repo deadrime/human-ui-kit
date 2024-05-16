@@ -1,15 +1,17 @@
 const config = {
-  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  stories: ["../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: ['@storybook/addon-essentials'],
-  core: {
-    builder: '@storybook/builder-vite'
-  },
+  core: {},
+
   framework: {
     name: '@storybook/react-vite',
     options: {}
   },
-  docs: {
-    autodocs: true
+
+  docs: {},
+
+  typescript: {
+    reactDocgen: "react-docgen-typescript"
   }
 };
 export default config;
