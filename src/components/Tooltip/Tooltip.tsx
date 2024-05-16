@@ -1,11 +1,14 @@
 import React from 'react';
 import RcTooltip from 'rc-tooltip';
-import { TooltipProps } from 'rc-tooltip/lib/Tooltip';
+import type { TooltipProps } from 'rc-tooltip/es/Tooltip';
 import styles from './Tooltip.module.less';
 import 'rc-tooltip/assets/bootstrap.css';
 import classNames from 'classnames';
 
 const Tooltip: React.FC<TooltipProps> = (props) => {
+  if (!props.overlay) {
+    return props.children;
+  }
   return (
     <RcTooltip
       {...props}

@@ -10,8 +10,6 @@ import { useModalContext } from './ModalContextProvider';
 import { ClientOnly } from '@components/ClientOnly';
 import { generateRandomId } from '@utils/generateRandomId';
 
-const modalRoot = typeof document !== 'undefined' ? document.getElementById('modal-root') : null;
-
 export type ModalProps = {
   open: boolean;
   onClose: () => void;
@@ -54,7 +52,7 @@ export const Modal: FC<ModalProps> = ({
 
   width,
   minWidth = 520,
-  maxWidth,
+  maxWidth = 560,
   height,
   minHeight,
   maxHeight,
@@ -94,110 +92,114 @@ export const Modal: FC<ModalProps> = ({
     }
   }, [open, destroyOnClose]);
 
-  if (!modalRoot || !shouldBeMounted) {
+  if (!shouldBeMounted) {
     return null;
   }
 
-  return ReactDOM.createPortal(
+  return (
     <ClientOnly>
-      <FocusTrap
-        active={isFocusTrapped}
-        focusTrapOptions={{
-          allowOutsideClick: closeable,
-          initialFocus: () => {
-            if (modalRef.current == null) {
-              return undefined;
-            }
+      {ReactDOM.createPortal(
+        <FocusTrap
+          active={isFocusTrapped}
+          focusTrapOptions={{
+            allowOutsideClick: closeable,
+            initialFocus: () => {
+              if (modalRef.current == null) {
+                return undefined;
+              }
 
-            // First try to locate a custom autofocus element
-            const autofocusElement = modalRef.current.querySelector('.modal-autofocus');
-            if (autofocusElement) {
-              return autofocusElement as HTMLElement;
-            }
+              // First try to locate a custom autofocus element
+              const autofocusElement = modalRef.current.querySelector('.modal-autofocus');
+              if (autofocusElement) {
+                return autofocusElement as HTMLElement;
+              }
 
-            // Then try to locate the first interactive control
-            const firstElement = modalRef.current.querySelector('button, input, textarea, select, details');
-            if (firstElement) {
-              return firstElement as HTMLElement;
-            }
+              // Then try to locate the first interactive control
+              const firstElement = modalRef.current.querySelector('button, input, textarea, select, details');
+              if (firstElement) {
+                return firstElement as HTMLElement;
+              }
 
-            // Otherwise, focus the modal element itself
-            return modalRef.current;
-          },
-        }}
-      >
-        <div
-          className={classNames(styles.modalWrapper, wrapperClassName, {
-            [styles.hidden]: !open,
-          })}
-          style={{
-            zIndex: layer * 200,
-            ...style,
+              // Otherwise, focus the modal element itself
+              return modalRef.current;
+            },
           }}
         >
-          <div className={styles.closeArea} onClick={onClose} />
           <div
-            ref={modalRef}
-            tabIndex={-1}
-            className={
-              classNames(styles.modal, {
-                [styles.withShadow]: !noShadow,
-                [styles.centered]: centered,
-              }, modalClassName)
-            }
-            onKeyDown={(event) => {
-              if (event.key === 'Escape') {
-                onClose();
-              }
-            }}
+            className={classNames(styles.modalWrapper, wrapperClassName, {
+              [styles.hidden]: !open,
+            })}
             style={{
-              width: width,
-              height: height,
-              minWidth: minWidth,
-              maxWidth: maxWidth,
-              minHeight: minHeight,
-              maxHeight: maxHeight,
+              zIndex: layer * 200,
+              ...style,
+            }}
+            onClick={e => {
+              e.stopPropagation();
             }}
           >
-            {!title && closeable &&
-              <IconButton
-                icon={<IconClose />}
-                transparent
-                variant="secondary"
-                size="small"
-                className={styles.absoluteCloseButton}
-                onClick={() => onClose()}
-              />
-            }
-            {title && <div className={styles.modalHeader}>
-              {typeof title === 'string' ?
-                <Text
-                  extrabold
-                  size="body1"
-                  md={'title4'}
-                  family="syne"
-                  className={styles.modalTitle}
-                >
-                  {title}
-                </Text> : title
+            <div
+              className={styles.closeArea}
+              onClick={e => {
+                e.stopPropagation();
+                onClose?.();
+              }}
+            />
+            <div
+              ref={modalRef}
+              tabIndex={-1}
+              className={
+                classNames(styles.modal, {
+                  [styles.withShadow]: !noShadow,
+                  [styles.centered]: centered,
+                }, modalClassName)
               }
-              {closeable &&
+              onKeyDown={(event) => {
+                if (event.key === 'Escape') {
+                  onClose();
+                }
+              }}
+              style={{
+                width: width,
+                height: height,
+                minWidth: minWidth,
+                maxWidth: maxWidth,
+                minHeight: minHeight,
+                maxHeight: maxHeight,
+              }}
+            >
+              {!title && closeable &&
                 <IconButton
                   icon={<IconClose />}
                   transparent
                   variant="secondary"
                   size="small"
+                  className={styles.absoluteCloseButton}
                   onClick={() => onClose()}
                 />
               }
-            </div>}
-            <div className={classNames(styles.modalBody, modalBodyClassName)}>
-              {open && children}
+              {title && <div className={styles.modalHeader}>
+                {typeof title === 'string' ?
+                  <Text className={styles.modalTitle}>
+                    {title}
+                  </Text> : title
+                }
+                {closeable &&
+                  <IconButton
+                    icon={<IconClose />}
+                    transparent
+                    variant="secondary"
+                    size="small"
+                    onClick={() => onClose()}
+                  />
+                }
+              </div>}
+              <div className={classNames(styles.modalBody, modalBodyClassName)}>
+                {children}
+              </div>
             </div>
           </div>
-        </div>
-      </FocusTrap>
-    </ClientOnly>,
-    modalRoot
+        </FocusTrap>,
+      document.getElementById('modal-root'))}
+    </ClientOnly>
   );
 };

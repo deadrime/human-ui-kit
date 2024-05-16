@@ -2,9 +2,10 @@ import React, { forwardRef } from 'react';
 import classnames from 'classnames';
 import classNames from 'classnames';
 import styles from './Text.module.less';
-import './Typography.less'
+import './typography.less';
 
-export type FontSize = 'title1' |
+export type FontSize = 'title0' |
+'title1' |
 'title2' |
 'title3' | 'title4'|
 // TODO: title 5 should be removed onc new pages are ready.
@@ -22,6 +23,7 @@ export interface TextProps extends Omit<React.HTMLProps<Element>, 'size' | 'ref'
   md?: FontSize,
   lg?: FontSize,
   normal?: boolean,
+  medium?: boolean;
   semibold?: boolean,
   bold?: boolean,
   extrabold?: boolean,
@@ -43,6 +45,7 @@ export const Text = forwardRef<Element, TextProps>(({
   family = 'cerebri',
   color,
   normal,
+  medium,
   semibold,
   bold,
   extrabold,
@@ -72,6 +75,7 @@ export const Text = forwardRef<Element, TextProps>(({
           [`md:text-${md}`]: md,
           [`lg:text-${lg}`]: lg,
           'font-normal': normal,
+          'font-medium':  medium,
           'font-semibold': semibold,
           'font-bold': bold,
           'font-extrabold': extrabold,

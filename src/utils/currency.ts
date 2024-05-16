@@ -1,3 +1,5 @@
+import { largeNumberToString } from './numberFormatters';
+
 export function createNumberFormatter({
   useGrouping,
   maximumFractionDigits,
@@ -31,7 +33,9 @@ export function truncateFractionalPart(numericString, decimals) {
     return numericString;
   }
 
-  return numericString.substring(0, decimalSeparatorIndex + decimals + 1);
+  const substringEnd = decimals <= 0 ? decimalSeparatorIndex : decimalSeparatorIndex + decimals + 1;
+
+  return numericString.substring(0, substringEnd);
 }
 
 /**
@@ -52,6 +56,7 @@ export const convertInternalCurrencyToDisplayValue = ({
   precision,
   fixedPrecision = false,
   useGrouping = false,
+  useAbbreviation = false,
 }) => {
   if (value == null) return value;
   if (typeof value === 'string') {
@@ -70,7 +75,12 @@ export const convertInternalCurrencyToDisplayValue = ({
     minimumFractionDigits: fixedPrecision ? precision : 2,
   });
 
-  return currencyFormatter.format(result);
+  const formatted = currencyFormatter.format(result);
+  if (useAbbreviation) {
+    return largeNumberToString(result);
+  }
+
+  return formatted;
 };
 
 export const convertDisplayValueToInternalCurrency = (value, decimals) => {

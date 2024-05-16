@@ -7,12 +7,13 @@ import classNames from 'classnames';
 import messageStyles from './Message.module.less';
 import { CSSMotionProps } from 'rc-motion';
 import React, { useMemo } from 'react';
+import Text from '@components/Text/Text';
 
 const messageIconByType = {
-  warning: <InfoIcon color="var(--color-red)" width={20} height={20} />,
-  info: <InfoIcon color="var(--color-primary)" width={20} height={20} />,
-  success: <IconApprove color="var(--color-primary)" width={20} height={20} />,
-  error: <IconReject color="var(--color-red)" width={20} height={20} />,
+  warning: <InfoIcon color="var(--iconColor)" width={20} height={20} />,
+  info: <InfoIcon color="var(--iconColor)" width={20} height={20} />,
+  success: <IconApprove color="var(--iconColor)" width={20} height={20} />,
+  error: <IconReject color="var(--iconColor)" width={20} height={20} />,
 };
 
 const motion: CSSMotionProps = {
@@ -52,7 +53,7 @@ export const showMessage = (notificationApi: NotificationAPI) => {
     content: (
       <div className={messageStyles.messageContent}>
         {messageIconByType[type]}
-        <div>{content}</div>
+        <Text block>{content}</Text>
       </div>
     ),
     className: classNames(messageStyles[type], className),

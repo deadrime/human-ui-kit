@@ -8,7 +8,7 @@ import {
   ColumnDef,
   Row,
 } from '@tanstack/react-table';
-import Text from '@components/Text';
+import Text, { TextProps } from '@components/Text';
 import IconButton from '@components/buttons/IconButton';
 import classNames from 'classnames';
 import ObservableLoadMore from '../ObservableLoadMore/ObservableLoadMore';
@@ -20,12 +20,20 @@ export { createColumnHelper } from '@tanstack/react-table';
 const defaultMobileVersionBreakpoint = 768;
 
 type MobileRowProps = {
-  row: Row<any>
+  row: Row<any>,
   mobileColumnToDisplay?: string,
-  hideRank?: boolean
+  hideRank?: boolean,
+  className?: string;
+  customExpandCellClassname?: string,
 }
 
-const MobileRow: React.FC<MobileRowProps> = ({ row, mobileColumnToDisplay, hideRank }) => {
+const MobileRow: React.FC<MobileRowProps> = ({
+  row,
+  mobileColumnToDisplay,
+  hideRank,
+  customExpandCellClassname,
+  className,
+}) => {
   const allCells = row.getVisibleCells();
   const [profileCell, ...otherCells] = allCells;
   const cellToDisplay = otherCells.find(cell => cell.column.id === mobileColumnToDisplay) || otherCells[0];
@@ -43,12 +51,11 @@ const MobileRow: React.FC<MobileRowProps> = ({ row, mobileColumnToDisplay, hideR
         [styles.collapsed]: !expanded,
       })}
     >
-      <div className={styles.mobileRow}>
+      <div className={classNames(styles.mobileRow, className)}>
         {!hideRank && (
           <Text
             size="body2"
             md={'body1'}
-            color="gray-200"
             className={styles.rank}
           >
             #{row.original['rank'] || (row.index + 1)}
@@ -66,7 +73,7 @@ const MobileRow: React.FC<MobileRowProps> = ({ row, mobileColumnToDisplay, hideR
           onClick={toggleExpanded}
         />}
       </div>
-      <div className={styles.expandCells}>
+      <div className={classNames(styles.expandCells, customExpandCellClassname)}>
         {expandCells.map(cell => (
           <div key={cell.id} className={styles.mobileCell}>
             <div>
@@ -93,6 +100,10 @@ export type TableProps<T> = {
   className?: string,
   onBottomReached?: () => void
   loading?: boolean
+  customExpandCellClassname?: string,
+  rankTextProps?: TextProps;
+  headerTextProps?: TextProps;
+  rowClassName?: string;
 }
 
 // TODO: add pagination support
@@ -106,6 +117,10 @@ const Table = <T extends unknown>({
   className,
   onBottomReached,
   showLoadMore = false,
+  customExpandCellClassname,
+  headerTextProps,
+  rankTextProps,
+  rowClassName,
   loading,
 }: TableProps<T>) => {
   const table = useReactTable<T>({
@@ -127,11 +142,13 @@ const Table = <T extends unknown>({
             row={row}
             mobileColumnToDisplay={mobileColumnToDisplay}
             hideRank={hideRank}
+            className={rowClassName}
+            customExpandCellClassname={customExpandCellClassname}
           />
         );
       })
     );
-  }, [table, mobileColumnToDisplay, hideRank]);
+  }, [table, mobileColumnToDisplay, hideRank, rowClassName, customExpandCellClassname]);
 
   return (
     <div>
@@ -144,7 +161,12 @@ const Table = <T extends unknown>({
         {!hideHeader && <thead>
           {table.getHeaderGroups().map(headerGroup => (
             <tr key={headerGroup.id}>
-              {!hideRank && <th><Text color="gray-200">Rank</Text></th>}
+              {!hideRank && <th><Text
+                color="inherit"
+                size="body2"
+                sm="body1"
+                {...headerTextProps}
+              >Rank</Text></th>}
               {headerGroup.headers
               .filter((header, index) => {
                 if (!isMobile) {
@@ -167,7 +189,12 @@ const Table = <T extends unknown>({
                     }}
                     className={header.column.columnDef.meta?.['thClassName']}
                   >
-                    <Text color="gray-200" size="body1">
+                    <Text
+                      color="inherit"
+                      size="body2"
+                      sm="body1"
+                      {...headerTextProps}
+                    >
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -200,6 +227,7 @@ const Table = <T extends unknown>({
                         md={'body1'}
                         color="gray-200"
                         className={styles.rank}
+                        {...rankTextProps}
                       >
                         #{(cell.row.original?.['rank'] || row.index) + 1}
                       </Text>

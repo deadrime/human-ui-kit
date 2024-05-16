@@ -21,7 +21,7 @@
 }
 
 .menuItem {
-  --menuItemActiveBg: var(--color-gray-700);
+  --menu-activeItemBackgroundColor: var(--select-activeItemBackgroundColor);
 }
 
 .menuItemContent {
@@ -40,6 +40,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 8px 0;
+  color: var(--input-placeholderColor);
 }
 
 .tagLabel {
@@ -54,7 +55,7 @@
 
 .summary:focus {
   & .input {
-    border-color: var(--color-blue-500);
+    border-color: var(--input-focusedBorderColor);
   }
 }
 
@@ -62,5 +63,5 @@
   width: 100%;
   justify-content: space-between;
   padding: 0;
-  --tagBackground: none;
+  --tag-backgroundColor: none;
 }

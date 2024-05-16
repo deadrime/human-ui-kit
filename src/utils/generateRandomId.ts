@@ -1,1 +1,1 @@
-export const generateRandomId = () => Math.random().toString(36)
+export const generateRandomId = () => Math.random().toString(36);

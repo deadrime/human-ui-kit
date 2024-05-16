@@ -16,11 +16,11 @@ const FeedbackIcon: FC<FeedbackIconProps> = ({ validationStatus }) => {
       return (
         <SuccessIcon
           width={14}
-          color="var(--color-primary)"
+          color="var(--input-feedbackSuccessColor, var(--color-primary))"
         />
       );
     case 'validating':
-      return <LoadingIcon width={14} color="var(--color-primary)" />;
+      return <LoadingIcon width={14} color="var(--input-feedbackSuccessColor, var(--color-primary))" />;
     default:
       return null;
   }
@@ -93,7 +93,7 @@ export const InputWrapper = forwardRef<HTMLInputElement, InputWrapperProps>(({
         className={classNames(
           styles.inputWrapper,
           `input--align-${align}`,
-          `input--text-${fontSize}`,
+          `text-${fontSize}`,
           {
             ['input--round']: round,
             ['input--outlined']: outlined,

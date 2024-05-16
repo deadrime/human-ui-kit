@@ -20,24 +20,38 @@
 
 .badge {
   border-radius: 30px;
-  background: var(--color-primary);
-  color: var(--color-blue-900);
-  padding: 0 4px;
+  padding: 2px 6px;
+  box-sizing: border-box;
   min-width: var(--counterSize);
   height: var(--counterSize);
-
-  font-size: var(--font-size-body2);
-  line-height: var(--line-height-body2);
+  white-space: nowrap;
+  width: auto;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  &:global(.enter-active), &:global(.exit-active) {
-    animation-name: pulse;
-    animation-duration: .3s;
-    animation-iteration-count: 2;
-    animation-direction: alternate;
-    transition-timing-function: ease-in-out;
+  &.count {
+    &:global(.enter-active), &:global(.exit-active) {
+      animation-name: pulse;
+      animation-duration: .3s;
+      animation-iteration-count: 2;
+      animation-direction: alternate;
+      transition-timing-function: ease-in-out;
+    }
+  }
+  &.small {
+    --counterSize: 20px;
+  }
+  &.normal {
+    --counterSize: 28px;
+  }
+  &.primary {
+    background: var(--badge-primary-backgroundColor);
+    color: var(--badge-primary-textColor);
+  }
+  &.secondary {
+    background: var(--badge-secondary-backgroundColor);
+    color: var(--badge-secondary-textColor);
   }
 }

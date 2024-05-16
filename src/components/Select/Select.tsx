@@ -13,6 +13,7 @@ import IconLoading from '@icons/loading.svg';
 import { useDeepCompareMemo } from '@hooks/useDeepCompareMemo';
 import classNames from 'classnames';
 import { InputWrapperProps } from '@components/input/types';
+import { IconButton } from '..';
 
 export type SelectOption<T> = {
   value: T,
@@ -210,7 +211,13 @@ const Select = <T extends unknown | unknown[]>({
         placeholder={placeholder}
         suffix={
           loading ? <IconLoading width={20} /> :
-          showToggleIcon && <IconArrowUp width={20} style={{ transform: dropdownOpen ? undefined : 'rotate(180deg)' }} />
+          showToggleIcon && (
+            <IconButton
+              transparent
+              variant="secondary"
+              icon={<IconArrowUp width={20} style={{ transform: dropdownOpen ? undefined : 'rotate(180deg)', color: 'var(--input-placeholderColor)' }} />}
+            />
+        )
         }
         component={bodyByMode[mode]}
         {...inputWrapperProps}

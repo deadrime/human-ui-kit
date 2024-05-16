@@ -1,10 +1,11 @@
 import React, { ChangeEvent, forwardRef, useEffect, useState } from 'react';
-import { convertDisplayValueToInternalCurrency, convertInternalCurrencyToDisplayValue, parseLocaleNumber, truncateFractionalPart } from '@utils/currency';
+import { DECIMAL_SEPARATOR, convertDisplayValueToInternalCurrency, convertInternalCurrencyToDisplayValue, parseLocaleNumber, truncateFractionalPart } from '@utils/currency';
 import { useForwardRef } from '@hooks/useForwardRef';
 import { InputProps } from './types';
 
 export interface CurrencyInputProps extends InputProps<number> {
   decimals: number;
+  fixedPrecision?: boolean;
 }
 
 export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(({
@@ -16,6 +17,7 @@ export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(({
   focused,
   readOnly,
   decimals,
+  fixedPrecision,
   onFocus,
   onBlur,
 }, ref) => {
@@ -27,12 +29,13 @@ export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(({
       const displayValue = convertInternalCurrencyToDisplayValue({
         value,
         decimals,
+        fixedPrecision,
         precision: decimals,
       });
       // ... update it to match the external value
       setInputValue(displayValue);
     }
-  }, [value, focused, decimals]);
+  }, [value, focused, decimals, fixedPrecision]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     let { value } = e.target;
@@ -109,6 +112,11 @@ export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(({
       onKeyDown={(e) => {
         // Prevent typing in minus character
         if (e.key === '-') {
+          e.preventDefault();
+        }
+
+        // Prevent typing the decimal separator when decimals is zero
+        if (decimals === 0 && e.key === DECIMAL_SEPARATOR) {
           e.preventDefault();
         }
       }}

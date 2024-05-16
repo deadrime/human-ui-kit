@@ -19,16 +19,18 @@ export const TextAreaInputWrapper = forwardRef<HTMLTextAreaElement, TextAreaInpu
       className={classNames(className, {
         [styles.extraBottomPadding]: !!maxCharacters,
       })}
-      hint={<>
-        {hint}
-        {!!maxCharacters && <Text
-          className={styles.characterCount}
-          size="body2"
-          color={value?.length > maxCharacters ? 'red' : 'gray-300'}
-        >
-          {value?.length || 0} / {maxCharacters}
-        </Text>}
-      </>}
+      hint={(
+        <>
+          {hint}
+          {!!maxCharacters && <Text
+            className={styles.characterCount}
+            size="body2"
+            color={value?.length > maxCharacters ? 'red' : 'gray-300'}
+          >
+            {value?.length || 0} / {maxCharacters}
+          </Text>}
+        </>
+      )}
       forceRenderHint
       ref={ref as any}
     />

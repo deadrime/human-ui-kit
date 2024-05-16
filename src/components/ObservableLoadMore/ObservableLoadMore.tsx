@@ -3,7 +3,7 @@ import React, { CSSProperties, useEffect, useRef } from 'react';
 import LoadingIcon from '@icons/loading.svg';
 import styles from './ObservableLoadMore.module.less';
 
-export type ObservableLoadMoreProps = IntersectionObserverInit & {
+export type ObservableLoadMoreProps = Partial<Pick<IntersectionObserver, 'root' | 'rootMargin' | 'thresholds'>> & {
   onObserve?: () => void
   showLoadMore?: boolean
   loadingIcon?: JSX.Element

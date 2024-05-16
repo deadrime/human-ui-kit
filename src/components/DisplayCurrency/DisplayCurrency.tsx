@@ -1,12 +1,13 @@
 import React from 'react';
-import { convertInternalCurrencyToDisplayValue } from '@utils/currency'
+import { convertInternalCurrencyToDisplayValue } from '@utils/currency';
 
 export type DisplayCurrencyProps = {
-  children?: number | string
-  decimals: number
-  precision?: number
-  fixedPrecision?: boolean
-  useGrouping?: boolean
+  children?: number | string;
+  decimals: number;
+  precision?: number;
+  fixedPrecision?: boolean;
+  useGrouping?: boolean;
+  useAbbreviation?: boolean;
 }
 
 const DisplayCurrency: React.FC<DisplayCurrencyProps> = ({
@@ -15,6 +16,7 @@ const DisplayCurrency: React.FC<DisplayCurrencyProps> = ({
   precision = 4,
   fixedPrecision,
   useGrouping = true,
+  useAbbreviation = false,
 }) => {
   return (
     <>
@@ -25,10 +27,11 @@ const DisplayCurrency: React.FC<DisplayCurrencyProps> = ({
           precision,
           fixedPrecision,
           useGrouping,
+          useAbbreviation,
         })
       }
     </>
   );
-}
+};
 
 export default DisplayCurrency;

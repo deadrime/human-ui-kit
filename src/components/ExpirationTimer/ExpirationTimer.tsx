@@ -30,17 +30,19 @@ export const ExpirationTimer: FC<ExpirationTimerProps> = ({
     <Tooltip overlay={tooltip} trigger={'click'}>
       <IconButton
         size="small"
-        icon={<CountdownCircleTimer
-          size={20}
-          isPlaying
-          key={key}
-          trailStrokeWidth={2.5}
-          duration={expirationInterval}
-          strokeWidth={2.5}
-          trailColor={'var(--color-gray-500)' as any}
-          colors={'var(--color-primary)' as any}
-          onComplete={handleEnd}
-        />}
+        icon={(
+          <CountdownCircleTimer
+            size={20}
+            isPlaying
+            key={key}
+            trailStrokeWidth={2.5}
+            duration={expirationInterval}
+            strokeWidth={2.5}
+            trailColor={'var(--expirationTimer-trailColor)' as any}
+            colors={'var(--color-primary)' as any}
+            onComplete={handleEnd}
+          />
+        )}
         variant="secondary"
         transparent
         className={styles.resetButton}

@@ -1,0 +1,38 @@
+
+.viewVotesButton {
+  margin: 12px auto 0;
+}
+
+.widget {
+  border-radius: 10px;
+}
+
+.voteResultsTitleRow,
+.quorumTitleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quorumTitleRow,
+.voteResultsTitleRow {
+  margin-bottom: 12px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.optionName {
+  max-width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}

@@ -74,13 +74,13 @@
       gap: var(--carousel-bullets-gap);
 
       .paginationBullet {
-        border: solid 2px transparent;
         cursor: pointer;
+        transition: all .1s;
         width: var(--carousel-bullet-size);
         height: var(--carousel-bullet-size);
         border-radius: 50%;
         display: flex;
-        background-color: var(--color-gray-300);
+        background-color: var(--carousel-bulletColor, var(--color-gray-300));
         position: relative;
 
         &:only-child {
@@ -90,17 +90,17 @@
         &::before {
           position: absolute;
           content: '';
-          top: calc(var(--carousel-bullets-gap) * -1);
-          bottom: calc(var(--carousel-bullets-gap) * -1);
-          right: calc(var(--carousel-bullets-gap) * -1);
-          left: calc(var(--carousel-bullets-gap) * -1);
+          top: calc(var(--carousel-bullets-gap) * -0.5);
+          bottom: calc(var(--carousel-bullets-gap) * -0.5);
+          right: calc(var(--carousel-bullets-gap) * -0.5);
+          left: calc(var(--carousel-bullets-gap) * -0.5);
         }
       }
 
       .activePaginationBullet {
         width: var(--carousel-active-bullet-width);
         border-radius: 20px;
-        background-color: var(--color-primary);
+        background-color:  var(--carousel-activeBulletColor, var(--color-primary));
       }
     }
   }

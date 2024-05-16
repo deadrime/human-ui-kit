@@ -13,7 +13,7 @@
   vertical-align: middle;
   border-radius: 40px;
   border: none;
-  background-color: var(--color-gray-500);
+  background-color: var(--switch-backgroundColor);
   cursor: pointer;
   transition: all @duration cubic-bezier(0.35, 0, 0.25, 1);
 
@@ -24,7 +24,7 @@
     left: var(--circlePadding);
     top: 50%;
     border-radius: 50% 50%;
-    background-color: var(--color-gray-200);
+    background-color: var(--switch-circleBackgroundColor);
     content: "";
     cursor: pointer;
     transform: translateY(-50%);
@@ -32,15 +32,15 @@
   }
 
   &:focus {
-    box-shadow: 0 0 0 2px var(--color-blue-500);
+    box-shadow: 0 0 0 2px var(--switch-focusedOutlineColor);
     outline: none;
   }
 
   &:global(-checked) {
-    background-color: var(--color-primary);
+    background-color: var(--switch-checkedBackgroundColor);
 
     &:after{
-      background-color: var(--color-white);
+      background-color: var(--switch-checkedCircleBackgroundColor);
       left: calc(100% - var(--circleSize) - var(--circlePadding));
     }
   }
@@ -49,7 +49,7 @@
     cursor: no-drop;
 
     &:after{
-      background: var(--color-gray-400);
+      background: var(--switch-disabledCircleBackgroundColor);
       animation-name: none;
       cursor: no-drop;
     }

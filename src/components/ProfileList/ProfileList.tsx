@@ -1,4 +1,4 @@
-import React, { CSSProperties, useEffect, useMemo, useState } from 'react';
+import React, { CSSProperties, useMemo } from 'react';
 import styles from './ProfileList.module.less';
 import classNames from 'classnames';
 import times from 'lodash/times';
@@ -19,7 +19,10 @@ export const ProfileListItem: React.FC<ProfileListItemProps> = ({ children, inde
   <div
     className={classNames(styles.profileListItem, className)}
     style={{ '--index': index } as CSSProperties}
-    onClick={onClick}
+    onClick={(e) => {
+      e.preventDefault();
+      onClick?.();
+    }}
   >
     {children}
   </div>
@@ -45,13 +48,15 @@ export type ProfileListProps<T extends unknown> = {
   loadingStatus: keyof typeof LOADING_STATUSES
   maxCount?: number
   items: T[]
-  renderAvatar?: (item: T, index: number) => React.ReactNode,
+  renderAvatar?: (item: T, index: number) => React.ReactElement,
   onOpen?: () => void
   size?: 'small' | 'normal'
   zeroResults?: string | React.ReactNode
   isLeftAligned?: boolean,
+  triggerOpenOnAvatarClick?: boolean,
   borderColor?: string,
   otherItemsBackground?: string,
+  otherIconColor?: string,
   style?: CSSProperties;
   className?: string;
 }
@@ -59,25 +64,38 @@ export type ProfileListProps<T extends unknown> = {
 export type ProfileListAvatarProps = {
   src?: string
   url?: string
-  index: number
+  index?: number
+  onClick?: () => void
 }
 
-export const ProfileListAvatar: React.FC<ProfileListAvatarProps> = ({ src, url, index }) => {
+export const ProfileListAvatar: React.FC<ProfileListAvatarProps> = ({ src, url, index, onClick }) => {
   if (!src) {
     return <ProfileListItemSkeleton index={index} />;
   }
 
   return (
-    <ProfileListItem index={index}>
-      <InternalLink href={url} style={{ display: 'flex', width: '100%', height: '100%' }}>
-        <Avatar
-          src={src}
-          size={{
-            mobile: '100%',
-            desktop: '100%',
-          }}
-        />
-      </InternalLink>
+    <ProfileListItem index={index} onClick={onClick}>
+      {onClick ? (
+        <div onClick={onClick} style={{ display: 'flex', width: '100%', height: '100%', cursor: 'pointer' }}>
+          <Avatar
+            src={src}
+            size={{
+              mobile: '100%',
+              desktop: '100%',
+            }}
+          />
+        </div>
+      ) : (
+        <InternalLink href={url} style={{ display: 'flex', width: '100%', height: '100%' }}>
+          <Avatar
+            src={src}
+            size={{
+              mobile: '100%',
+              desktop: '100%',
+            }}
+          />
+        </InternalLink>
+      )}
     </ProfileListItem>
   );
 };
@@ -87,10 +105,12 @@ export const ProfileList = <T extends unknown>({
   maxCount = 5,
   items = [],
   onOpen,
+  triggerOpenOnAvatarClick,
   renderAvatar,
   size = 'small',
-  borderColor = 'gray-900',
-  otherItemsBackground = 'gray-800',
+  borderColor = 'var(--profileList-borderColor)',
+  otherItemsBackground = 'var(--profileList-otherItemsBackground)',
+  otherIconColor = 'var(--profileList-otherIconColor, var(--color-gray-200))',
   zeroResults,
   isLeftAligned = true,
   className,
@@ -101,7 +121,11 @@ export const ProfileList = <T extends unknown>({
   const results = useMemo(() => (
     <>
       {topProfiles.map((item, index) => (
-        renderAvatar?.(item, index)
+        React.cloneElement(renderAvatar?.(item, index), {
+          index,
+          key: index,
+          onClick: triggerOpenOnAvatarClick ? onOpen : undefined,
+        })
       ))}
       {topProfiles.length > 0 && (
         <ProfileListItem
@@ -109,11 +133,11 @@ export const ProfileList = <T extends unknown>({
           className={styles.otherItems}
           index={Math.min(maxCount, topProfiles.length)}
         >
-          <IconMore width={20} color="var(--color-gray-200)" />
+          <IconMore width={20} color={otherIconColor} />
         </ProfileListItem>
       )}
     </>
-  ), [renderAvatar, maxCount, onOpen, size, topProfiles]);
+  ), [topProfiles, onOpen, maxCount, otherIconColor, renderAvatar, triggerOpenOnAvatarClick]);
 
   return (
     <div
@@ -122,20 +146,20 @@ export const ProfileList = <T extends unknown>({
         [styles.rightAligned]: !isLeftAligned,
       }, className)}
       style={{
-        '--borderColor': `var(--color-${borderColor})`,
-        '--otherItemsBackground': `var(--color-${otherItemsBackground})`,
-        ...style
+        '--borderColor': borderColor,
+        '--otherItemsBackground': otherItemsBackground,
+        ...style,
       } as CSSProperties}
     >
       {loadingStatus === LOADING_STATUSES.SUCCESS &&
-        topProfiles.length === 0 && (
-          <div className={styles.zeroResults}>{zeroResults}</div>
-        )}
+      topProfiles.length === 0 && (
+        <div className={styles.zeroResults}>{zeroResults}</div>
+      )}
       {loadingStatus !== LOADING_STATUSES.SUCCESS
-        ? times(maxCount + 1).map(
-            (index) => <ProfileListItemSkeleton key={index} index={index} />
-          )
-        : results}
+      ? times(maxCount + 1).map(
+          (index) => <ProfileListItemSkeleton key={index} index={index} />
+        )
+      : results}
     </div>
   );
 };

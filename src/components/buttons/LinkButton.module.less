@@ -1,9 +1,4 @@
 .linkButton {
-  --link-button-text-color: var(--color-primary);
-  --link-button-disabled-text-color: var(--color-blue-500);
-  --link-button-focused-text-color: var(--color-blue-500);
-  --link-button-active-text-color: var(--color-blue-900);
-
   display: flex;
   align-items: center;
   gap: 8px;
@@ -27,16 +22,16 @@
   }
 
   &.linkButton--primary {
-    --link-button-text-color: var(--color-primary);
-    --link-button-disabled-text-color: var(--color-blue-500);
-    --link-button-focused-text-color: var(--color-blue-500);
-    --link-button-active-text-color: var(--color-blue-900);
+    --link-button-text-color: var(--links-primary-color);
+    --link-button-disabled-text-color: var(--links-primary-disabledColor);
+    --link-button-focused-text-color: var(--links-primary-hoveredColor);
+    --link-button-active-text-color: var(--links-primary-pressedColor);  
   }
 
   &.linkButton--secondary {
-    --link-button-text-color: var(--color-gray-200);
-    --link-button-disabled-text-color: var(--color-gray-300);
-    --link-button-focused-text-color: var(--color-gray-300);
-    --link-button-active-text-color: var(--color-gray-400);
+    --link-button-text-color: var(--links-secondary-color);
+    --link-button-disabled-text-color: var(--links-secondary-disabledColor);
+    --link-button-focused-text-color: var(--links-secondary-hoveredColor);
+    --link-button-active-text-color: var(--links-secondary-pressedColor); 
   }
 }

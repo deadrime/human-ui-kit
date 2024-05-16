@@ -1,10 +1,15 @@
-export { InputWrapper } from './InputWrapper'
-export { TextAreaInput } from './TextAreaInput'
+export { InputWrapper } from './InputWrapper';
+export { TextAreaInput } from './TextAreaInput';
 export type { TextAreaInputProps } from './TextAreaInput';
-export { TextInput } from './TextInput'
-export type { TextInputProps } from './TextInput'
+export { TextInput } from './TextInput';
+export type { TextInputProps } from './TextInput';
 export { TextInputWrapper, PasswordInputWrapper } from './TextInputWrapper';
-export * from './TextAreaInputWrapper'
+export { DateInput } from './DateInput';
+export type { DateInputProps } from './DateInput';
+export { DateInputWrapper } from './DateInputWrapper';
+export type { TimeInputProps } from './TimeInput';
+export { TimeInputWrapper } from './TimeInputWrapper';
+export * from './TextAreaInputWrapper';
 export * from './types';
 export * from './CurrencyInput';
 export * from './CurrencyInputWrapper';

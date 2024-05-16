@@ -2,7 +2,7 @@ import React, { useCallback, forwardRef, useState, useImperativeHandle, CSSPrope
 import { FormItem, FormItemProps, FormItemApi } from './FormItem';
 import { FormContext } from './FormContext';
 import { useUpdateEffect } from 'react-use';
-import { omit } from 'lodash';
+import omit from 'lodash/omit';
 
 export type FormProps<State = Record<string, any>> = {
   initialState?: State
@@ -19,7 +19,7 @@ export type FormApi<State = Record<string, any>> = {
   setFieldError: (field: string, error: string) => void
   getFieldsValue: () => State;
   getFieldValue: (field: string) => unknown
-  validateFields: () => Promise<void>
+  validateFields: (fields?: string[]) => Promise<void>
   submit: () => Promise<void>
 }
 
@@ -80,8 +80,13 @@ export const Form: CompoundedFormComponent = forwardRef((
     refByFieldName[fieldName].current.setError(error);
   }, [refByFieldName]);
 
-  const validateFields = useCallback(async () => {
-    const promises = fieldNames.map((fieldName) => refByFieldName[fieldName].current.validate('onFinish'));
+  const validateFields = useCallback(async (fieldNamesArray = fieldNames) => {
+    const promises = fieldNamesArray.map((fieldName) => {
+      if (!refByFieldName[fieldName]) {
+        throw new Error(`Invalid fieldName ${fieldName}`);
+      }
+      return refByFieldName[fieldName].current.validate('onFinish');
+    });
     const settledPromises = await Promise.allSettled(promises);
     const noErrors = settledPromises.every(promise => promise.status === 'fulfilled');
 
@@ -132,9 +137,15 @@ export const Form: CompoundedFormComponent = forwardRef((
         removeField,
         setFieldsValue,
         updateFieldValue,
+        validateFields,
       }}
     >
-      <form onSubmit={handleSubmit} className={className} style={style}>
+      <form
+        onSubmit={handleSubmit}
+        className={className}
+        style={style}
+        noValidate
+      >
         {children}
       </form>
     </FormContext.Provider>

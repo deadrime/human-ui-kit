@@ -1,31 +1,16 @@
+@import './button-mixins.less';
+
 button {
   padding: 0;
 }
 
-.counter {
-  border-radius: 30px;
-  background: var(--color-primary);
-  color: var(--color-blue-900);
-  padding: 0 4px;
-  min-width: var(--counterSize);
-  height: var(--counterSize);
-
-  font-size: var(--font-size-body2);
-  line-height: var(--line-height-body2);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .btn {
   --borderRadius: 30px;
-  --borderWidth: 2px;
+  --borderWidth: var(--button-borderWidth, 2px);
   --pulseSize: 8px;
   --pulseColor: var(--hoveredBackgroundColor);
   --buttonTransition: 0.26s cubic-bezier(0.645, 0.045, 0.355, 1);
   --defaultIconSize: 20px;
-  --counterSize: 22px;
   --horizontalPadding: 8px;
   --color-main: var(--button-color-main);
   --color-neutral: var(--button-color-neutral);
@@ -51,15 +36,9 @@ button {
 
   & .counter {
     position: absolute;
-    bottom: -2px;
-    left: 16px;
+    bottom: -4px;
+    left: calc(100% - 18px);
     z-index: 1;
-
-    @media (min-width: @screen-md) {
-      padding: 0 7px;
-      bottom: -4px;
-      left: 26px;
-    }
   }
 
   &:hover:not(.btn--disabled),
@@ -146,56 +125,34 @@ button {
   }
 
   &--xSmall {
-    --buttonHeight: 20px;
-
-    &.btn--icon-only {
-      --buttonMinWidth: 20px;
-      --defaultIconSize: 18px;
-    }
+    .button-size-xsmall-mixin()
   }
 
   &--small {
-    --buttonHeight: 32px;
-    --horizontalPadding: 28px;
-
-    &.btn--icon-only {
-      --buttonMaxHeight: 32px;
-      --buttonMinWidth: 32px;
-
-      .counter {
-        --counterSize: 16px;
-
-        span {
-          font-size: 10px;
-        }
-      }
-    }
+    .button-size-small-mixin()
   }
 
   &--medium {
-    --buttonHeight: 44px;
-    --horizontalPadding: 40px;
-
-    &.btn--icon-only {
-      --buttonMaxHeight: 44px;
-      --buttonHeight: 44px;
-      --buttonMinWidth: 44px;
-    }
+    .button-size-medium-mixin()
   }
 
   &--large {
-    --buttonHeight: 44px;
-    --buttonMinWidth: 254px;
+    .button-size-large-mixin()
+  }
 
-    &.btn--icon {
-      --buttonHeight: 48px;
-      --buttonMinWidth: 48px;
-      --buttonMaxHeight: 48px;
-
-      .counter {
-        --counterSize: 22px;
-      }
+  @media (min-width: @screen-sm) {
+    &--md\:size-xsmall {
+      .button-size-xsmall-mixin()
     }
+    &--md\:size-small {
+      .button-size-small-mixin();
+    }
+    &--md\:size-medium {
+      .button-size-medium-mixin();
+    }
+    &--md\:size-large {
+      .button-size-large-mixin();
+    }    
   }
 }
 

@@ -1,25 +1,40 @@
 import React from 'react';
-import { Meta } from "@storybook/react";
-import Badge, { BadgeWrapper } from "./Badge";
+import { Meta } from '@storybook/react';
+import Badge, { BadgeWrapper, BadgeProps } from './Badge';
 
 export default {
   component: Badge,
 } as Meta<typeof Badge>;
 
 export const Default = {
-  render: (args) => <div style={{ width: 20}}><Badge {...args}/></div>,
+  render: (args) => <div style={{ display: 'flex' }}><Badge {...args} /></div>,
   args: {
-    count: 10
-  }
+    children: 'some badge',
+    variant: 'primary',
+    size: 'normal',
+  } as BadgeProps,
+};
+
+export const WithCount = {
+  render: (args) => <div style={{ display: 'flex' }}><Badge {...args} /></div>,
+  args: {
+    count: 24,
+    variant: 'primary',
+    size: 'normal',
+  } as BadgeProps,
 };
 
 export const AsWrapper = {
-  render: (args) => <div style={{ display: 'flex' }}>
-    <BadgeWrapper {...args}>
-      Some text
-    </BadgeWrapper>
-  </div>,
+  render: (args) => (
+    <div style={{ display: 'flex' }}>
+      <BadgeWrapper {...args}>
+        Some text
+      </BadgeWrapper>
+    </div>
+  ),
   args: {
-    count: 10
-  }
-}
+    count: 10,
+    variant: 'primary',
+    size: 'small',
+  },
+};

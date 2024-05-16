@@ -17,6 +17,8 @@ interface CoreInputProps<T> {
   id?: string;
   type?: HTMLProps<HTMLInputElement>['type'];
   validationStatus?: ValidationStatus;
+  name?: HTMLProps<HTMLInputElement>['name'];
+  autoComplete?: HTMLProps<HTMLInputElement>['autoComplete'];
 }
 
 export interface InputProps<T> extends CoreInputProps<T> {

@@ -1,11 +1,10 @@
 .tag {
-  --tagBackground: var(--color-gray-800);
   display: inline-flex;
   gap: 4px;
   align-items: center;
   padding: 8px;
   border-radius: 8px;
-  background: var(--tagBackground);
+  background: var(--tag-backgroundColor, var(--color-gray-800));
   max-width: 100%;
 }
 
@@ -13,4 +12,5 @@
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: var(--tag-textColor, var(--text-color));
 }

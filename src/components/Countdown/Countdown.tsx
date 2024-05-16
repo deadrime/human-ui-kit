@@ -1,25 +1,24 @@
-import dayjs from 'dayjs';
-import duration from 'dayjs/plugin/duration';
 import React, { memo, useEffect, useMemo, useState } from 'react';
 import { Text, TextProps } from '@components/Text';
 import { withClientOnly } from '@components/ClientOnly';
+import { formatDuration } from '@utils/formatDuration';
 
-dayjs.extend(duration);
-
-type CountdownProps = TextProps & {
+export type CountdownProps = TextProps & {
   value: number | Date
   format?: string
   onFinish?: () => void
 }
 
-const Countdown: React.FC<CountdownProps> = ({
-  value: targetDate,
-  format = 'HH:mm:ss',
-  size = 'inherit',
-  bold = true,
+export type UseCountdownProps = {
+  targetDate: number | Date
+  onFinish?: () => void
+  format?: string
+}
+
+export const useCountdown = ({
+  targetDate,
   onFinish,
-  ...props
-}) => {
+}: UseCountdownProps) => {
   const countDownDate = useMemo(() => new Date(targetDate).valueOf(), [targetDate]);
 
   const [countDown, setCountDown] = useState(
@@ -42,6 +41,23 @@ const Countdown: React.FC<CountdownProps> = ({
     return () => clearInterval(interval);
   }, [countDownDate, onFinish]);
 
+  return countDown;
+};
+
+const Countdown: React.FC<CountdownProps> = ({
+  value: targetDate,
+  format = 'HH:mm:ss',
+  size = 'inherit',
+  bold = true,
+  onFinish,
+  ...props
+}) => {
+  const countDown = useCountdown({
+    targetDate,
+    onFinish,
+    format,
+  });
+
   return (
     <Text
       color="primary"
@@ -49,7 +65,7 @@ const Countdown: React.FC<CountdownProps> = ({
       bold={bold}
       {...props}
     >
-      {dayjs.duration(countDown).format(format)}
+      {formatDuration(countDown, format)}
     </Text>
   );
 };

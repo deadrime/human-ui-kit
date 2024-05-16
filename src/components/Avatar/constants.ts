@@ -13,7 +13,7 @@ export enum AVATAR_SIZES {
   medium = 'medium', //44/32
   small = 'small', // 32
   xSmall = 'xSmall' // 26
-};
+}
 
 export enum AVATAR_QUALITY {
   thumb = 'thumb',

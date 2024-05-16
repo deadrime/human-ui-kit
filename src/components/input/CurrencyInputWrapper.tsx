@@ -27,26 +27,25 @@ export const CurrencyInputWrapperWithBalanceAndUsdEstimate =
       return (
         <CurrencyInputWrapper
           {...props}
-          decimals={props.decimals}
           ref={ref}
-          hint={
-            !!props.balanceAmount && <div className={styles.balanceAndUsdEstimate}>
-              <span>
-                <Text size="body2" color="gray-200" {...props.balanceLabelProps} />
+          hint={(
+            <div className={styles.balanceAndUsdEstimate}>
+              {!!props.balanceAmount && <span>
+                <Text size="body2" {...props.balanceLabelProps} />
                 {' '}
-                <Text size="body2" color="gray-200">
+                <Text size="body2">
                   <DisplayCurrency decimals={props.decimals}>
                     {props.balanceAmount}
                   </DisplayCurrency> {props.tokenName}
                 </Text>
-              </span>
-              {!isNaN(centsForAmount) && <Text size="body2" color="gray-200">
+              </span>}
+              {!isNaN(centsForAmount) && <Text size="body2" style={{ marginLeft: 'auto' }}>
                 ~ $<DisplayCurrency decimals={props.decimals + 2} precision={2}>
                   {centsForAmount}
                 </DisplayCurrency>
               </Text>}
             </div>
-          }
+          )}
         />
       );
     });

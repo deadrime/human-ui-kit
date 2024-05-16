@@ -1,10 +1,17 @@
 .card {
-  padding: var(--cardSpacingMobile);
-  border: var(--cardBorderWidth) solid var(--cardBorderColor);
-  border-radius: var(--cardBorderRadius);
+  background-color: var(--card-backgroundColor, transparent);
+  padding: var(--card-spacingMobile);
+  border: var(--card-borderWidth) solid var(--card-borderColor);
+  border-radius: var(--card-borderRadius);
   word-break: break-word;
 
   @media (min-width: @screen-md) {
-    padding: var(--cardSpacingDesktop);
+    padding: var(--card-spacingDesktop);
+  }
+
+  &.highlightOnHover {
+    &:hover {
+      border-color: var(--card-highlightColor, var(--card-borderColor));
+    }
   }
 }

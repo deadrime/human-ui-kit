@@ -1,35 +1,33 @@
 @import './text-mixins.less';
 
+@font-sizes: body1, body2, title0, title1, title2, title3, title4, title5;
+
+each(@font-sizes, {
+  .text-@{value} {
+    font-size: ~"var(--font-size-@{value})";
+    line-height: ~"var(--line-height-@{value})";
+  }
+});
+
+each(@font-sizes, {
+  @media (min-width: @screen-sm) {
+    .sm\:text-@{value} {
+      font-size: ~"var(--font-size-@{value})";
+      line-height: ~"var(--line-height-@{value})";
+    }
+    .md\:text-@{value} {
+      font-size: ~"var(--font-size-@{value})";
+      line-height: ~"var(--line-height-@{value})";
+    }
+    .lg\:text-@{value} {
+      font-size: ~"var(--font-size-@{value})";
+      line-height: ~"var(--line-height-@{value})";
+    }
+  }
+});
+
 .text-inherit {
   font-size: inherit;
-}
-
-.text-body1 {
-  .text-body1-mixin();
-}
-
-.text-body2 {
-  .text-body2-mixin();
-}
-
-.text-title1 {
-  .text-title1-mixin();
-}
-
-.text-title2 {
-  .text-title2-mixin();
-}
-
-.text-title3 {
-  .text-title3-mixin();
-}
-
-.text-title4 {
-  .text-title4-mixin();
-}
-
-.text-title5 {
-  .text-title5-mixin();
 }
 
 .text-uppercase {
@@ -48,6 +46,10 @@
   .text-normal-mixin();
 }
 
+.font-medium {
+  .text-medium-mixin();
+}
+
 .font-semibold {
   .text-semibold-mixin();
 }
@@ -58,79 +60,6 @@
 
 .font-extrabold {
   .text-extrabold-mixin();
-}
-
-@media (min-width: @screen-sm) {
-  .sm\:text-body1 {
-    .text-body1-mixin();
-  }
-  .sm\:text-body2 {
-    .text-body2-mixin();
-  }
-  .sm\:text-title1 {
-    .text-title1-mixin();
-  }
-  .sm\:text-title2 {
-    .text-title2-mixin();
-  }
-  .sm\:text-title3 {
-    .text-title3-mixin();
-  }
-  .sm\:text-title4 {
-    .text-title4-mixin();
-  }
-  .sm\:text-title5 {
-    .text-title5-mixin();
-  }
-}
-
-@media (min-width: @screen-sm) {
-  .md\:text-body1 {
-    .text-body1-mixin();
-  }
-  .md\:text-body2 {
-    .text-body2-mixin();
-  }
-  .md\:text-title1 {
-    .text-title1-mixin();
-  }
-  .md\:text-title2 {
-    .text-title2-mixin();
-  }
-  .md\:text-title3 {
-    .text-title3-mixin();
-  }
-  .md\:text-title4 {
-    .text-title4-mixin();
-  }
-  .md\:text-title5 {
-    .text-title5-mixin();
-  }
-}
-
-// TODO: Why do we use @screen-md for .lg? Probably we need to change breakpoints
-@media (min-width: @screen-md) {
-  .lg\:text-body1 {
-    .text-body1-mixin();
-  }
-  .lg\:text-body2 {
-    .text-body2-mixin();
-  }
-  .lg\:text-title1 {
-    .text-title1-mixin();
-  }
-  .lg\:text-title2 {
-    .text-title2-mixin();
-  }
-  .lg\:text-title3 {
-    .text-title3-mixin();
-  }
-  .lg\:text-title4 {
-    .text-title4-mixin();
-  }
-  .lg\:text-title5 {
-    .text-title5-mixin();
-  }
 }
 
 .link {
@@ -166,16 +95,16 @@
   }
 
   &.link-primary {
-    --linkTextColor: var(--color-primary);
-    --linkTextHoverColor: var(--color-blue-500);
-    --linkTextActiveColor: var(--color-blue-900);
-    --linkTextDisabledColor: var(--color-blue-500);
+    --linkTextColor: var(--links-primary-color);
+    --linkTextHoverColor: var(--links-primary-hoveredColor);
+    --linkTextActiveColor: var(--links-primary-pressedColor);
+    --linkTextDisabledColor: var(--links-primary-disabledColor);
   }
 
   &.link-secondary {
-    --linkTextColor: var(--color-gray-200);
-    --linkTextHoverColor: var(--color-gray-300);
-    --linkTextActiveColor: var(--color-gray-400);
-    --linkTextDisabledColor: var(--color-gray-300);
+    --linkTextColor: var(--links-secondary-color);
+    --linkTextHoverColor: var(--links-secondary-hoveredColor);
+    --linkTextActiveColor: var(--links-secondary-pressedColor);
+    --linkTextDisabledColor: var(--links-secondary-disabledColor);
   }
 }

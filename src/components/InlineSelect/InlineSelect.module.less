@@ -1,0 +1,59 @@
+.itemsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  @media (min-width: @screen-md) {
+    gap: 12px;
+  }
+}
+
+.item {
+  --borderColor: var(--inlineSelect-borderColor, transparent);
+  cursor: pointer;
+  border: none;
+  background-color: var(--inlineSelect-background);
+  transition: background-color .3s;
+  border-radius: 100px;
+  padding: 4px 10px;
+  min-height: 32px;
+  outline: none;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0px 0px 0px 2px var(--borderColor, transparent);
+
+  &:hover {
+    background-color: var(--inlineSelect-hoverBackground);
+    --borderColor: var(--inlineSelect-hoverBorderColor);
+  }
+
+  &:focus-visible:not(.selected) {
+    background-color: var(--inlineSelect-hoverBackground);
+    --borderColor: var(--inlineSelect-hoverBorderColor);
+  }
+
+  @media (min-width: @screen-md) {
+    min-height: 44px;
+    padding: 4px 26px;
+  }
+}
+
+.selected, .selected:hover {
+  background-color: var(--inlineSelect-activeBackground);
+  --borderColor: var(--inlineSelect-activeBorderColor);
+}
+
+.itemContent {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-color);
+
+  & > svg {
+    height: 24px;
+
+    @media (min-width: @screen-md) {
+      height: 36px;
+    }
+  }
+}

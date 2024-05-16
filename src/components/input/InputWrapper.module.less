@@ -10,7 +10,8 @@
     align-items: center;
   }
 
-  --borderWidth: 2px;
+  --borderWidth: var(--input-borderWidth, 2px);
+  --borderColor: var(--input-borderColor);
   --inputWrapperTopPadding: 8px;
   --inputWrapperBottomPadding: 8px;
   --inputWrapperHorizontalPadding: var(--globalHorizontalPadding);
@@ -24,13 +25,14 @@
     justify-content: space-between;
     align-items: center;
     gap: 8px;
-    color: var(--color-white);
-    border-bottom: var(--borderWidth) solid transparent;
+    color: var(--input-textColor, var(--color-white));
+    border-bottom: var(--borderWidth) solid var(--borderColor, transparent);
     min-height: var(--inputWrapperMinHeight);
+    box-sizing: border-box;
 
     &:global(.input--empty) {
       .inputPrefix {
-        color: var(--color-gray-200);
+        color: var(--color-gray-200); // TODO: Check in white version
       }
     }
 
@@ -52,57 +54,15 @@
       }
     }
 
-    &:global(.input--text-body1) {
-      :global(.input) {
-        .text-body1-mixin();
-      }
-    }
-
-    &:global(.input--text-body2) {
-      :global(.input) {
-        .text-body2-mixin();
-      }
-    }
-
-    &:global(.input--text-title1) {
-      :global(.input) {
-        .text-title1-mixin();
-      }
-    }
-
-    &:global(.input--text-title2) {
-      :global(.input) {
-        .text-title2-mixin();
-      }
-    }
-
-    &:global(.input--text-title3) {
-      :global(.input) {
-        .text-title3-mixin();
-      }
-    }
-
-    &:global(.input--text-title4) {
-      :global(.input) {
-        .text-title4-mixin();
-      }
-    }
-
-    &:global(.input--text-title5) {
-      :global(.input) {
-        .text-title5-mixin();
-      }
-    }
-
-    &:global(.input--bold) {
-      :global(.input) {
-        .text-bold-mixin();
-      }
+    :global(.input) {
+      font-size: inherit;
+      line-height: inherit;
+      font-weight: inherit;
     }
 
     &:global(.input--outlined) {
       border-radius: var(--border-radius-base);
-      border: var(--borderWidth) solid var(--color-gray-800);
+      border: var(--borderWidth) solid var(--borderColor);
 
       &:global(.input--round) {
         border-radius: 40px;
@@ -119,7 +79,7 @@
       min-width: 0;
 
       &::placeholder {
-        color: var(--color-gray-200);
+        color: var(--input-placeholderColor, var(--color-gray-200));
       }
 
       &:-webkit-autofill,
@@ -127,8 +87,8 @@
       &:-webkit-autofill:focus,
       &:-webkit-autofill:active {
         box-shadow: 0 0 0 30px var(--bg-color) inset !important;
-        -webkit-text-fill-color: var(--color-white) !important;
-        caret-color: var(--color-white);
+        -webkit-text-fill-color: var(--input-textColor) !important; // TODO: Check in white version
+        caret-color: var(--input-textColor); // TODO: Check in white version
       }
 
       &::-webkit-outer-spin-button,
@@ -143,16 +103,16 @@
     }
 
     &:global(.input--disabled) {
-      color: var(--color-gray-800);
+      color: var(--input-borderColor);
     }
 
     &:global(.input--invalid) {
-      border-color: var(--color-red);
+      --borderColor: var(--input-invalidColor, var(--color-red));
     }
 
+    &:focus-within,
     &:global(.input--focused) {
-      border-color: var(--color-blue-500);
-      border-bottom: var(--borderWidth) solid var(--color-blue-500);
+      --borderColor: var(--input-focusedBorderColor);
     }
 
     .inputSuffix,

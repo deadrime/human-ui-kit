@@ -1,0 +1,61 @@
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.suggestions {
+  position: absolute;
+  background: var(--mentions-backgroundColor);
+  border-radius: var(--card-borderRadius);
+  border: none;
+  z-index: 3;
+
+  .profilesList {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.profile {
+  padding: 6px 12px;
+  margin: 0;
+  background: var(--mentions-backgroundColor);
+  color: var(--text-color);
+  
+  border: none;
+  cursor: pointer;
+
+  &:first-child {
+    border-radius: var(--card-borderRadius) var(--card-borderRadius) 0 0;
+  }
+
+  &:last-child:not(.hasMore) {
+    border-radius: 0 0 var(--card-borderRadius) var(--card-borderRadius);
+  }
+
+  &:only-child {
+    border-radius: var(--card-borderRadius) !important;
+  }
+
+  &:hover, &:focus {
+    outline: none;
+    background-color: var(--mentions-activeItemBackgroundColor);
+  }
+}
+
+.hasMoreText {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 6px 12px;
+  color: var(--mentions-textColor)
+}
+
+.noMatchText {
+  color: var(--mentions-textColor);
+  padding: 6px 12px;
+}
+
+.spinnerWrapper {
+  padding: 6px;
+}

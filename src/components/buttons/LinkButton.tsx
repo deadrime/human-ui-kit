@@ -22,12 +22,13 @@ export interface LinkButtonProps {
   disabled?: boolean;
 }
 
+// TODO: Are we sure we need this?
 const LinkButton: FC<LinkButtonProps> = ({
   children,
   loading,
   size,
   className,
-  variant,
+  variant = 'primary',
   icon,
   disabled,
   htmlType,

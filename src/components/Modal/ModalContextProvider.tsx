@@ -1,4 +1,4 @@
-import React, { createContext, FC, ReactNode, useContext, useMemo, useState } from 'react';
+import React, { createContext, FC, ReactNode, useCallback, useContext, useMemo, useState } from 'react';
 import { useIsomorphicLayoutEffect } from 'react-use';
 import styles from './ModalContextProvider.module.less';
 import { ShowMessage, useMessage } from './useMessage';
@@ -9,6 +9,7 @@ interface ModalContextValue {
   removeOpenedModal: (modalId: string) => void;
   showConfirmationModal: (modalId: string, node: React.ReactElement) => void;
   openedModals: string[];
+  closeAllModals: () => void
 }
 
 const ModalContext = createContext<ModalContextValue>({
@@ -17,6 +18,7 @@ const ModalContext = createContext<ModalContextValue>({
   showConfirmationModal: () => {},
   openedModals: [],
   message: (() => {}) as unknown as ShowMessage,
+  closeAllModals: () => {},
 });
 
 interface ModalContextProviderProps {
@@ -25,7 +27,7 @@ interface ModalContextProviderProps {
 
 export function useModalContext () {
   return useContext(ModalContext);
-};
+}
 
 let scrollPosition = 0;
 
@@ -35,6 +37,12 @@ export const ModalContextProvider: FC<ModalContextProviderProps> = ({ children }
   const [message, contextHolder] = useMessage();
 
   useIsomorphicLayoutEffect(() => {
+    // We only need this once, so ignoring this branch when
+    // the document position is already fixed
+    if (openedModals.length && document.body.style.position === 'fixed') {
+      return;
+    }
+
     if (openedModals.length) {
       scrollPosition = window.pageYOffset;
       Object.assign(document.body.style, {
@@ -67,9 +75,13 @@ export const ModalContextProvider: FC<ModalContextProviderProps> = ({ children }
     };
   }, []);
 
+  const closeAllModals = useCallback(() => {
+    setOpenedModals([]);
+  }, []);
+
   return (
     <ModalContext.Provider
-      value={{ ...memoizedValue, openedModals, message }}
+      value={{ ...memoizedValue, openedModals, message, closeAllModals }}
     >
       {modalElement}
       {contextHolder}

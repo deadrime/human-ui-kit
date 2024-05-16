@@ -1,0 +1,45 @@
+.button-size-xsmall-mixin() {
+  --buttonHeight: 20px;
+
+  &.btn--icon-only {
+    --buttonMinWidth: 20px;
+    --defaultIconSize: 18px;
+  }
+}
+
+.button-size-small-mixin() {
+  --buttonHeight: 32px;
+  --horizontalPadding: 28px;
+  --buttonMinWidth: auto;
+
+  &.btn--icon-only {
+    --buttonMaxHeight: 32px;
+    --buttonMinWidth: 32px;
+  }
+}
+
+.button-size-medium-mixin() {
+  --buttonHeight: 44px;
+  --horizontalPadding: 40px;
+  --defaultIconSize: 24px;
+  --iconStrokeWidth: 1.8;
+
+  &.btn--icon-only {
+    --buttonMaxHeight: 44px;
+    --buttonHeight: 44px;
+    --buttonMinWidth: 44px;
+  }
+}
+
+.button-size-large-mixin() {
+  --buttonHeight: 44px;
+  --buttonMinWidth: 254px;
+  --defaultIconSize: 24px;
+  --iconStrokeWidth: 1.8;
+
+  &.btn--icon {
+    --buttonHeight: 48px;
+    --buttonMinWidth: 48px;
+    --buttonMaxHeight: 48px;
+  }
+}

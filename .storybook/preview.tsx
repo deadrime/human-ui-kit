@@ -2,6 +2,7 @@ import React from 'react';
 import darkTheme from '../public/themes/dark.json';
 import whiteTheme from '../public/themes/white.json';
 import { ThemeConfigProvider, useThemeConfig } from '../src/components/theme/themeContext'
+import '../src/global.less';
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -20,7 +21,7 @@ export const parameters = {
       },
       {
         name: 'white',
-        value: '#fff', 
+        value: '#fff',
       },
     ],
   },

@@ -1,20 +1,35 @@
 {
   "compilerOptions": {
     // Default
-    "target": "ES6",
+    "target": "ES2020",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": false,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     // paths
     "baseUrl": "src",
     "paths": {
-      "@components/*": ["./components/*"],
-      "@icons/*": ["./icons/*"],
-      "@hooks/*": ["./hooks/*"],
-      "@utils/*": ["./utils/*"],
-      "@const/*": ["./constants/*"]
+      "@components/*": [
+        "./components/*"
+      ],
+      "@icons/*": [
+        "./icons/*"
+      ],
+      "@hooks/*": [
+        "./hooks/*"
+      ],
+      "@utils/*": [
+        "./utils/*"
+      ],
+      "@const/*": [
+        "./constants/*"
+      ]
     },
     "jsx": "react",
     "module": "ESNext",
@@ -26,5 +41,8 @@
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true
   },
-  "include": ["custom.d.ts", "src"]
+  "include": [
+    "custom.d.ts",
+    "src"
+  ]
 }

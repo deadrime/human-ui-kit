@@ -2,8 +2,8 @@
   --expander-spacing: 12px;
   --expander-border-radius: 12px;
 
-  padding: var(--expander-spacing);
-  border: 2px solid var(--color-gray-800);
+  padding: 6px var(--expander-spacing);
+  border: 2px solid var(--input-borderColor);
   border-radius: var(--expander-border-radius);  
 
   .expanderInner {
@@ -11,6 +11,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .expanderIcon {
+    transition: all .1s;
   }
 
   .expanderHeader {
@@ -21,6 +25,7 @@
     cursor: pointer;
     list-style: none;
     outline: none;
+    color: var(--input-placeholderColor);
 
     &::marker {
       content: none;

@@ -29,12 +29,17 @@ const OptionsComponent: React.FC<OptionsComponentProps> = ({
   };
 
   const add = () => {
-    onChange([...options, null]);
+    onChange([...options, '']);
   };
 
-  const handleChange = (index, value) => {
-    options[index] = value;
-    onChange(options);
+  const handleChange = (indexToUpdate: number, newValue: string) => {
+    onChange(options.map((option, optionIndex) => {
+      if (optionIndex === indexToUpdate) {
+        return newValue;
+      }
+
+      return option;
+    }));
   };
 
   return (
@@ -42,7 +47,7 @@ const OptionsComponent: React.FC<OptionsComponentProps> = ({
       {options?.map?.((value, index) => (
         <TextInputWrapper
           key={index}
-          value={options[index]}
+          value={value}
           onChange={value => handleChange(index, value)}
           outlined
           placeholder={renderFieldPlaceholder(index)}

@@ -1,5 +1,9 @@
 {
+  "accordion": {
+    "textColor": "var(--color-gray-900)"
+  },
   "button": {
+    "borderWidth": "2px",
     "primary": {
       "color-main": "var(--color-gray-900)",
       "color-contrast": "var(--color-white)",
@@ -58,16 +62,16 @@
     },
     "secondary": {
       "filled": {
-        "textColor": "var(--color-gray-300)",
+        "textColor": "var(--color-gray-900)",
         "backgroundColor": "var(--color-gray-50)",
         "borderColor": "var(--color-gray-50)",
         "hovered": {
-          "textColor": "var(--color-gray-400)",
+          "textColor": "var(--color-gray-800)",
           "backgroundColor": "var(--color-gray-200)",
           "borderColor": "var(--color-gray-200)"
         },
         "pressed": {
-          "textColor": "var(--color-gray-500)",
+          "textColor": "var(--color-gray-700)",
           "backgroundColor": "var(--color-gray-300)",
           "borderColor": "var(--color-gray-300)"
         },
@@ -99,6 +103,198 @@
       }
     }
   },
+  "followButton": {
+    "baseColor": "var(--color-gray-900)",
+    "followColor": "#30bd58",
+    "followColorPressed": "var(--color-dark-purple)",
+    "unfollowColor": "var(--color-red)",
+    "unfollowColorPressed": "var(--color-dark-red)",
+    "disabledColor": "var(--color-gray-300)"
+  },
+  "badge": {
+    "primary": {
+      "textColor": "var(--color-white)",
+      "backgroundColor": "var(--color-gray-900)"
+    },
+    "secondary": {
+      "textColor": "var(--color-gray-700)",
+      "backgroundColor": "var(--color-gray-100)"
+    }
+  },
+  "card": {
+    "spacingDesktopVertical": "18px",
+    "spacingDesktopHorizontal": "18px",
+    "spacingDesktop": "var(--card-spacingDesktopVertical) var(--card-spacingDesktopHorizontal)",
+    "spacingMobile": "12px",
+    "borderRadius": "16px",
+    "backgroundColor": "var(--color-white)",
+    "borderColor": "var(--color-white)",
+    "borderWidth": "2px",
+    "highlightColor": "var(--color-gray-50)"
+  },
+  "explanation": {
+    "warning": {
+      "backgroundColor": "var(--color-gray-50)",
+      "textColor": "var(--color-gray-700)"
+    },
+    "info": {
+      "backgroundColor": "var(--color-gray-50)",
+      "iconColor": "var(--color-gray-300)",
+      "textColor": "var(--color-gray-700)"
+    }
+  },
+  "message": {
+    "backgroundColor": "var(--color-gray-50)",
+    "textColor": "var(--color-gray-900)",
+    "success": {
+      "iconColor": "var(--color-blue)"
+    },
+    "error": {
+      "iconColor": "var(--color-red)"
+    },
+    "info": {
+      "iconColor": "var(--color-blue)"
+    },
+    "warning": {
+      "iconColor": "var(--color-red)"
+    }
+  },
+  "modal": {
+    "shadow": "transparent",
+    "backgroundColor": "var(--color-white)",
+    "backdropBackground": "rgba(20, 22, 23, 0.16)",
+    "backdropBlur": "8px",
+    "rowGap": "24px",
+    "titleFontFamily": "Cerebri Sans Pro",
+    "titleSize": "var(--font-size-title4)",
+    "titleSizeMd": "var(--font-size-title3)",
+    "titleFontWeight": "700",
+    "titleTextTransform": "initial"
+  },
+  "mentions": {
+    "backgroundColor": "var(--color-gray-50)",
+    "activeItemBackgroundColor": "var(--color-gray-100)",
+    "textColor": "var(--color-gray-500)"
+  },
+  "progress": {
+    "backgroundColor": "var(--color-gray-50)",
+    "strokeColor": "var(--color-gray-500)",
+    "highlightedStrokeColor": "var(--color-primary)"
+  },
+  "tag": {
+    "backgroundColor": "var(--color-gray-50)"
+  },
+  "carousel": {
+    "bulletColor": "var(--color-gray-100)",
+    "activeBulletColor": "var(--color-gray-400)"
+  },
+  "tooltip": {
+    "color": "var(--color-gray-100)"
+  },
+  "table": {
+    "borderColor": "var(--color-gray-50)",
+    "backgroundColor": "var(--color-white)",
+    "rankColor": "var(--color-gray-200)",
+    "headerColor": "var(--color-gray-300)"
+  },
+  "dropdown": {
+    "overlayBackgroundColor": "var(--color-gray-50)"
+  },
+  "menu": {
+    "itemTextColor": "var(--color-gray-400)",
+    "activeItemTextColor": "var(--color-gray-900)",
+    "dividerColor": "var(--color-gray-100)"
+  },
+  "input": {
+    "borderWidth": "2px",
+    "textColor": "var(--color-gray-900)",
+    "invalidColor": "var(--color-red)",
+    "placeholderColor": "var(--color-gray-300)",
+    "borderColor": "var(--color-gray-50)",
+    "focusedBorderColor": "var(--color-gray-400)",
+    "feedbackSuccessColor": "var(--color-primary)",
+    "currencyInputBalanceColor": "var(--color-gray-500)"
+  },
+  "select": {
+    "activeItemBackgroundColor": "var(--color-gray-100)"
+  },
+  "switch": {
+    "backgroundColor": "var(--color-gray-200)",
+    "circleBackgroundColor": "var(--color-white)",
+    "focusedOutlineColor": "var(--color-gray-500)",
+    "checkedBackgroundColor": "var(--color-gray-400)",
+    "checkedCircleBackgroundColor": "var(--color-white)",
+    "disabledCircleBackgroundColor": "var(--color-gray-100)"
+  },
+  "profileList": {
+    "borderColor": "var(--color-white)",
+    "otherItemsBackground": "var(--color-gray-100)",
+    "otherIconColor": "var(--color-gray-400)"
+  },
+  "displayProfile": {
+    "titleTextColor": "var(--color-gray-900)",
+    "subtitleTextColor": "var(--color-gray-400)",
+    "verifiedIconCheckmarkColor": "var(--color-white)"
+  },
+  "blockchainAddress": {
+    "color": "var(--color-gray-400)",
+    "focusedColor": "var(--color-gray-900)"
+  },
+  "expirationTimer": {
+    "trailColor": "var(--color-gray-100)"
+  },
+  "emptyState": {
+    "titleColor": "var(--color-gray-500)",
+    "subtitleColor": "var(--color-gray-400)"
+  },
+  "links": {
+    "primary": {
+      "color": "var(--color-primary)",
+      "hoveredColor": "var(--color-gray-500)",
+      "pressedColor": "var(--color-gray-700)",
+      "disabledColor": "var(--color-gray-300)"
+    },
+    "secondary": {
+      "color": "var(--color-gray-400)",
+      "hoveredColor": "var(--color-gray-500)",
+      "pressedColor": "var(--color-gray-700)",
+      "disabledColor": "var(--color-gray-300)"
+    }
+  },
+  "tabs": {
+    "tabHeaderColor": "var(--color-gray-300)",
+    "tabHeaderDisabledColor": "var(--color-gray-200)",
+    "activeTabHeaderColor": "var(--color-primary)"
+  },
+  "skeleton": {
+    "textSkeletonColor": "var(--color-gray-400)",
+    "textSkeletonHighlightColor": "var(--bg-color)",
+    "circleSkeletonColor": "var(--color-gray-100)",
+    "circleSkeletonHighlightColor": "var(--bg-color)"
+  },
+  "pagination": {
+    "color": "var(--color-gray-200)",
+    "colorActive": "var(--color-gray-400)",
+    "colorHover": "var(--color-gray-400)",
+    "colorDisabled": "var(--color-gray-100)"
+  },
+  "notifications": {
+    "textColor": "var(--color-gray-400)",
+    "unreadNotificationBackground": "var(--color-gray-50)"
+  },
+  "inlineSelect": {
+    "background": "var(--color-gray-light)",
+    "borderColor": "transparent",
+    "activeBackground": "var(--color-gray-50)",
+    "activeBorderColor": "var(--color-gray-900)",
+    "hoverBorderColor": "transparent",
+    "hoverBackground": "var(--color-gray-50)"
+  },
+  "base-font-size": "16px",
+  "base-font-weight": "500",
+  "base-font-family": "Cerebri Sans Pro",
+  "text-color": "var(--color-gray-900)",
+  "bg-color": "#FAFAFA",
   "globalHorizontalPadding": "18px",
   "layoutHorizonalPadding": "14px",
   "leftSiderPaddingLeft": "32px",
@@ -107,10 +303,9 @@
   "color-primary-hover": "#40f6ff",
   "color-primary-disabled": "#0a3436",
   "color-green": "#9eecd9",
-  "color-blue": "#0e435c",
+  "color-blue": "#2B83EA",
   "color-blue-500": "#00889A",
   "color-blue-900": "#0E435C",
-  "bg-color": "#212326",
   "color-white": "#fff",
   "color-gray-900": "#212326",
   "color-gray-800": "#2d3035",
@@ -122,17 +317,12 @@
   "color-gray-200": "#c4c4c4",
   "color-gray-100": "#DBDBDB",
   "color-gray-50": "#E9E9E9",
-  "color-red": "#BB6666",
-  "color-dark-red": "#A14B4B",
-  "text-color": "var(--color-white)",
-  "cardSpacingDesktop": "var(--cardSpacingDesktopVertical) var(--cardSpacingDesktopHorizontal)",
-  "cardSpacingDesktopHorizontal": "16px",
-  "cardSpacingDesktopVertical": "12px",
-  "cardSpacingMobile": "12px",
-  "cardBorderRadius": "16px",
-  "cardBorderColor": "var(--color-gray-800)",
-  "cardBorderWidth": "2px",
-  "base-font-size": "16px",
+  "color-gray-light": "#FAFAFA",
+  "color-red": "#EE4242",
+  "color-dark-red": "#C33A3A",
+  "color-purple": "#5118F5",
+  "color-dark-purple": "#3F17B5",
+  "color-yellow": "#EACB2B",
   "font-size-body2": "0.8rem",
   "line-height-body2": "0.9375rem",
   "font-size-body1": "1rem",
@@ -146,5 +336,7 @@
   "font-size-title2": "1.9531rem",
   "line-height-title2": "2.3563rem",
   "font-size-title1": "2.4413rem",
-  "line-height-title1": "2.9438rem"
+  "line-height-title1": "2.9438rem",
+  "font-size-title0": "3.052rem",
+  "line-height-title0": "3.688rem"
 }

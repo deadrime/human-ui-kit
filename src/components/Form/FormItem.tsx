@@ -42,6 +42,8 @@ export type FormItemProps = {
   onInvalid?: (error: string, value: any, rule: FormItemRule) => void
 }
 
+
+// TODO: add validation error with JSX support
 export const FormItem: React.FC<FormItemProps> = ((
   {
     children,

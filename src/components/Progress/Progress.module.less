@@ -1,12 +1,65 @@
 .wrapper {
-  background: var(--progressBackgroundColor);
+  background: var(--progress-backgroundColor);
   border-radius: 100px;
-  margin: 8px 0;
+  overflow: hidden;
+  margin: 6px 0;
+  position: relative;
+
+  &::before {
+    z-index: 0;
+    font-weight: 700;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding-left: 10px;
+    position: absolute;
+    content: attr(data-content);
+  }
+
+  &.highlighted {
+    --progress-strokeColor: var(--progress-highlightedStrokeColor);
+  }
 }
 
 .percentBar {
+  position: relative;
+  z-index: 1;
   transition: all 0.4s cubic-bezier(0.08, 0.82, 0.17, 1) 0s;
-  height: 8px;
-  background: var(--progressStrokeColor);
+  background: var(--progress-strokeColor);
   border-radius: 100px;
+  overflow: hidden;
+
+  &::before {
+    z-index: 0;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    font-weight: 700;
+    white-space: nowrap;
+    align-items: center;
+    padding-left: 10px;
+    position: absolute;
+    content: attr(data-content);
+    color: var(--button-primary-color-contrast);
+  }
+}
+
+.textContainerInside, .textContainerOutside {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0 10px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+.textContainerInside {
+  color: var(--button-primary-color-contrast);
 }

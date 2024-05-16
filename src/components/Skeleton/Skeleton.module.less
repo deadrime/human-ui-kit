@@ -2,8 +2,8 @@
   display: block;
   align-items: center;
   opacity: 0.2;
-  --skeletonColor: var(--color-gray-200);
-  --highlightColor: var(--color-white);
+  --skeletonColor: var(--skeleton-textSkeletonColor);
+  --highlightColor: var(--skeleton-textSkeletonHighlightColor);
 
   &.block {
     width: 100%;
@@ -13,7 +13,7 @@
     opacity: 1;
     line-height: 1;
     
-    --skeletonColor: var(--color-gray-800);
-    --highlightColor: var(--color-gray-500);
+    --skeletonColor: var(--skeleton-circleSkeletonColor);
+    --highlightColor: var(--skeleton-circleSkeletonHighlightColor);
   }
 }

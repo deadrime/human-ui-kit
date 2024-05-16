@@ -1,38 +1,30 @@
 .followButton {
-  background: transparent !important;
-  min-width: 121px;
+  min-width: 122px;
 
-  &:hover:not(.btn--disabled),
-  &:focus:not(.btn--disabled) {
-    --textHoverColor: var(--color-primary);
-    --onHoverBorderColor: var(--color-primary);
+  --color-follow: var(--followButton-followColor, var(--color-primary));
+  --color-follow-pressed: var(--followButton-followColorPressed, var(--color-blue-500));
+  --color-unfollow: var(--followButton-unfollowColor, var(--color-red));
+  --color-unfollow-pressed: var(--followButton-unfollowColorPressed, var(--color-dark-red));
+  --color-disabled: var(--followButton-disabledColor, var(--color-gray-300));
 
-    &.isFollowing {
-      --textHoverColor: var(--color-red);
-      --onHoverBorderColor: var(--textHoverColor);
-    }
-  }
-
-  &:active:not(.btn--disabled, .btn--loading) {
-    --textActiveColor: var(--color-blue-500);
-    --onActiveBorderColor: var(--color-blue-500);
-
-    &.isFollowing {
-      --textActiveColor: var(--color-dark-red);
-      --onActiveBorderColor: var(--textActiveColor);
-    }
-  }
-
-  &.btn--disabled {
-    --textDisabledColor: var(--color-gray-300);
-    --disabledBorderColor: var(--color-gray-300);
-  }
-
-  --textLoadingColor: var(--color-primary);
-  --loadingBorderColor: var(--color-primary);
+  --textColor: var(--followButton-baseColor, var(--color-gray-200));
+  --borderColor: var(--textColor);
+  --backgroundColor: transparent;
+  --hoveredBackgroundColor: transparent;
+  --hoveredTextColor: var(--color-follow);
+  --hoveredBorderColor: var(--color-follow);
+  --pressedTextColor: var(--color-follow-pressed);
+  --pressedBorderColor: var(--color-follow-pressed);
+  --pressedBackgroundColor: transparent;
+  --disabledTextColor: var(--color-gray-300);
+  --disabledBorderColor: var(--color-gray-300);
+  --loadingTextColor: var(--color-follow);
+  --loadingBorderColor: var(--color-follow);
 
   &.isFollowing {
-    --textLoadingColor: var(--color-red);
-    --loadingBorderColor: var(--textLoadingColor);
+    --hoveredTextColor: var(--color-unfollow);
+    --hoveredBorderColor: var(--hoveredTextColor);
+    --pressedTextColor: var(--color-unfollow-pressed);
+    --pressedBorderColor: var(--pressedTextColor);
   }
 }

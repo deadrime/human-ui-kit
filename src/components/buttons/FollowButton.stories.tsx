@@ -1,5 +1,5 @@
-import React from 'react';
-import { Meta } from "@storybook/react";
+import React, { useState } from 'react';
+import { Meta } from '@storybook/react';
 import FollowButton, { FollowButtonProps } from './FollowButton';
 
 export default {
@@ -7,9 +7,14 @@ export default {
 } as Meta<typeof FollowButton>;
 
 export const Default = {
-  render: (args) => <FollowButton {...args}/>,
+  render: (args) => {
+    const [isFollowing, setIsFollowing] = useState(false);
+
+    return (
+      <FollowButton {...args} isFollowing={isFollowing} onToggle={setIsFollowing} />
+    );
+  },
   args: {
     isFollowing: false,
-    onToggle: () => {},
-  } as FollowButtonProps
-}
+  } as FollowButtonProps,
+};

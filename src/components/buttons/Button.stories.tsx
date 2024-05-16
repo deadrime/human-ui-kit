@@ -1,7 +1,6 @@
 import React from 'react';
-import { Meta } from "@storybook/react";
-import Button, { ButtonProps } from "./Button";
-import FollowButton, { FollowButtonProps } from './FollowButton';
+import { Meta } from '@storybook/react';
+import Button, { ButtonProps } from './Button';
 
 export default {
   component: Button,
@@ -13,6 +12,6 @@ export const Default = {
     variant: 'primary',
     size: 'medium',
     filled: true,
-    outlined: false
-  } as ButtonProps
+    outlined: false,
+  } as ButtonProps,
 };

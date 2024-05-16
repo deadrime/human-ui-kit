@@ -1,25 +1,22 @@
 import classNames from 'classnames';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { MouseEvent, useEffect, useState } from 'react';
 import { useHover } from 'react-use';
 import { Button, ButtonProps } from '@components/buttons';
 import styles from './FollowButton.module.less';
-import { useModal } from '@components/Modal';
 
 export interface FollowButtonProps extends ButtonProps {
-  isFollowing: boolean
-  onToggle: (isFollowing: boolean) => void
-  followMessage?: string
-  followText?: string
-  unfollowText?: string
-  followingText?: string
-  unfollowMessage?: string
+  isFollowing: boolean;
+  onToggle: (e: MouseEvent<HTMLButtonElement>) => Promise<unknown>;
+  followMessage?: string;
+  followText?: string;
+  unfollowText?: string;
+  followingText?: string;
+  unfollowMessage?: string;
 }
 
 const FollowButton: React.FC<FollowButtonProps> = ({
   isFollowing,
   onToggle,
-  followMessage = 'You\'re now following!',
-  unfollowMessage = 'You\'re no longer following!',
   followText = 'Follow',
   unfollowText = 'Unfollow',
   followingText = 'Following',
@@ -30,23 +27,7 @@ const FollowButton: React.FC<FollowButtonProps> = ({
   outlined = true,
   ...props
 }) => {
-  const { message } = useModal();
   const [text, setText] = useState(followText);
-
-  const handleClick = useCallback(async (event) => {
-    try {
-      await onToggle(!isFollowing);
-      if (!isFollowing) {
-        message.success(followMessage);
-      } else {
-        message.success(unfollowMessage);
-      }
-    } catch (err) {
-      message.error('Network error. Please try again later');
-    } finally {
-      event.target.blur();
-    }
-  }, [isFollowing, message]);
 
   const followButton = (
     <Button
@@ -54,7 +35,7 @@ const FollowButton: React.FC<FollowButtonProps> = ({
       variant={variant}
       outlined={outlined}
       loading={loading}
-      onClick={handleClick}
+      onClick={onToggle}
       size={size}
       className={classNames(className, styles.followButton, {
         [styles.isFollowing]: isFollowing,
@@ -79,7 +60,7 @@ const FollowButton: React.FC<FollowButtonProps> = ({
     } else {
       setText(followText);
     }
-  }, [isHovered, isFollowing, loading]);
+  }, [isHovered, isFollowing, loading, followingText, unfollowText, followText]);
 
 
   return (

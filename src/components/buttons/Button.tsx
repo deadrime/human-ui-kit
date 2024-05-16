@@ -1,8 +1,9 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, HTMLProps } from 'react';
 import classNames from 'classnames';
 import Text, { TextProps } from '@components/Text';
 import Spinner from '../Spinner/Spinner';
 import './Button.less';
+import { useIsMobile } from '@hooks/useIsMobile';
 
 export type ButtonSize = 'xSmall' | 'small' | 'medium' | 'large';
 
@@ -14,6 +15,7 @@ export interface ButtonProps {
   icon?: React.ReactNode;
   variant?: ButtonVariant;
   size?: ButtonSize;
+  md?: ButtonSize,
   style?: React.CSSProperties;
   htmlType?: 'button' | 'submit';
   id?: string;
@@ -24,11 +26,16 @@ export interface ButtonProps {
   disabled?: boolean;
   loading?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onFocus?: HTMLProps<HTMLButtonElement>['onFocus'];
+  onBlur?: HTMLProps<HTMLButtonElement>['onBlur'];
+  onMouseLeave?: HTMLProps<HTMLButtonElement>['onMouseLeave'];
+  onMouseEnter?: HTMLProps<HTMLButtonElement>['onMouseEnter'];
   textProps?: Omit<TextProps, 'ref'>;
   pureChildren?: boolean;
   tabIndex?: number;
 }
 
+// TODO: sm, md, lg configuration in case we need more break points.
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
   variant = 'primary',
   size = 'medium',
@@ -46,13 +53,19 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
   onClick,
   textProps = {},
   pureChildren,
+  md,
   ...props
 }, ref) => {
+  const isMobile = useIsMobile();
   const defaultTextProps: Pick<TextProps, 'size' | 'family' | 'bold'> = {
     size: size === 'small' ? 'body2' : 'body1',
     family: 'cerebri',
     bold: true,
   };
+
+  if (md && !isMobile) {
+    defaultTextProps.size = 'body1';
+  }
 
   return (
     <button
@@ -74,11 +87,12 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
         'btn--icon': !!icon,
         [`btn--${variant}`]: variant,
         [`btn--${size}`]: size,
+        [`btn--md:size-${md}`]: md,
       })}
     >
       {loading && <Spinner size={size} />}
       {!loading && icon}
-      {children && !pureChildren ? <Text
+      {typeof children !== 'undefined' && !pureChildren ? <Text
         {...defaultTextProps}
         {...textProps}
       >

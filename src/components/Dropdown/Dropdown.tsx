@@ -19,6 +19,7 @@ export type DropdownProps = {
   focusOnOpen?: boolean
   closeOnClickAway?: boolean
   overlayAnimated?: boolean
+  focusableSummary?: boolean
 }
 
 export const Dropdown: React.FC<DropdownProps> = ({
@@ -36,6 +37,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   closeOnClickAway = false,
   focusOnOpen = true,
   overlayAnimated = true,
+  focusableSummary = false,
 }) => {
   const ref = useRef<HTMLDivElement>();
   const detailsRef = useRef<HTMLDivElement>();
@@ -129,7 +131,13 @@ export const Dropdown: React.FC<DropdownProps> = ({
       })}
       ref={detailsRef}
     >
-      <div className={classNames(styles.summary, summaryClassName)} ref={ref} onClick={toggleOpen}>
+      <div
+        tabIndex={focusableSummary ? 0 : undefined}
+        className={classNames(styles.summary, summaryClassName)}
+        ref={ref}
+        onClick={toggleOpen}
+        onKeyDown={e => e.key === 'Enter' && focusableSummary && toggleOpen(e)}
+      >
         {children}
       </div>
       {

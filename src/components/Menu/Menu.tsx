@@ -8,12 +8,12 @@ import InternalLink from '@components/InternalLink/InternalLink';
 export type MenuItemProps = {
   children: React.ReactElement | string
   icon?: React.VFC<React.SVGProps<SVGSVGElement>> | React.ReactElement
-  key?: string | number
+  id?: string | number
   textProps?: Omit<TextProps, 'ref'>
   className?: string
   href?: string
   target?: string
-  onClick?: (key: MenuItemProps['key'], event: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>) => void
+  onClick?: (key: MenuItemProps['id'], event: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>) => void
   loading?: boolean;
   disabled?: boolean;
 }
@@ -37,7 +37,7 @@ const MenuItemWrapper: React.FC<MenuItemWrapperProps> = ({
   onClick,
   ...props
 }) => href ? (
-  <InternalLink 
+  <InternalLink
     href={href}
     target={target}
     rel={rel}
@@ -62,7 +62,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   icon,
   className,
   textProps = {},
-  key,
+  id,
   onClick,
   href = '',
   target,
@@ -70,12 +70,11 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   disabled = false,
 }) => (
   <MenuItemWrapper
-    key={key}
     href={href}
     rel="noreferrer"
     target={target}
     className={classNames(styles.menuItem, className)}
-    onClick={(event) => onClick?.(key, event)}
+    onClick={(event) => onClick?.(id, event)}
     disabled={loading || disabled}
   >
     {

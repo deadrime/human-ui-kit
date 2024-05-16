@@ -1,0 +1,25 @@
+.coin {
+  display: inline-flex;
+  align-items: baseline;
+
+  &::before {
+    --size: 0.3em;
+    padding: 0;
+    content: "";
+    display: inline-block;
+    align-self: center;
+    border-radius: 50%;
+    width: var(--size);
+    height: var(--size);
+    flex-basis: var(--size);
+    flex-shrink: 0;
+    line-height: var(--size);
+    min-width: 7px;
+    min-height: 7px;
+    background: var(--color-primary);
+  }
+
+  &.noCircle::before {
+    content: none;
+  }
+}

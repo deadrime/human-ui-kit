@@ -30,8 +30,8 @@
   }
 
   &:global(-notice) {
-    background: var(--color-gray-800);
-    color: var(--color-white);
+    background: var(--message-backgroundColor, var(--color-gray-800));
+    color: var(--message-textColor, var(--color-white));
     padding: 8px 12px;
     border-radius: 8px;
     position: relative;
@@ -52,11 +52,19 @@
     }
 
     &.success {
-      color: var(--color-white);
+      --iconColor: var(--message-success-iconColor);
     }
 
     &.error {
-      color: var(--color-white);
+      --iconColor: var(--message-error-iconColor);
+    }
+
+    &.info {
+      --iconColor: var(--message-info-iconColor);
+    }
+
+    &.warning {
+      --iconColor: var(--message-warning-iconColor);
     }
 
     &:global(.fade) {

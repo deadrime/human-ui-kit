@@ -1,6 +1,6 @@
 import React from 'react';
-import { Meta } from "@storybook/react";
-import Spinner from "./Spinner";
+import { Meta } from '@storybook/react';
+import Spinner from './Spinner';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -8,5 +8,5 @@ export default {
 } as Meta<any>;
 
 export const Default = {
-  render: (args) => <Spinner {...args}/>
+  render: (args) => <Spinner {...args} />,
 };

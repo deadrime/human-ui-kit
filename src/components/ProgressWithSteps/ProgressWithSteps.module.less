@@ -1,0 +1,50 @@
+.stepItem {
+  display: flex;
+  gap: 6px;
+}
+
+.stepItemIcon {
+  margin-top: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.stepItemBody {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stepItemSubtitle {
+  color: var(--ProgressWithSteps-item-subtitleColor, var(--color-gray-300));
+}
+
+.stepItemTitle, .stepItemIcon {
+  color: var(--ProgressWithSteps-itemCompleted-titleColor, var(--color-gray-900));
+}
+
+.stepItemCompleted {
+  .stepItemTitle, .stepItemIcon {
+    color: var(--ProgressWithSteps-item-titleColor, var(--color-gray-400));
+  }
+}
+
+.title {
+  color: var(--ProgressWithSteps-titleColor, var(--color-gray-400));
+}
+
+.stepNumber {
+  color: var(--ProgressWithSteps-stepNumberColor, var(--color-gray-300));
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.stepsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

@@ -4,3 +4,7 @@ export * from './ownerDocument';
 export * from './ownerWindow';
 export * from './shrinkAddress';
 export * from './generateRandomId';
+export * from './formatDuration';
+export * from './isElementVisible';
+export * from './waitForScrollEnd';
+export * from './numberFormatters';

@@ -1,5 +1,5 @@
-export { Modal } from './Modal'
-export type { ModalProps } from './Modal'
-export { ModalContextProvider, useModalContext } from './ModalContextProvider'
-export * from './systemModals'
-export * from './useModal'
+export { Modal } from './Modal';
+export type { ModalProps } from './Modal';
+export * from './ModalContextProvider';
+export * from './systemModals';
+export * from './useModal';

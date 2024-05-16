@@ -1,13 +1,14 @@
 import classNames from 'classnames';
-import React, { CSSProperties, FC, ReactElement, ReactNode, useCallback, useRef, useState } from 'react';
+import React, { CSSProperties, FC, ReactNode, useCallback, useRef, useState } from 'react';
 // TODO: Do we really need this?
 import AnimateHeight from 'react-animate-height';
 import ArrowUpIcon from '@icons/arrow-up.svg';
 import styles from './Expander.module.less';
+import { IconButton } from '@components/buttons';
 
-interface ExpanderProps {
+export interface ExpanderProps {
   header: ReactNode;
-  children: ReactElement;
+  children: React.ReactNode;
   className?: string;
   style?: CSSProperties;
 }
@@ -55,10 +56,17 @@ export const ManagedExpander: FC<ManagedExpanderProps> = ({ header, children, op
       >
         <div className={styles.expanderInner}>
           {header}
-          <ArrowUpIcon
-            width={20}
-            tabIndex={0}
-            style={{ transform: `rotate(${open ? 0 : 180}deg)` }}
+          <IconButton
+            transparent
+            variant="secondary"
+            size="small"
+            icon={(
+              <ArrowUpIcon
+                width={20}
+                className={styles.expanderIcon}
+                style={{ transform: `rotate(${open ? 0 : 180}deg)` }}
+              />
+            )}
           />
         </div>
       </summary>
@@ -83,3 +91,5 @@ export const Expander: FC<ExpanderProps> = (props) => {
     />
   );
 };
+
+export default Expander;

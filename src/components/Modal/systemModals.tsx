@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { generateRandomId } from '@utils/generateRandomId';
 import { useCallback, useEffect } from 'react';
 import { useModalContext } from '@components/Modal/ModalContextProvider';

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { CSSProperties, useState } from 'react';
 import { generateRandomId } from '@utils/generateRandomId';
 import { useModalContext } from './ModalContextProvider';
 import { Modal } from './Modal';
@@ -6,13 +6,13 @@ import Button from '@components/buttons';
 import Text from '@components/Text';
 import styles from './Modal.module.less';
 
-export interface ConfirmationProps {
+export type ConfirmationProps = {
   onOk: () => void;
   onCancel?: () => void;
   content: React.ReactNode;
   title?: React.ReactNode;
   okText?: string;
-}
+} & Pick<CSSProperties, 'width' | 'minWidth' | 'maxWidth' | 'height' | 'minHeight' | 'maxHeight'>
 
 const defaultTitle = (
   <Text
@@ -25,13 +25,17 @@ const defaultTitle = (
   </Text>
 );
 
-export const ConfirmModal: React.FC<ConfirmationProps & { id: string }> = ({
+export const ConfirmModal: React.FC<
+ConfirmationProps
+& { id: string }
+> = ({
   id,
   title = 'Confirmation',
   content,
   onCancel,
   onOk,
   okText = 'Confirm',
+  ...rest
 }) => {
   const modalContext = useModalContext();
   const open = modalContext.openedModals.includes(id);
@@ -59,6 +63,7 @@ export const ConfirmModal: React.FC<ConfirmationProps & { id: string }> = ({
       open={open}
       onClose={handleCancel}
       layer={2}
+      {...rest}
     >
       <div className={styles.confirmationModalBodyWrapper}>
         <div>{content}</div>

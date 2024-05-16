@@ -1,5 +1,9 @@
 {
+  "accordion": {
+    "textColor": "var(--color-gray-800)"
+  },
   "button": {
+    "borderWidth": "2px",
     "primary": {
       "color-main": "var(--color-primary)",
       "color-contrast": "var(--color-blue-900)",
@@ -58,7 +62,7 @@
         }
       },
       "outlined": {
-        "textColor": "var(--color-white)",
+        "textColor": "var(--color-gray-100)",
         "backgroundColor": "transparent",
         "borderColor": "var(--color-gray-700)",
         "hovered": {
@@ -79,6 +83,193 @@
       }
     }
   },
+  "followButton": {
+    "baseColor": "var(--color-gray-200)",
+    "followColor": "var(--color-primary)",
+    "followColorPressed": "var(--color-blue-500)",
+    "unfollowColor": "var(--color-red)",
+    "unfollowColorPressed": "var(--color-dark-red)",
+    "disabledColor": "var(--color-gray-300)"
+  },
+  "badge": {
+    "primary": {
+      "textColor": "var(--color-blue-900)",
+      "backgroundColor": "var(--color-primary)"
+    },
+    "secondary": {
+      "textColor": "var(--color-gray-200)",
+      "backgroundColor": "var(--color-gray-800)"
+    }
+  },
+  "card": {
+    "spacingDesktopVertical": "12px",
+    "spacingDesktopHorizontal": "16px",
+    "spacingDesktop": "var(--card-spacingDesktopVertical) var(--card-spacingDesktopHorizontal)",
+    "spacingMobile": "12px",
+    "borderRadius": "16px",
+    "backgroundColor": "transparent",
+    "borderColor": "var(--color-gray-800)",
+    "borderWidth": "2px",
+    "highlightColor": "var(--color-gray-700)"
+  },
+  "explanation": {
+    "warning": {
+      "backgroundColor": "var(--color-gray-800)",
+      "textColor": "var(--color-red)"
+    },
+    "info": {
+      "backgroundColor": "var(--color-blue-900)",
+      "iconColor": "var(--color-primary)",
+      "textColor": "var(--color-primary)"
+    }
+  },
+  "message": {
+    "backgroundColor": "var(--color-gray-800)",
+    "textColor": "var(--color-white)",
+    "success": {
+      "iconColor": "var(--color-primary)"
+    },
+    "error": {
+      "iconColor": "var(--color-red)"
+    },
+    "info": {
+      "iconColor": "var(--color-primary)"
+    },
+    "warning": {
+      "iconColor": "var(--color-red)"
+    }
+  },
+  "modal": {
+    "shadow": "0px 4px 100px rgba(0, 243, 255, 0.2)",
+    "backgroundColor": "var(--color-gray-900)",
+    "backdropBackground": "rgba(20, 22, 23, 0.01)",
+    "backdropBlur": "16px",
+    "titleFontFamily": "Syne",
+    "titleSize": "var(--font-size-body1)",
+    "titleSizeMd": "var(--font-size-title4)",
+    "titleFontWeight": "800",
+    "titleTextTransform": "uppercase"
+  },
+  "mentions": {
+    "backgroundColor": "var(--color-gray-800)",
+    "activeItemBackgroundColor": "var(--color-gray-700)",
+    "textColor": "var(--color-gray-200)"
+  },
+  "progress": {
+    "backgroundColor": "var(--color-gray-500)",
+    "strokeColor": "var(--color-gray-200)",
+    "highlightedStrokeColor": "var(--color-primary)"
+  },
+  "tag": {
+    "backgroundColor": "var(--color-gray-800)"
+  },
+  "carousel": {
+    "bulletColor": "var(--color-gray-300)",
+    "activeBulletColor": "var(--color-primary)"
+  },
+  "tooltip": {
+    "color": "var(--color-black)"
+  },
+  "table": {
+    "borderColor": "var(--color-gray-800)",
+    "backgroundColor": "transparent",
+    "rankColor": "var(--color-gray-200)",
+    "headerColor": "var(--color-gray-200)"
+  },
+  "dropdown": {
+    "overlayBackgroundColor": "var(--color-gray-800)"
+  },
+  "menu": {
+    "itemTextColor": "var(--color-gray-200)",
+    "activeItemTextColor": "var(--color-white)",
+    "dividerColor": "var(--color-gray-500)"
+  },
+  "input": {
+    "borderWidth": "2px",
+    "textColor": "var(--text-color)",
+    "invalidColor": "var(--color-red)",
+    "placeholderColor": "var(--color-gray-200)",
+    "borderColor": "var(--color-gray-800)",
+    "focusedBorderColor": "var(--color-blue-500)",
+    "feedbackSuccessColor": "var(--color-primary)",
+    "currencyInputBalanceColor": "var(--color-gray-200)"
+  },
+  "select": {
+    "activeItemBackgroundColor": "var(--color-gray-700)"
+  },
+  "switch": {
+    "backgroundColor": "var(--color-gray-500)",
+    "circleBackgroundColor": "var(--color-gray-200)",
+    "focusedOutlineColor": "var(--color-blue-500)",
+    "checkedBackgroundColor": "var(--color-primary)",
+    "checkedCircleBackgroundColor": "var(--color-white)",
+    "disabledCircleBackgroundColor": "var(--color-gray-400)"
+  },
+  "profileList": {
+    "borderColor": "var(--color-gray-900)",
+    "otherItemsBackground": "var(--color-gray-800)",
+    "otherIconColor": "var(--color-gray-200)"
+  },
+  "displayProfile": {
+    "titleTextColor": "var(--color-white)",
+    "subtitleTextColor": "var(--color-gray-200)",
+    "verifiedIconCheckmarkColor": "var(--color-blue-900)"
+  },
+  "blockchainAddress": {
+    "color": "var(--color-gray-200)",
+    "focusedColor": "var(--color-white)"
+  },
+  "expirationTimer": {
+    "trailColor": "var(--color-gray-500)"
+  },
+  "emptyState": {
+    "titleColor": "var(--text-color)",
+    "subtitleColor": "var(--color-gray-200)"
+  },
+  "links": {
+    "primary": {
+      "color": "var(--color-primary)",
+      "hoveredColor": "var(--color-blue-500)",
+      "pressedColor": "var(--color-blue-900)",
+      "disabledColor": "var(--color-blue-900)"
+    },
+    "secondary": {
+      "color": "var(--color-gray-200)",
+      "hoveredColor": "var(--color-gray-300)",
+      "pressedColor": "var(--color-gray-400)",
+      "disabledColor": "var(--color-gray-300)"
+    }
+  },
+  "tabs": {
+    "tabHeaderColor": "var(--color-gray-200)",
+    "tabHeaderDisabledColor": "var(--color-gray-300)",
+    "activeTabHeaderColor": "var(--color-white)"
+  },
+  "skeleton": {
+    "textSkeletonColor": "var(--color-gray-200)",
+    "textSkeletonHighlightColor": "var(--color-white)",
+    "circleSkeletonColor": "var(--color-gray-800)",
+    "circleSkeletonHighlightColor": "var(--color-gray-500)"
+  },
+  "pagination": {
+    "color": "var(--color-white)",
+    "colorHover": "var(--color-primary)",
+    "colorActive": "var(--color-primary)",
+    "colorDisabled": "var(--color-gray-500)"
+  },
+  "inlineSelect": {
+    "background": "transparent",
+    "borderColor": "var(--color-gray-800)",
+    "activeBackground": "transparent",
+    "activeBorderColor": "var(--color-primary)",
+    "hoverBorderColor": "var(--color-blue-500)",
+    "hoverBackground": "transparent"
+  },
+  "base-font-size": "16px",
+  "base-font-weight": "400",
+  "base-font-family": "Cerebri Sans Pro",
+  "bg-color": "#212326",
+  "text-color": "var(--color-white)",
   "globalHorizontalPadding": "18px",
   "layoutHorizonalPadding": "14px",
   "leftSiderPaddingLeft": "32px",
@@ -90,8 +281,8 @@
   "color-blue": "#0e435c",
   "color-blue-500": "#00889A",
   "color-blue-900": "#0E435C",
-  "bg-color": "#212326",
   "color-white": "#fff",
+  "color-black": "#141617",
   "color-gray-900": "#212326",
   "color-gray-800": "#2d3035",
   "color-gray-700": "#3a3c40",
@@ -101,17 +292,10 @@
   "color-gray-300": "#959393",
   "color-gray-200": "#c4c4c4",
   "color-gray-100": "#DBDBDB",
+  "color-gray-50": "#E9E9E9",
+  "color-gray-light": "#FAFAFA",
   "color-red": "#BB6666",
   "color-dark-red": "#A14B4B",
-  "text-color": "var(--color-white)",
-  "cardSpacingDesktop": "var(--cardSpacingDesktopVertical) var(--cardSpacingDesktopHorizontal)",
-  "cardSpacingDesktopHorizontal": "16px",
-  "cardSpacingDesktopVertical": "12px",
-  "cardSpacingMobile": "12px",
-  "cardBorderRadius": "16px",
-  "cardBorderColor": "var(--color-gray-800)",
-  "cardBorderWidth": "2px",
-  "base-font-size": "16px",
   "font-size-body2": "0.8rem",
   "line-height-body2": "0.9375rem",
   "font-size-body1": "1rem",
@@ -125,5 +309,7 @@
   "font-size-title2": "1.9531rem",
   "line-height-title2": "2.3563rem",
   "font-size-title1": "2.4413rem",
-  "line-height-title1": "2.9438rem"
+  "line-height-title1": "2.9438rem",
+  "font-size-title0": "3.052rem",
+  "line-height-title0": "3.688rem"
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta } from "@storybook/react";
+import { Meta } from '@storybook/react';
 import Explanation, { ExplanationProps } from './Explanation';
 
 export default {
@@ -9,7 +9,7 @@ export default {
 export const Default = {
   render: (args) => <Explanation {...args}>Some text</Explanation>,
   args: {
-    type: 'info'
+    type: 'info',
   } as ExplanationProps,
   argTypes: {
     type: {

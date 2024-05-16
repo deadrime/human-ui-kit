@@ -8,11 +8,8 @@ import IconButton from '@components/buttons/IconButton';
 import styles from './Carousel.module.less';
 import 'swiper/css';
 
-export interface CarouselProps {
+export type CarouselProps = SwiperOptions & {
   children: ReactElement|ReactElement[];
-  spaceBetween?: SwiperOptions['spaceBetween'];
-  slidesPerView?: SwiperOptions['slidesPerView'];
-  breakpoints?: SwiperOptions['breakpoints'];
   fadeOut?: boolean;
   navigation?: boolean;
   className?: string;
@@ -27,6 +24,8 @@ const Carousel: FC<CarouselProps> = ({
   className,
   slidesPerView = 'auto',
   footerGap = 32,
+  fadeOut,
+  ...props
 }) => {
   const paginatioRef = useRef(null);
   const prevButtonRef = useRef(null);
@@ -35,18 +34,21 @@ const Carousel: FC<CarouselProps> = ({
   const [showRightFadeOut, setShowRightFadeOut] = useState(true);
   const [showLeftFadeOut, setShowLeftFadeOut] = useState(false);
   const [isInitiated, setIsInitiated] = useState(false);
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
 
   return (
     <div
       className={classNames(styles.carousel, className, {
-        [styles.showRightFadeOut]: showRightFadeOut,
-        [styles.showLeftFadeOut]: showLeftFadeOut,
+        [styles.showRightFadeOut]: fadeOut && showRightFadeOut,
+        [styles.showLeftFadeOut]: fadeOut && showLeftFadeOut,
       })}
       style={{
         '--carousel-footer-gap': `${footerGap}px`,
       } as CSSProperties}
     >
       <Swiper
+        {...props}
         onInit={() => setIsInitiated(true)}
         slidesPerView={slidesPerView}
         freeMode={true}
@@ -54,6 +56,7 @@ const Carousel: FC<CarouselProps> = ({
         watchOverflow={true}
         pagination={{
           enabled: isInitiated,
+          clickable: true,
           type: 'bullets',
           el: paginatioRef.current,
           bulletClass: styles.paginationBullet,
@@ -69,10 +72,14 @@ const Carousel: FC<CarouselProps> = ({
         breakpoints={breakpoints}
         modules={[Pagination, Keyboard, Navigation, FreeMode, Mousewheel]}
         onToEdge={(swiper) => {
+          setIsBeginning(swiper.isBeginning);
+          setIsEnd(swiper.isEnd);
           setShowLeftFadeOut(!swiper.isBeginning);
           setShowRightFadeOut(!swiper.isEnd);
         }}
         onFromEdge={() => {
+          setIsBeginning(false);
+          setIsEnd(false);
           setShowRightFadeOut(true);
           setShowLeftFadeOut(true);
         }}
@@ -89,6 +96,7 @@ const Carousel: FC<CarouselProps> = ({
           className={styles.carouselFooter}
         >
           <IconButton
+            disabled={isBeginning}
             ref={prevButtonRef}
             size="small"
             variant="secondary"
@@ -99,6 +107,7 @@ const Carousel: FC<CarouselProps> = ({
           />
           <div className={styles.carouselPagination} ref={paginatioRef} />
           <IconButton
+            disabled={isEnd}
             ref={nextButtonRef}
             size="small"
             transparent

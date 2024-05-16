@@ -1,6 +1,5 @@
 .menu {
   display: flex;
-  --activeBg: var(--color-gray-500);
 
   &.vertical {
     flex-direction: column;
@@ -16,7 +15,7 @@
 .menuDivider {
   display: inline-block;
   height: 1px;
-  background: var(--color-gray-500);
+  background: var(--menu-dividerColor, var(--color-gray-500));
   margin: calc(var(--gap) / 2) var(--menuItemHorizontalPadding, 12px);
 }
 
@@ -40,17 +39,18 @@
   gap: 8px;
   border: none;
   background: transparent;
-  color: var(--color-gray-200);
+  color: var(--menu-itemTextColor, var(--color-gray-200));
   transition: all 0.1s ease;
   cursor: pointer;
   padding: calc(var(--gap) / 2) var(--menuItemHorizontalPadding, 12px);
   outline: none;
   max-width: 100%;
+  font-weight: inherit;
 
   &:hover, &:focus-visible {
-    background: var(--menuItemActiveBg);
+    background: var(--menu-activeItemBackgroundColor);
     outline: none;
-    color: var(--color-white);
+    color: var(--menu-activeItemTextColor, var(--color-white));
   }
 
   & a, svg {
